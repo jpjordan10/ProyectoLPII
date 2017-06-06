@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.0</jspversion>
+	<shortname>Custom Tags</shortname>
+	<tag>
+		<name>dameTipoTrabajador</name>
+		<tagclass>etiquetas.TipoTrabajador</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Devuelve tipo de trabjador</info>
+	</tag>
+	<tag>
+		<name>dameTipoCliente</name>
+		<tagclass>etiquetas.TipoCliente</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Devuelve tipo de cliente</info>
+	</tag>
+</taglib>
