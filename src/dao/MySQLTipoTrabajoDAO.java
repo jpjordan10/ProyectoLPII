@@ -26,10 +26,10 @@ public class MySQLTipoTrabajoDAO implements TipoTrabajoDAO {
 			rs = pstm.executeQuery();
 			if(rs.next()){
 				obj = new TipoTrabajoDTO();
-				obj.setCod_tiptrabajo(rs.getString("COD_TIPTRABAJO"));
-				obj.setDes_tiptrabajo(rs.getString("DES_TIPTRABAJO"));
-				obj.setEstado_tiptrabajo(rs.getString("ESTADO_TIPTRABAJO"));
-				obj.setFecha_reg_tiptrabajo(rs.getString("FECHA_REG_TIPOTRABAJO"));
+				obj.setCod_tiptrabajo(rs.getString(1));
+				obj.setDes_tiptrabajo(rs.getString(2));
+				obj.setEstado_tiptrabajo(rs.getString(3));
+				obj.setFecha_reg_tiptrabajo(rs.getString(4));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -183,6 +183,60 @@ public class MySQLTipoTrabajoDAO implements TipoTrabajoDAO {
 		try {
 			cn = MySQLConexion.getConexion();
 			String sql = "{call usp_DesactivaTipoTrabajo(?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, cod_tiptrabajo);
+			valor = cs.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return valor;
+	}
+
+	@Override
+	public int activaTipoTrabajo(String cod_tiptrabajo) {
+		int valor = -1;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ActivaTipoTrabajo(?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, cod_tiptrabajo);
+			valor = cs.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return valor;
+	}
+
+	@Override
+	public int eliminaTipoTrabajo(String cod_tiptrabajo) {
+		int valor = -1;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_EliminaTipoTrabajo(?)}";
 			cs = cn.prepareCall(sql);
 			cs.setString(1, cod_tiptrabajo);
 			valor = cs.executeUpdate();

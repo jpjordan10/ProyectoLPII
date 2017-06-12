@@ -38,6 +38,8 @@
 				<th>Estado</th>
 				<th></th>
 				<th></th>
+				<th></th>
+				<th></th>
 			</tr>
 			<%
 				ArrayList<ClienteDTO> lista = (ArrayList<ClienteDTO>) request.getAttribute("data");
@@ -58,8 +60,14 @@
 					href="cliente?metodo=desactiva&cod=<%=c.getCod_cliente()%>"> <img
 						alt="Desactiva" src="images/Delete.gif">
 				</a></td>
-				<td><a href="cliente?metodo=busca&id=<%=c.getCod_cliente()%>">
+				<td><a href="cliente?metodo=busca&cod=<%=c.getCod_cliente()%>">
 						<img alt="Actualiza" src="images/Edit.gif">
+				</a></td>
+				<td><a href="cliente?metodo=activa&cod=<%=c.getCod_cliente()%>">
+						<img alt="Activa" src="images/Edit.gif">
+				</a></td>
+				<td><a href="cliente?metodo=elimina&cod=<%=c.getCod_cliente()%>">
+						<img alt="Elimina" src="images/Edit.gif">
 				</a></td>
 			</tr>
 			<%

@@ -1,3 +1,4 @@
+<%@page import="beans.ClienteDTO"%>
 <%@taglib uri="WEB-INF/libreria.tld" prefix="libreria"%>
 <!DOCTYPE html>
 <html lang="esS">
@@ -15,48 +16,52 @@
 </head>
 <body>
 	<div class="container">
+	<%
+		ClienteDTO c = (ClienteDTO)request.getAttribute("cli");
+	%>
 		<h1>Actualizacion de Cliente</h1>
+		<input type="hidden" name="codigo" value="<%=c.getCod_cliente()%>">
 		<form action="cliente" id="id_form">
 			<input type="hidden" name="metodo" value="actualiza">
 			<div class="form-group">
 				<label class="control-label" for="id_razon">Razon Social</label> <input
 					class="form-control" id="id_razon" type="text" name="razon"
-					placeholder="Ingrese Razon Social">
+					placeholder="Ingrese Razon Social" value="<%=c.getRazsoc_cliente()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_ruc">RUC</label> <input
 					class="form-control" id="id_ruc" type="text" name="ruc"
-					placeholder="Ingrese RUC">
+					placeholder="Ingrese RUC" value="<%=c.getRuc_cliente()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_email">E-mail</label> <input
 					class="form-control" id="id_email" type="text" name="email"
-					placeholder="Ingrese E-mail">
+					placeholder="Ingrese E-mail" value="<%=c.getEmail_cliente()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_telefono">Telefono</label> <input
 					class="form-control" id="id_telefono" type="text" name="telefono"
-					placeholder="Ingrese Telefono">
+					placeholder="Ingrese Telefono" value="<%=c.getTelefono_cliente()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_departamento">Departamento</label>
 				<input class="form-control" id="id_departamento" type="text"
-					name="departamento" placeholder="Ingrese Departamento">
+					name="departamento" placeholder="Ingrese Departamento" value="<%=c.getDepartamento_cliente()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_provincia">Provincia</label> <input
 					class="form-control" id="id_provincia" type="text" name="provincia"
-					placeholder="Ingrese Provincia">
+					placeholder="Ingrese Provincia" value="<%=c.getProvincia_cliente()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_distrito">Distrito</label> <input
 					class="form-control" id="id_distrito" type="text" name="distrito"
-					placeholder="Ingrese Distrito">
+					placeholder="Ingrese Distrito" value="<%=c.getDistrito_cliente()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_direccion">Direccion</label> <input
 					class="form-control" id="id_direccion" type="text" name="direccion"
-					placeholder="Ingrese Direccion">
+					placeholder="Ingrese Direccion" value="<%=c.getDireccion_cliente()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_tipo">Tipo</label> <select
@@ -67,7 +72,7 @@
 			<div class="form-group">
 				<label class="control-label" for="id_representante">Representante</label>
 				<input class="form-control" id="id_representante" type="text"
-					name="representante" placeholder="Ingrese Representante">
+					name="representante" placeholder="Ingrese Representante" value="<%=c.getRepresentante_cliente()%>">
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary">Crea Cliente

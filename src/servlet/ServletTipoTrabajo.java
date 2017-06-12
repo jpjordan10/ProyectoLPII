@@ -32,7 +32,26 @@ public class ServletTipoTrabajo extends HttpServlet {
 			busca(request, response);
 		} else if (metodo.equals("actualiza")) {
 			actualiza(request, response);
+		} else if (metodo.equals("activa")) {
+			activa(request, response);
+		} else if (metodo.equals("elimina")) {
+			elimina(request, response);
 		}
+	}
+
+	private void activa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("cod");
+		TipoTrabajoService ts = new TipoTrabajoService();
+		ts.activaTipoTrabajo(cod);
+		lista(request, response);
+	}
+
+	private void elimina(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String cod = request.getParameter("cod");
+		TipoTrabajoService ts = new TipoTrabajoService();
+		ts.eliminaTipoTrabajo(cod);
+		lista(request, response);
 	}
 
 	private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -69,11 +88,11 @@ public class ServletTipoTrabajo extends HttpServlet {
 	}
 
 	private void busca(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String cod = request.getParameter("cod");
 		TipoTrabajoService ts = new TipoTrabajoService();
+		String cod = request.getParameter("cod");
 		TipoTrabajoDTO t = ts.buscaTipoTrabajo(cod);
 		request.setAttribute("tipt", t);
-		request.getRequestDispatcher("/atiptra.jsp").forward(request, response);
+		request.getRequestDispatcher("atiptra.jsp").forward(request, response);
 	}
 
 	private void actualiza(HttpServletRequest request, HttpServletResponse response) {

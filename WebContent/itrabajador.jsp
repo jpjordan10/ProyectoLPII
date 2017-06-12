@@ -81,7 +81,9 @@
 			<div class="form-group">
 				<label class="control-label" for="id_tipo">Tipo</label> <select
 					class="form-control" name="tipo" id="id_tipo">
-					<libreria:dameTipoTrabajador />
+					<option value='0'>Seleccione tipo de trabajador</option>
+					<option value='ARQUEOLOGO'>ARQUEOLOGO</option>");
+					<option value='OBRERO'>OBRERO</option>
 				</select>
 			</div>
 			<div class="form-group">

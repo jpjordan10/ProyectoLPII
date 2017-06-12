@@ -16,4 +16,8 @@ public interface TrabajadorDAO {
 	public String generarCodigoTrabajador();
 
 	public int desactivaTrabajador(String cod_trabajador);
+
+	public int activaTrabajador(String cod_trabajador);
+
+	public int eliminaTrabajador(String cod_trabajador);
 }

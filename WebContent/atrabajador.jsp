@@ -19,73 +19,74 @@
 		<%
 			TrabajadorDTO t = (TrabajadorDTO) request.getAttribute("tra");
 		%>
-		<h1>Actualiza Trabajador</h1>
+		<h1>Actualizacion de Trabajador</h1>
+		<input type="hidden" name="codigo" value="<%=t.getCod_trabajador()%>">
 		<form action="trabajador" id="id_form">
 			<input type="hidden" name="metodo" value="actualiza">
-
 			<div class="form-group">
 				<label class="control-label" for="id_nombre">Nombre</label> <input
 					class="form-control" id="id_nombre" type="text" name="nombre"
-					placeholder="Ingrese Nombre">
+					placeholder="Ingrese Nombre" value="<%=t.getNom_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_apellidop">Apellido
 					Paterno</label> <input class="form-control" id="id_apellidop" type="text"
-					name="apellidop" placeholder="Ingrese Apellido Paterno">
+					name="apellidop" placeholder="Ingrese Apellido Paterno" value="<%=t.getApep_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_apellidom">Apellido
 					Materno</label> <input class="form-control" id="id_apellidom" type="text"
-					name="apellidom" placeholder="Ingrese Apellido Materno">
+					name="apellidom" placeholder="Ingrese Apellido Materno" value="<%=t.getApem_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_dni">DNI</label> <input
 					class="form-control" id="id_dni" type="text" name="dni"
-					placeholder="Ingrese DNI">
+					placeholder="Ingrese DNI" value="<%=t.getDni_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_email">E-mail</label> <input
 					class="form-control" id="id_email" type="text" name="email"
-					placeholder="Ingrese E-mail">
+					placeholder="Ingrese E-mail" value="<%=t.getEmail_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_telefono">Telefono</label> <input
 					class="form-control" id="id_telefono" type="text" name="telefono"
-					placeholder="Ingrese Telefono">
+					placeholder="Ingrese Telefono" value="<%=t.getTelefono_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_departamento">Departamento</label>
 				<input class="form-control" id="id_departamento" type="text"
-					name="departamento" placeholder="Ingrese Departamento">
+					name="departamento" placeholder="Ingrese Departamento" value="<%=t.getDepartamento_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_provincia">Provincia</label> <input
 					class="form-control" id="id_provincia" type="text" name="provincia"
-					placeholder="Ingrese Provincia">
+					placeholder="Ingrese Provincia" value="<%=t.getProvincia_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_distrito">Distrito</label> <input
 					class="form-control" id="id_distrito" type="text" name="distrito"
-					placeholder="Ingrese Distrito">
+					placeholder="Ingrese Distrito" value="<%=t.getDistrito_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_direccion">Direccion</label> <input
 					class="form-control" id="id_direccion" type="text" name="direccion"
-					placeholder="Ingrese Direccion">
+					placeholder="Ingrese Direccion" value="<%=t.getDireccion_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_user">User</label> <input
 					class="form-control" id="id_user" type="text" name="user"
-					placeholder="Ingrese User">
+					placeholder="Ingrese User" value="<%=t.getUser_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_password">Password</label> <input
 					class="form-control" id="id_password" type="text" name="password"
-					placeholder="Ingrese password">
+					placeholder="Ingrese password" value="<%=t.getPass_trabajador()%>">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_tipo">Tipo</label> <select
 					class="form-control" name="tipo" id="id_tipo">
+					<option><%=t.getTipo_trabajador()%></option>
 					<libreria:dameTipoTrabajador />
 				</select>
 			</div>

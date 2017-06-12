@@ -33,4 +33,12 @@ public class TipoTrabajoService {
 	public int desactivaTipoTrabajo(String cod_tiptrabajo) {
 		return dao.desactivaTipoTrabajo(cod_tiptrabajo);
 	}
+
+	public int activaTipoTrabajo(String cod_tiptrabajo) {
+		return dao.activaTipoTrabajo(cod_tiptrabajo);
+	}
+
+	public int eliminaTipoTrabajo(String cod_tiptrabajo) {
+		return dao.eliminaTipoTrabajo(cod_tiptrabajo);
+	}
 }

@@ -16,4 +16,8 @@ public interface TipoTrabajoDAO {
 	public String generarCodigoTipoTrabajo();
 
 	public int desactivaTipoTrabajo(String cod_tiptrabajo);
+
+	public int activaTipoTrabajo(String cod_tiptrabajo);
+
+	public int eliminaTipoTrabajo(String cod_tiptrabajo);
 }

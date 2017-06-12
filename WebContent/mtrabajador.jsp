@@ -36,6 +36,8 @@
 				<th>Estado</th>
 				<th></th>
 				<th></th>
+				<th></th>
+				<th></th>
 			</tr>
 			<%
 				ArrayList<TrabajadorDTO> lista = (ArrayList<TrabajadorDTO>) request.getAttribute("data");
@@ -54,8 +56,14 @@
 					href="trabajador?metodo=desactiva&cod=<%=t.getCod_trabajador()%>"> <img
 						alt="Desactiva" src="images/Delete.gif">
 				</a></td>
-				<td><a href="trabajador?metodo=busca&id=<%=t.getCod_trabajador()%>">
+				<td><a href="trabajador?metodo=busca&cod=<%=t.getCod_trabajador()%>">
 						<img alt="Actualiza" src="images/Edit.gif">
+				</a></td>
+				<td><a href="trabajador?metodo=activa&cod=<%=t.getCod_trabajador()%>">
+						<img alt="Activa" src="images/Edit.gif">
+				</a></td>
+				<td><a href="trabajador?metodo=elimina&cod=<%=t.getCod_trabajador()%>">
+						<img alt="Elimina" src="images/Edit.gif">
 				</a></td>
 			</tr>
 			<%

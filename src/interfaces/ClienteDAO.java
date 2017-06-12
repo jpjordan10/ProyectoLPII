@@ -16,4 +16,8 @@ public interface ClienteDAO {
 	public String generarCodigoCliente();
 
 	public int desactivaCliente(String cod_cliente);
+
+	public int activaCliente(String cod_cliente);
+
+	public int eliminaCliente(String cod_cliente);
 }

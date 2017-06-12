@@ -253,4 +253,58 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 		}
 		return "T" + num;
 	}
+	
+	@Override
+	public int activaTrabajador(String cod_trabajador) {
+		int valor = -1;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ActivaTrabajador(?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, cod_trabajador);
+			valor = cs.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return valor;
+	}
+
+	@Override
+	public int eliminaTrabajador(String cod_trabajador) {
+		int valor = -1;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_EliminaTrabajador(?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, cod_trabajador);
+			valor = cs.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return valor;
+	}
 }

@@ -61,7 +61,13 @@
 			<div class="form-group">
 				<label class="control-label" for="id_tipo">Tipo</label> <select
 					class="form-control" name="tipo" id="id_tipo">
-					<libreria:dameTipoCliente />
+					<option value='0'>Seleccione tipo de cliente</option>
+					<option value='MINERO'>MINERO</option>
+					<option value='PETROLERO'>PETROLERO</option>
+					<option value='GAS'>GAS</option>
+					<option value='CONSTRUCTOR'>CONSTRUCTOR</option>
+					<option value='MUNICIPAL'>MUNICIPAL</option>
+					<option value='MINISTERIO'>MINISTERIO</option>
 				</select>
 			</div>
 			<div class="form-group">

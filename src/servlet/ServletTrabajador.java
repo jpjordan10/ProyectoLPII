@@ -29,7 +29,26 @@ public class ServletTrabajador extends HttpServlet {
 			busca(request, response);
 		} else if (metodo.equals("actualiza")) {
 			actualiza(request, response);
+		} else if (metodo.equals("activa")) {
+			activa(request, response);
+		} else if (metodo.equals("elimina")) {
+			elimina(request, response);
 		}
+	}
+
+	private void activa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("cod");
+		TrabajadorService ts = new TrabajadorService();
+		ts.activaTrabajador(cod);
+		lista(request, response);
+	}
+
+	private void elimina(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String cod = request.getParameter("cod");
+		TrabajadorService ts = new TrabajadorService();
+		ts.eliminaTrabajador(cod);
+		lista(request, response);
 	}
 
 	private void actualiza(HttpServletRequest request, HttpServletResponse response)
@@ -75,11 +94,11 @@ public class ServletTrabajador extends HttpServlet {
 	}
 
 	private void busca(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String cod = request.getParameter("cod");
 		TrabajadorService ts = new TrabajadorService();
+		String cod = request.getParameter("cod");
 		TrabajadorDTO t = ts.buscaTrabajador(cod);
 		request.setAttribute("tra", t);
-		request.getRequestDispatcher("/atrabajador.jsp").forward(request, response);
+		request.getRequestDispatcher("atrabajador.jsp").forward(request, response);
 	}
 
 	private void desactiva(HttpServletRequest request, HttpServletResponse response)

@@ -56,6 +56,7 @@ end $$
 delimiter ;
 
 call usp_InsertaTrabajador('T1000', 'Jean Pierre', 'Jordan', 'Solis', '73755436', 'jeanpierrejordan@outlook.com', '962571835', 'Lima', 'Lima', 'Los Olivos', 'Psj Fobos 141 Urb Mercurio', 'jotape', 'jotape123', 'GESTOR ARQUEOLOGO', 'ACTIVO', CURDATE());
+call usp_InsertaTrabajador('T1001', 'Juan', 'Lopez', 'Baldeon', '78964752', 'juanlopez@outlook.com', '968947146', 'Lima', 'Lima', 'SMP', 'Psj Diamante148', 'juanjo', 'juan1345', 'ARQUEOLOGO', 'ACTIVO', CURDATE());
 
 delimiter $$
 create procedure usp_InsertaCliente
@@ -79,7 +80,7 @@ insert into CLIENTE values (P_COD_CLIENTE, P_RAZSOC_CLIENTE, P_RUC_CLIENTE, P_EM
 end $$
 delimiter ;
 
-/*call usp_InsertaCliente('C1000', 'Empresa x', '12345678912', 'empresax@hotmail.com', '123456789', 'Lima', 'Lima', 'Surco', 'Una direccion x 134', 'GAS', 'Manuel Nuñez', 'ACTIVO',curdate());*/
+call usp_InsertaCliente('C1000', 'Empresa x', '12345678912', 'empresax@hotmail.com', '123456789', 'Lima', 'Lima', 'Surco', 'Una direccion x 134', 'GAS', 'Manuel Nuñez', 'ACTIVO',curdate());
 
 delimiter $$
 create procedure usp_InsertaTipoTrabajo
@@ -233,6 +234,94 @@ end $$
 delimiter ;
 
 /*call usp_DesactivaCliente('C1000');*/
+
+/*ACTIVA*/
+delimiter $$
+create procedure usp_ActivaTrabajador
+(
+	P_COD_TRABAJADOR	CHAR(5)
+)
+begin
+UPDATE TRABAJADOR
+SET
+	ESTADO_TRABAJADOR = 'ACTIVO'
+    WHERE COD_TRABAJADOR = P_COD_TRABAJADOR;
+end $$
+delimiter ;
+
+/*call usp_ActivaTrabajador('T1000');*/
+
+delimiter $$
+create procedure usp_ActivaTipoTrabajo
+(
+	P_COD_TIPTRABAJO	CHAR(5)
+)
+begin
+UPDATE TIPO_TRABAJO
+SET
+	ESTADO_TIPTRABAJO = 'ACTIVO'
+    WHERE COD_TIPTRABAJO = P_COD_TIPTRABAJO;
+end $$
+delimiter ;
+
+/*call usp_ActivaTipoTrabajo('TR107');*/
+
+delimiter $$
+create procedure usp_ActivaCliente
+(
+	P_COD_CLIENTE	CHAR(5)
+)
+begin
+UPDATE CLIENTE
+SET
+	ESTADO_CLIENTE = 'ACTIVO'
+    WHERE COD_CLIENTE = P_COD_CLIENTE;
+end $$
+delimiter ;
+
+/*call usp_ActivaCliente('C1000');*/
+
+/*Elimina*/
+delimiter $$
+create procedure usp_EliminaTrabajador
+(
+	P_COD_TRABAJADOR	CHAR(5)
+)
+begin
+DELETE FROM TRABAJADOR
+    WHERE COD_TRABAJADOR = P_COD_TRABAJADOR;
+end $$
+delimiter ;
+
+/*call usp_EliminaTrabajador('T1000');*/
+
+delimiter $$
+create procedure usp_EliminaTipoTrabajo
+(
+	P_COD_TIPTRABAJO	CHAR(5)
+)
+begin
+DELETE FROM tipo_trabajo
+    WHERE COD_TIPTRABAJO = P_COD_TIPTRABAJO;
+end $$
+delimiter ;
+
+/*call usp_EliminaTipoTrabajo('TR107');*/
+
+delimiter $$
+create procedure usp_EliminaCliente
+(
+	P_COD_CLIENTE	CHAR(5)
+)
+begin
+DELETE FROM CLIENTE
+    WHERE COD_CLIENTE = P_COD_CLIENTE;
+end $$
+delimiter ;
+
+/*call usp_EliminaCliente('C1000');*/
+
+
 /*
 select COD_TRABAJADOR from TRABAJADOR order by COD_TRABAJADOR desc limit 1;
 select COD_TIPTRABAJO from TIPO_TRABAJO order by COD_TIPTRABAJO desc limit 1;

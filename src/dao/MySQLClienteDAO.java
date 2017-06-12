@@ -242,4 +242,58 @@ public class MySQLClienteDAO implements ClienteDAO {
 		return valor;
 	}
 
+	@Override
+	public int activaCliente(String cod_cliente) {
+		int valor = -1;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ActivaCliente(?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, cod_cliente);
+			valor = cs.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return valor;
+	}
+
+	@Override
+	public int eliminaCliente(String cod_cliente) {
+		int valor = -1;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_EliminaCliente(?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, cod_cliente);
+			valor = cs.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return valor;
+	}
+
 }

@@ -33,7 +33,26 @@ public class ServletCliente extends HttpServlet {
 			busca(request, response);
 		} else if (metodo.equals("actualiza")) {
 			actualiza(request, response);
+		} else if (metodo.equals("activa")) {
+			activa(request, response);
+		} else if (metodo.equals("elimina")) {
+			elimina(request, response);
 		}
+	}
+
+	private void activa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("cod");
+		ClienteService ts = new ClienteService();
+		ts.activaCliente(cod);
+		lista(request, response);
+	}
+
+	private void elimina(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String cod = request.getParameter("cod");
+		ClienteService ts = new ClienteService();
+		ts.eliminaCliente(cod);
+		lista(request, response);
 	}
 
 	private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -89,11 +108,11 @@ public class ServletCliente extends HttpServlet {
 	}
 
 	private void busca(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String cod = request.getParameter("cod");
 		ClienteService cs = new ClienteService();
+		String cod = request.getParameter("cod");
 		ClienteDTO c = cs.buscaCliente(cod);
 		request.setAttribute("cli", c);
-		request.getRequestDispatcher("/acliente.jsp").forward(request, response);
+		request.getRequestDispatcher("acliente.jsp").forward(request, response);
 	}
 
 	private void actualiza(HttpServletRequest request, HttpServletResponse response) {

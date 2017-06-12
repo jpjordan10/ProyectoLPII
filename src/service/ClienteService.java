@@ -33,4 +33,12 @@ public class ClienteService {
 	public int desactivaCliente(String cod_cliente) {
 		return dao.desactivaCliente(cod_cliente);
 	}
+
+	public int activaCliente(String cod_cliente) {
+		return dao.activaCliente(cod_cliente);
+	}
+
+	public int eliminaCliente(String cod_cliente) {
+		return dao.eliminaCliente(cod_cliente);
+	}
 }

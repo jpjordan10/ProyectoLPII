@@ -18,13 +18,14 @@
 	<%
 		TipoTrabajoDTO t = (TipoTrabajoDTO)request.getAttribute("tipt");
 	%>
-		<h1>Registro de Tipo de Trabajo</h1>
+		<h1>Actualizacion de Tipo de Trabajo</h1>
+		<input type="hidden" name="codigo" value="<%=t.getCod_tiptrabajo()%>">
 		<form action="tt" id="id_form">
 			<input type="hidden" name="metodo" value="actualiza">
 			<div class="form-group">
 				<label class="control-label" for="id_descripcion">Descripcion</label>
 				<input class="form-control" id="id_descripcion" type="text"
-					name="descripcion" placeholder="Ingrese Descripcion">
+					name="descripcion" placeholder="Ingrese Descripcion"  value="<%=t.getDes_tiptrabajo()%>">
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary">Crea Tipo de

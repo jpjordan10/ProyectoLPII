@@ -33,4 +33,12 @@ public class TrabajadorService {
 	public int desactivaTrabajador(String cod_trabajador) {
 		return dao.desactivaTrabajador(cod_trabajador);
 	}
+
+	public int activaTrabajador(String cod_trabajador) {
+		return dao.activaTrabajador(cod_trabajador);
+	}
+
+	public int eliminaTrabajador(String cod_trabajador) {
+		return dao.eliminaTrabajador(cod_trabajador);
+	}
 }
