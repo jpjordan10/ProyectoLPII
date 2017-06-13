@@ -34,5 +34,27 @@
 
 		</form>
 	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#id_form').bootstrapValidator({
+				message : 'This value is not valid',
+				feedbackIcons : {
+					valid : 'glyphicon glyphicon-ok',
+					invalid : 'glyphicon glyphicon-remove',
+					validating : 'glyphicon glyphicon-refresh'
+				},
+				fields : {
+					descripcion : {
+						regexp : {
+ 							regexp: /^[a-z\s]+$/,
+ 							message: 'La Descripción solo puede contener letras y espacios'
+						}
+					}
+				}
+			});
+		});
+	</script>
+		
 </body>
 </html>

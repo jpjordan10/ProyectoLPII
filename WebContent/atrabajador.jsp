@@ -135,38 +135,158 @@
 					nombre : {
 						validators : {
 							notEmpty : {
-								message : 'El nombre es un campo obligatorio'
-							}
+								message : 'El Nombre es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Nombre solo puede contener letras y espacios'
+			 				}
 						}
 					},
-					apellido : {
+					apellidop : {
 						validators : {
 							notEmpty : {
-								message : 'El apellido es un campo obligatorio'
-							}
+								message : 'El Apellido Paterno es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Apellido Paterno solo puede contener letras y espacios'
+			 				}
 						}
 					},
-					edad : {
+					apellidom : {
 						validators : {
 							notEmpty : {
-								message : 'La edad es un campo obligatorio'
+								message : 'El Apellido Materno es un campo obligatorio'
 							},
-							integer : {
-								message : 'La edad es de tipo entero'
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Apellido Materno solo puede contener letras y espacios'
+			 				}
+						}
+					},
+					dni : {
+						validators : {
+							notEmpty : {
+								message : 'El DNI es un campo obligatorio'
 							},
-							between : {
-								min : 18,
-								max : 90,
-								message : 'La edad es entre 18 y 90 años'
+							identical : {
+								message : 'El DNI es un valor repetido'
+							},
+							regexp : {
+			 					regexp: /^[0-9]+$/,
+			 					message: 'El DNI solo puede contener números'
+			 				},
+			 				stringLength : {
+			 					min: 7,
+			 					max: 7,
+			 					message: 'El DNI debe contener 7 caracteres'
+			 				}
+						}
+					},
+					email : {
+						validators : {
+							notEmpty : {
+								message : 'El E-Mail es un campo obligatorio'
+							},
+							identical : {
+								message : 'La E-Mail es un valor repetido'
+							},
+							emailAddress : {
+								message : 'El E-Mail no es valido'
 							}
 						}
 					},
+					telefono : {
+						validators : {
+							notEmpty : {
+								message : 'El Teléfono es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[0-9]+$/,
+			 					message: 'El Teléfono solo puede contener números'
+			 				},
+			 				stringLength : {
+			 					min: 9,
+			 					max: 9,
+			 					message: 'El Teléfono debe contener 9 caracteres'
+			 				}
+						}
+					},
+					departamento : {
+						validators : {
+							notEmpty : {
+								message : 'El Departamento es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Departamento solo puede contener letras y espacios'
+			 				}
+						}
+					},
+					provincia : {
+						validators : {
+							notEmpty : {
+								message : 'La Provincia es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'La Provincia solo puede contener letras y espacios'
+			 				}
+						}
+					},
+					distrito : {
+						validators : {
+							notEmpty : {
+								message : 'El Distrito es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Distrito solo puede contener letras y espacios'
+			 				}
+						}
+					},
+					direccion : {
+						validators : {
+							notEmpty : {
+								message : 'La Dirección es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s_0-9]+$/,
+			 					message: 'La Dirección solo puede contener letras, números y espacios'
+			 				}
+						}
+					},
+					user : {
+						validators : {
+							notEmpty : {
+								message : 'El User es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z_0-9]+$/,
+			 					message: 'El User solo puede contener letras y números'
+			 				}
+						}
+					},
+					password : {
+						validators : {
+							notEmpty : {
+								message : 'El Password es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z_0-9]+$/,
+			 					message: 'El Password solo puede contener letras y números'
+			 				}
+						}
+					},
+					tipo : {
+						validators : {
+							notEmpty : {
+								message : 'El Tipo es un campo obligatorio'
+							}
+						}
+					}
 				}
-			});
-
-			// Validate the form manually
-			$('#validateBtn').click(function() {
-				$('#id_form').bootstrapValidator('validate');
 			});
 		});
 	</script>

@@ -84,7 +84,7 @@
 	</div>
 
 
-	<script type="text/javascript">
+<script type="text/javascript">
 		$(document).ready(function() {
 			$('#id_form').bootstrapValidator({
 				message : 'This value is not valid',
@@ -94,41 +94,131 @@
 					validating : 'glyphicon glyphicon-refresh'
 				},
 				fields : {
-					nombre : {
+					razon : {
 						validators : {
 							notEmpty : {
-								message : 'El nombre es un campo obligatorio'
-							}
-						}
-					},
-					apellido : {
-						validators : {
-							notEmpty : {
-								message : 'El apellido es un campo obligatorio'
-							}
-						}
-					},
-					edad : {
-						validators : {
-							notEmpty : {
-								message : 'La edad es un campo obligatorio'
+								message : 'La Razón Social es un campo obligatorio'
 							},
-							integer : {
-								message : 'La edad es de tipo entero'
+							identical : {
+								message : 'La Razón Social es un valor repetido'
 							},
-							between : {
-								min : 18,
-								max : 90,
-								message : 'La edad es entre 18 y 90 años'
+							regexp : {
+			 					regexp: /^[a-z\s_0-9]+$/,
+			 					message: 'La Razón Social solo puede contener letras, números y espacios'
+			 				}
+						}
+					},
+					ruc : {
+						validators : {
+							notEmpty : {
+								message : 'El RUC es un campo obligatorio'
+							},
+							identical : {
+								message : 'El RUC es un valor repetido'
+							},
+							regexp : {
+			 					regexp: /^[0-9]+$/,
+			 					message: 'El RUC solo puede contener números'
+			 				},
+			 				stringLength : {
+			 					min: 11,
+			 					max: 11,
+			 					message: 'El RUC debe contener 11 caracteres'
+			 				}
+						}
+					},
+					email : {
+						validators : {
+							notEmpty : {
+								message : 'El E-Mail es un campo obligatorio'
+							},
+							identical : {
+								message : 'La E-Mail es un valor repetido'
+							},
+							emailAddress : {
+								message : 'El E-Mail no es valido'
 							}
 						}
 					},
+					telefono : {
+						validators : {
+							notEmpty : {
+								message : 'El Teléfono es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[0-9]+$/,
+			 					message: 'El Teléfono solo puede contener números'
+			 				},
+			 				stringLength : {
+			 					min: 9,
+			 					max: 9,
+			 					message: 'El Teléfono debe contener 9 caracteres'
+			 				}
+						}
+					},
+					departamento : {
+						validators : {
+							notEmpty : {
+								message : 'El Departamento es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Departamento solo puede contener letras y espacios'
+			 				}
+						}
+					},
+					provincia : {
+						validators : {
+							notEmpty : {
+								message : 'La Provincia es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'La Provincia solo puede contener letras y espacios'
+			 				}
+						}
+					},
+					distrito : {
+						validators : {
+							notEmpty : {
+								message : 'El Distrito es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Distrito solo puede contener letras y espacios'
+			 				}
+						}
+					},
+					direccion : {
+						validators : {
+							notEmpty : {
+								message : 'La Dirección es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s_0-9]+$/,
+			 					message: 'La Dirección solo puede contener letras, números y espacios'
+			 				}
+						}
+					},
+					tipo : {
+						validators : {
+							notEmpty : {
+								message : 'El Tipo es un campo obligatorio'
+							}
+						}
+					},
+					representante : {
+						validators : {
+							notEmpty : {
+								message : 'El Representante Legal es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Representante Legal solo puede contener letras y espacios'
+			 				}
+						}
+					}
 				}
-			});
-
-			// Validate the form manually
-			$('#validateBtn').click(function() {
-				$('#id_form').bootstrapValidator('validate');
 			});
 		});
 	</script>
