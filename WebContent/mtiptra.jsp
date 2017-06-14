@@ -21,16 +21,15 @@
 		<a class="btn btn-primary" href="tt?metodo=lista">Ver data</a> <a
 			class="btn btn-primary" href="itiptra.jsp">Registra</a>
 	</div>
-
 	<br>
 	<br>
 	<div class="container">
 		<table class="table">
-
 			<tr>
 				<th>Codigo</th>
 				<th>Descripcion</th>
 				<th>Estado</th>
+				<th></th>
 				<th></th>
 				<th></th>
 				<th></th>
@@ -46,27 +45,31 @@
 				<td><%=t.getDes_tiptrabajo()%></td>
 				<td><%=t.getEstado_tiptrabajo()%></td>
 				<td><a
-					href="tt?metodo=desactiva&cod=<%=t.getCod_tiptrabajo()%>"> <img
-						alt="Desactiva" src="images/Delete.gif">
+					href="tt?metodo=busca&cod=<%=t.getCod_tiptrabajo()%>">
+						<img alt="Actualiza" src="images/edit.png">
 				</a></td>
-				<td><a href="tt?metodo=busca&cod=<%=t.getCod_tiptrabajo()%>">
-						<img alt="Actualiza" src="images/Edit.gif">
+				<td><a
+					href="tt?metodo=muestra&cod=<%=t.getCod_tiptrabajo()%>">
+						<img alt="Muestra" src="images/lens.png">
 				</a></td>
-				<td><a href="tt?metodo=activa&cod=<%=t.getCod_tiptrabajo()%>">
-						<img alt="Activa" src="images/Edit.gif">
+				<td><a
+					href="tt?metodo=desactiva&cod=<%=t.getCod_tiptrabajo()%>">
+						<img alt="Desactiva" src="images/inactive.png">
 				</a></td>
-				<td><a href="tt?metodo=elimina&cod=<%=t.getCod_tiptrabajo()%>">
-						<img alt="Elimina" src="images/Edit.gif">
+				<td><a
+					href="tt?metodo=activa&cod=<%=t.getCod_tiptrabajo()%>">
+						<img alt="Activa" src="images/activate.png">
+				</a></td>
+				<td><a
+					href="tt?metodo=elimina&cod=<%=t.getCod_tiptrabajo()%>">
+						<img alt="Elimina" src="images/delete.png">
 				</a></td>
 			</tr>
 			<%
 				}
 				}
 			%>
-
 		</table>
 	</div>
-
-
 </body>
 </html>
