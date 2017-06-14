@@ -177,7 +177,7 @@ optgroup {
   font-weight: bold;
 }
 table {
-  border-spacing: 0;
+  border-spacing: 1;
   border-collapse: collapse;
 }
 td,

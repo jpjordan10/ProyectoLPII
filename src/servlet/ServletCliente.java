@@ -59,7 +59,7 @@ public class ServletCliente extends HttpServlet {
 		ClienteService ts = new ClienteService();
 		ArrayList<ClienteDTO> lista = ts.listaCliente();
 		request.setAttribute("data", lista);
-		request.getRequestDispatcher("mcliente.jsp").forward(request, response);
+		request.getRequestDispatcher("mClientes.jsp").forward(request, response);
 
 	}
 
@@ -94,7 +94,7 @@ public class ServletCliente extends HttpServlet {
 		if (i == 0) {
 			response.sendRedirect("error.jsp");
 		} else {
-			response.sendRedirect("mcliente.jsp");
+			response.sendRedirect("mClientes.jsp");
 		}
 	}
 

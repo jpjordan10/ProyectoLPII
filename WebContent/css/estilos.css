@@ -1,0 +1,179 @@
+/*--------------------- 
+	De los textos
+----------------------*/
+
+.TextoNormal{
+    font-family: Verdana, Arial;
+    font-size: 13px;
+    font-weight: bold;
+    color:  #9c0000;
+}
+
+.ContentHead
+{
+    background-color: #dddca3;
+    color: dimgray;
+    font-family: Verdana, Arial;
+    font-size: 20px;
+    font-weight: bold;
+    height: 35px
+}
+
+/*--------------------- 
+	De los titulos
+----------------------*/
+.TextoMenu
+{
+    color: white;
+    font-family: Verdana, Arial;
+    font-size: 12px;
+    font-weight: bold;
+    height: 35px
+}
+
+.TituloMenu
+{
+    background-color: #9c0000;
+    color: white;
+    font-family: Verdana, Arial;
+    font-size: 19px;
+    font-weight: bold;
+    height: 35px
+}
+
+
+.TituloCabecera
+{
+    background-color: #9c0000;
+    color: white;
+    font-family: Verdana, Arial;
+    font-size: 24px;
+    font-weight: bold;
+    height: 35px
+}
+
+/*--------------------- 
+	Del Listado
+----------------------*/
+
+.ListadoCabecera
+{
+    background-color: #9c0000;
+    border-bottom: dimgray;
+    border-left: dimgray 1px solid;
+    color: white;
+    font-family: Verdana, Arial;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 20pt;
+    padding-left: 5px
+}
+
+.ListadoElemento
+{
+    background-color: #ffffff;
+    border-bottom: dimgray;
+    border-left: dimgray 1px solid;
+    color: black;
+    font-family: Verdana, Arial;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px
+}
+
+.ListadoAlternado
+{
+    background-color: #efefef;
+    border-bottom: dimgray;
+    border-left: dimgray 1px solid;
+    color: black;
+    font-family: Verdana, Arial;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px
+}
+
+.ListadoPie
+{
+    background-color: #9c0000;
+    line-height: 10pt
+}
+
+/*--------------------- 
+	Del Menu 
+----------------------*/
+
+A.SiteLinkBold, A.SiteLinkBold:link, A.SiteLinkBold:visited
+{
+    color: white;
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size:  16px;
+    font-weight: bold;
+}
+  
+A.SiteLinkBold:hover
+{
+    color: #D6D3CE;
+    text-decoration: none;
+    font-size:  16px;
+    font-weight: bold;   
+}
+
+/*--------------------- 
+	De Hyperlink 
+----------------------*/
+
+A:link  {
+    text-decoration: none;
+    color:  #9c0000;
+    font-weight: bold;
+    font-size:  16px;
+    font-family: Verdana, Arial;
+    font-style: italic;
+}
+
+A, A:hover {
+    text-decoration: underline;
+    color:  #9c0000;
+    font-weight: bold;
+    font-size:  16px;
+    font-family: Verdana, Arial;
+    font-style: italic;
+} 
+
+/*--------------------- 
+	De los Elementos
+----------------------*/
+
+.Elemento
+{
+    font-family: Verdana, Arial;
+    font-size: 13px;
+    font-weight: bold;
+    color:  #9c0000;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #9c0000;
+  
+}
+
+
+
+.NormalDouble
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 20px    
+}
+
+.HomeHead
+{
+    color: #999966;
+    font-family: Verdana, Arial;
+    font-size: 20px;
+    font-weight: bold;
+    HEIGHT: 35px
+}
+
