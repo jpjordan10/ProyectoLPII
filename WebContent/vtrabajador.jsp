@@ -18,17 +18,22 @@
 		<%
 			TrabajadorDTO t = (TrabajadorDTO) request.getAttribute("tra");
 		%>
-		<h1>Actualizacion de Trabajador</h1>
+		<h1>Detalles de Trabajador</h1>
 		<form class="form-horizontal" action="trabajador" id="id_form">
-			
-			<input type="hidden" name="metodo" value="actualiza">
-			<input type="hidden" name="codigo" value="<%=t.getCod_trabajador()%>">
+			<input type="hidden" name="metodo" value="actualiza"> <input
+				type="hidden" name="codigo" value="<%=t.getCod_trabajador()%>">
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="id_nombre">Nombre</label>
+				<label class="control-label col-sm-2" for="id_codigo">Codigo:</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_codigo" type="text"
+						name="nombre" value="<%=t.getCod_trabajador()%>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="id_nombre">Nombre:</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_nombre" type="text"
-						name="nombre" placeholder="Ingrese Nombre"
-						value="<%=t.getNom_trabajador()%>">
+						name="nombre" value="<%=t.getNom_trabajador()%>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
@@ -36,8 +41,7 @@
 					Paterno</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_apellidop" type="text"
-						name="apellidop" placeholder="Ingrese Apellido Paterno"
-						value="<%=t.getApep_trabajador()%>">
+						name="apellidop" value="<%=t.getApep_trabajador()%>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
@@ -45,131 +49,102 @@
 					Materno</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_apellidom" type="text"
-						name="apellidom" placeholder="Ingrese Apellido Materno"
-						value="<%=t.getApem_trabajador()%>">
+						name="apellidom" value="<%=t.getApem_trabajador()%>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_dni">DNI</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_dni" type="text" name="dni"
-						placeholder="Ingrese DNI" value="<%=t.getDni_trabajador()%>">
+						value="<%=t.getDni_trabajador()%>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="id_email">E-mail</label>
+				<label class="control-label col-sm-2" for="id_email">Correo
+					Electrónico</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_email" type="text" name="email"
-						placeholder="Ingrese E-mail" value="<%=t.getEmail_trabajador()%>">
+						value="<%=t.getEmail_trabajador()%>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_telefono">Telefono</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_telefono" type="text"
-						name="telefono" placeholder="Ingrese Telefono"
-						value="<%=t.getTelefono_trabajador()%>">
+						name="telefono" value="<%=t.getTelefono_trabajador()%>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_departamento">Departamento</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_departamento" type="text"
-						name="departamento" placeholder="Ingrese Departamento"
-						value="<%=t.getDepartamento_trabajador()%>">
+						name="departamento" value="<%=t.getDepartamento_trabajador()%>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_provincia">Provincia</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_provincia" type="text"
-						name="provincia" placeholder="Ingrese Provincia"
-						value="<%=t.getProvincia_trabajador()%>">
+						name="provincia" value="<%=t.getProvincia_trabajador()%>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_distrito">Distrito</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_distrito" type="text"
-						name="distrito" placeholder="Ingrese Distrito"
-						value="<%=t.getDistrito_trabajador()%>">
+						name="distrito" value="<%=t.getDistrito_trabajador()%>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_direccion">Direccion</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_direccion" type="text"
-						name="direccion" placeholder="Ingrese Direccion"
-						value="<%=t.getDireccion_trabajador()%>">
+						name="direccion" value="<%=t.getDireccion_trabajador()%>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="id_password">Password</label>
+				<label class="control-label col-sm-2" for="id_user">User:</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_user" type="text"
+						name="user" value="<%=t.getUser_trabajador()%>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="id_password">Password:</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_password" type="text"
-						name="password" placeholder="Ingrese password"
-						value="<%=t.getPass_trabajador()%>">
+						name="password" value="<%=t.getPass_trabajador()%>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="id_tipo">Tipo:</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_tipo" type="text"
+						name="tipo" value="<%=t.getTipo_trabajador()%>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="id_estado">Estado:</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_estado" type="text"
+						name="estado" value="<%=t.getEstado_trabajador()%>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="id_fecha">Fecha de Registro:</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_fecha" type="text"
+						name="fecha" value="<%=t.getFecha_reg_trabajador()%>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="reset" class="btn btn-default" name="metodo"
 						value="lista">Cancelar</button>
-					<button type="submit" class="btn btn-default">Actualiza
-						Trabajador</button>
 				</div>
 
 			</div>
 		</form>
 	</div>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#id_form').bootstrapValidator({
-				message : 'This value is not valid',
-				feedbackIcons : {
-					valid : 'glyphicon glyphicon-ok',
-					invalid : 'glyphicon glyphicon-remove',
-					validating : 'glyphicon glyphicon-refresh'
-				},
-				fields : {
-					nombre : {
-						validators : {
-							notEmpty : {
-								message : 'El nombre es un campo obligatorio'
-							}
-						}
-					},
-					apellido : {
-						validators : {
-							notEmpty : {
-								message : 'El apellido es un campo obligatorio'
-							}
-						}
-					},
-					edad : {
-						validators : {
-							notEmpty : {
-								message : 'La edad es un campo obligatorio'
-							},
-							integer : {
-								message : 'La edad es de tipo entero'
-							},
-							between : {
-								min : 18,
-								max : 90,
-								message : 'La edad es entre 18 y 90 años'
-							}
-						}
-					},
-				}
-			});
-
-			// Validate the form manually
-			$('#validateBtn').click(function() {
-				$('#id_form').bootstrapValidator('validate');
-			});
-		});
-	</script>
-
 </body>
 </html>

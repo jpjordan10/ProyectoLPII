@@ -1,4 +1,3 @@
-<%@taglib uri="WEB-INF/libreria.tld" prefix="libreria"%>
 <!DOCTYPE html>
 <html lang="esS">
 <head>

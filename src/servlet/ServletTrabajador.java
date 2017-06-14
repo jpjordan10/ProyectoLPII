@@ -34,6 +34,17 @@ public class ServletTrabajador extends HttpServlet {
 		} else if (metodo.equals("elimina")) {
 			elimina(request, response);
 		}
+		else if (metodo.equals("muestra")) {
+			muestra(request, response);
+		}
+	}
+
+	private void muestra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		TrabajadorService ts = new TrabajadorService();
+		String cod = request.getParameter("cod");
+		TrabajadorDTO t = ts.buscaTrabajador(cod);
+		request.setAttribute("tra", t);
+		request.getRequestDispatcher("vtrabajador.jsp").forward(request, response);
 	}
 
 	private void activa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
