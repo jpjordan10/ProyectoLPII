@@ -15,86 +15,116 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Registro de Trabajador</h1>
-		<form action="trabajador" id="id_form">
+		<h2>Registro de Trabajador</h2>
+		<form class="form-horizontal" action="trabajador" id="id_form">
 			<input type="hidden" name="metodo" value="registra">
 			<div class="form-group">
-				<label class="control-label" for="id_nombre">Nombre</label> <input
-					class="form-control" id="id_nombre" type="text" name="nombre"
-					placeholder="Ingrese Nombre">
+				<label class="control-label col-sm-2" for="id_nombre">Nombre:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_nombre"
+						placeholder="Ingrese nombres" name="nombre">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_apellidop">Apellido
-					Paterno</label> <input class="form-control" id="id_apellidop" type="text"
-					name="apellidop" placeholder="Ingrese Apellido Paterno">
+				<label class="control-label col-sm-2" for="id_apellidop">Apellido
+					Paterno:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_apellidop"
+						placeholder="Ingrese apellido paterno" name="apellidop">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_apellidom">Apellido
-					Materno</label> <input class="form-control" id="id_apellidom" type="text"
-					name="apellidom" placeholder="Ingrese Apellido Materno">
+				<label class="control-label col-sm-2" for="id_apellidom">Apellido
+					Materno:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_apellidom"
+						placeholder="Ingrese apellido materno" name="apellidom">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_dni">DNI</label> <input
-					class="form-control" id="id_dni" type="text" name="dni"
-					placeholder="Ingrese DNI">
+				<label class="control-label col-sm-2" for="id_dni">DNI:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_dni"
+						placeholder="Ingrese DNI" name="dni">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_email">E-mail</label> <input
-					class="form-control" id="id_email" type="text" name="email"
-					placeholder="Ingrese E-mail">
+				<label class="control-label col-sm-2" for="id_correo">Correo
+					Electrónico:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_correo"
+						placeholder="Ingrese correo electrónico" name="email">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_telefono">Telefono</label> <input
-					class="form-control" id="id_telefono" type="text" name="telefono"
-					placeholder="Ingrese Telefono">
+				<label class="control-label col-sm-2" for="id_telefono">Teléfono:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_telefono"
+						placeholder="Ingrese telefono" name="telefono">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_departamento">Departamento</label>
-				<input class="form-control" id="id_departamento" type="text"
-					name="departamento" placeholder="Ingrese Departamento">
+				<label class="control-label col-sm-2" for="id_departamento">Departamento:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_departamento"
+						placeholder="Ingrese departamento" name="departamento">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_provincia">Provincia</label> <input
-					class="form-control" id="id_provincia" type="text" name="provincia"
-					placeholder="Ingrese Provincia">
+				<label class="control-label col-sm-2" for="id_provincia">Provincia:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_provincia"
+						placeholder="Ingrese provincia" name="provincia">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_distrito">Distrito</label> <input
-					class="form-control" id="id_distrito" type="text" name="distrito"
-					placeholder="Ingrese Distrito">
+				<label class="control-label col-sm-2" for="id_distrito">Distrito:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_distrito"
+						placeholder="Ingrese distrito" name="distrito">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_direccion">Direccion</label> <input
-					class="form-control" id="id_direccion" type="text" name="direccion"
-					placeholder="Ingrese Direccion">
+				<label class="control-label col-sm-2" for="id_direccion">Dirección:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_direccion"
+						placeholder="Ingrese dirección" name="direccion">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_user">User</label> <input
-					class="form-control" id="id_user" type="text" name="user"
-					placeholder="Ingrese User">
+				<label class="control-label col-sm-2" for="id_user">User:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_user"
+						placeholder="Ingrese usuario" name="user">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_password">Password</label> <input
-					class="form-control" id="id_password" type="text" name="password"
-					placeholder="Ingrese password">
+				<label class="control-label col-sm-2" for="id_password">Password:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id_password"
+						placeholder="Ingrese password" name="password">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_tipo">Tipo</label> <select
-					class="form-control" name="tipo" id="id_tipo">
-					<option value='0'>Seleccione tipo de trabajador</option>
-					<option value='ARQUEOLOGO'>ARQUEOLOGO</option>");
-					<option value='OBRERO'>OBRERO</option>
-				</select>
+				<label class="control-label col-sm-2" for="id_tipo">Tipo:</label>
+				<div class="col-sm-10">
+					<select class="form-control" name="tipo" id="id_tipo">
+						<option value='0'>Seleccione tipo de trabajador</option>
+						<option value='ARQUEOLOGO'>ARQUEOLOGO</option>
+						<option value='OBRERO'>OBRERO</option>
+					</select>
+				</div>
 			</div>
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Crea
-					Trabajador</button>
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="reset" class="btn btn-default" name="metodo"
+						value="lista">Cancelar</button>
+					<button type="submit" class="btn btn-default">Registrar
+						Trabajador</button>
+				</div>
 			</div>
-
 		</form>
 	</div>
-
-
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#id_form').bootstrapValidator({

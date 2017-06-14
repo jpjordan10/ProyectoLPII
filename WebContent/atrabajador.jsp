@@ -20,8 +20,9 @@
 			TrabajadorDTO t = (TrabajadorDTO) request.getAttribute("tra");
 		%>
 		<h1>Actualizacion de Trabajador</h1>
-		<input type="hidden" name="codigo" value="<%=t.getCod_trabajador()%>">
+		
 		<form action="trabajador" id="id_form">
+		<input type="hidden" name="codigo" value="<%=t.getCod_trabajador()%>">
 			<input type="hidden" name="metodo" value="actualiza">
 			<div class="form-group">
 				<label class="control-label" for="id_nombre">Nombre</label> <input
@@ -74,21 +75,9 @@
 					placeholder="Ingrese Direccion" value="<%=t.getDireccion_trabajador()%>">
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_user">User</label> <input
-					class="form-control" id="id_user" type="text" name="user"
-					placeholder="Ingrese User" value="<%=t.getUser_trabajador()%>">
-			</div>
-			<div class="form-group">
 				<label class="control-label" for="id_password">Password</label> <input
 					class="form-control" id="id_password" type="text" name="password"
 					placeholder="Ingrese password" value="<%=t.getPass_trabajador()%>">
-			</div>
-			<div class="form-group">
-				<label class="control-label" for="id_tipo">Tipo</label> <select
-					class="form-control" name="tipo" id="id_tipo">
-					<option><%=t.getTipo_trabajador()%></option>
-					<libreria:dameTipoTrabajador />
-				</select>
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary">Actualiza

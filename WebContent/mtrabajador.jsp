@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Listado de Trabajadores</h1>
+		<h1>Mantenimiento de Trabajadores</h1>
 
 		<a class="btn btn-primary" href="trabajador?metodo=lista">Ver data</a>
 		<a class="btn btn-primary" href="itrabajador.jsp">Registra</a>

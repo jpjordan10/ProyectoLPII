@@ -9,7 +9,7 @@ WHERE TIPO_TRABAJADOR = 'OBRERO' or TIPO_TRABAJADOR = 'ARQUEOLOGO';
 end $$
 delimiter ;
 
-call usp_ListaTrabajador();
+/*call usp_ListaTrabajador();*/
 
 delimiter $$
 create procedure usp_ListaCliente()
@@ -18,7 +18,7 @@ select * from CLIENTE;
 end $$
 delimiter ;
 
-call usp_ListaCliente();
+/*call usp_ListaCliente();*/
 
 delimiter $$
 create procedure usp_ListaTipoTrabajo()
@@ -27,7 +27,7 @@ select * from TIPO_TRABAJO;
 end $$
 delimiter ;
 
-call usp_ListaTipoTrabajo();
+/*call usp_ListaTipoTrabajo();
 
 /*INSERTAR*/
 delimiter $$
@@ -112,9 +112,7 @@ create procedure usp_ActualizaTrabajador
     P_PROVINCIA_TRABAJADOR		VARCHAR(20),
     P_DISTRITO_TRABAJADOR		VARCHAR(20),
     P_DIRECCION_TRABAJADOR		VARCHAR(50),
-    P_USER_TRABAJADOR			VARCHAR(10),
-    P_PASS_TRABAJADOR			VARCHAR(15),
-    P_TIPO_TRABAJADOR			VARCHAR(20)
+    P_PASS_TRABAJADOR			VARCHAR(15)
 )
 begin
 UPDATE TRABAJADOR
@@ -129,14 +127,12 @@ SET
     PROVINCIA_TRABAJADOR = P_PROVINCIA_TRABAJADOR,
     DISTRITO_TRABAJADOR = P_DISTRITO_TRABAJADOR,
     DIRECCION_TRABAJADOR = P_DIRECCION_TRABAJADOR,
-    USER_TRABAJADOR = P_USER_TRABAJADOR,
-    PASS_TRABAJADOR = P_PASS_TRABAJADOR,
-    TIPO_TRABAJADOR = P_TIPO_TRABAJADOR
+    PASS_TRABAJADOR = P_PASS_TRABAJADOR
     WHERE COD_TRABAJADOR = P_COD_TRABAJADOR;
 end $$
 delimiter ;
 
-/*call usp_ActualizaTrabajador('T1000', 'Jean', 'Jordan', 'Solis', '73755436', 'jeanpierrejordan@outlook.com', '962571835', 'Lima', 'Lima', 'Los Olivos', 'Psj Fobos 141 Urb Mercurio', 'jotape', 'jotape123', 'GESTOR ARQUEOLOGO');*/
+/*call usp_ActualizaTrabajador('T1001', 'Juana', 'Lopeza', 'Baldeona', '12345678', 'juana@outlook.com', '985674145', 'Limaa', 'Limaa', 'Los Olivosa', 'actualizao', 'aaaa');*/
 
 delimiter $$
 create procedure usp_ActualizaCliente
