@@ -27,7 +27,7 @@ select * from TIPO_TRABAJO;
 end $$
 delimiter ;
 
-/*call usp_ListaTipoTrabajo();
+/*call usp_ListaTipoTrabajo();*/
 
 /*INSERTAR*/
 delimiter $$
