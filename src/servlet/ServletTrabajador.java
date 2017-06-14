@@ -33,7 +33,18 @@ public class ServletTrabajador extends HttpServlet {
 			activa(request, response);
 		} else if (metodo.equals("elimina")) {
 			elimina(request, response);
+		} else if (metodo.equals("muestra")) {
+			muestra(request, response);
 		}
+	}
+
+	private void muestra(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		TrabajadorService ts = new TrabajadorService();
+		String cod = request.getParameter("cod");
+		TrabajadorDTO t = ts.buscaTrabajador(cod);
+		request.setAttribute("tra", t);
+		request.getRequestDispatcher("vtrabajador.jsp").forward(request, response);
 	}
 
 	private void activa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -64,9 +75,7 @@ public class ServletTrabajador extends HttpServlet {
 		String provincia = request.getParameter("provincia");
 		String distrito = request.getParameter("distrito");
 		String direccion = request.getParameter("direccion");
-		String user = request.getParameter("user");
 		String password = request.getParameter("password");
-		String tipo = request.getParameter("tipo");
 
 		TrabajadorService ts = new TrabajadorService();
 		TrabajadorDTO t = new TrabajadorDTO();
@@ -81,9 +90,7 @@ public class ServletTrabajador extends HttpServlet {
 		t.setProvincia_trabajador(provincia);
 		t.setDistrito_trabajador(distrito);
 		t.setDireccion_trabajador(direccion);
-		t.setUser_trabajador(user);
 		t.setPass_trabajador(password);
-		t.setTipo_trabajador(tipo);
 
 		int i = ts.actualizaTrabajador(t);
 		if (i == 0) {
@@ -147,6 +154,7 @@ public class ServletTrabajador extends HttpServlet {
 			response.sendRedirect("error.jsp");
 		} else {
 			response.sendRedirect("mtrabajador.jsp");
+
 		}
 	}
 

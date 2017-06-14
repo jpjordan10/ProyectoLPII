@@ -40,6 +40,7 @@
 				<th></th>
 				<th></th>
 				<th></th>
+				<th></th>
 			</tr>
 			<%
 				ArrayList<ClienteDTO> lista = (ArrayList<ClienteDTO>) request.getAttribute("data");
@@ -57,17 +58,24 @@
 				<td><%=c.getRepresentante_cliente()%></td>
 				<td><%=c.getEstado_cliente()%></td>
 				<td><a
-					href="cliente?metodo=desactiva&cod=<%=c.getCod_cliente()%>"> <img
-						alt="Desactiva" src="images/Delete.gif">
+					href="cliente?metodo=busca&cod=<%=c.getCod_cliente()%>">
+						<img alt="Actualiza" src="images/edit.png">
 				</a></td>
-				<td><a href="cliente?metodo=busca&cod=<%=c.getCod_cliente()%>">
-						<img alt="Actualiza" src="images/Edit.gif">
+				<td><a
+					href="cliente?metodo=muestra&cod=<%=c.getCod_cliente()%>">
+						<img alt="Muestra" src="images/lens.png">
 				</a></td>
-				<td><a href="cliente?metodo=activa&cod=<%=c.getCod_cliente()%>">
-						<img alt="Activa" src="images/Edit.gif">
+				<td><a
+					href="cliente?metodo=desactiva&cod=<%=c.getCod_cliente()%>">
+						<img alt="Desactiva" src="images/inactive.png">
 				</a></td>
-				<td><a href="cliente?metodo=elimina&cod=<%=c.getCod_cliente()%>">
-						<img alt="Elimina" src="images/Edit.gif">
+				<td><a
+					href="cliente?metodo=activa&cod=<%=c.getCod_cliente()%>">
+						<img alt="Activa" src="images/activate.png">
+				</a></td>
+				<td><a
+					href="cliente?metodo=elimina&cod=<%=c.getCod_cliente()%>">
+						<img alt="Elimina" src="images/delete.png">
 				</a></td>
 			</tr>
 			<%

@@ -156,7 +156,7 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 		CallableStatement cs = null;
 		try {
 			cn = MySQLConexion.getConexion();
-			String sql = "{call usp_ActualizaTrabajador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+			String sql = "{call usp_ActualizaTrabajador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
 			cs = cn.prepareCall(sql);
 			cs.setString(1, t.getCod_trabajador());
 			cs.setString(2, t.getNom_trabajador());
@@ -169,9 +169,7 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 			cs.setString(9, t.getProvincia_trabajador());
 			cs.setString(10, t.getDistrito_trabajador());
 			cs.setString(11, t.getDireccion_trabajador());
-			cs.setString(12, t.getUser_trabajador());
-			cs.setString(13, t.getPass_trabajador());
-			cs.setString(14, t.getTipo_trabajador());
+			cs.setString(12, t.getPass_trabajador());
 			valor = cs.executeUpdate();
 
 		} catch (Exception e) {

@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Listado de Trabajadores</h1>
+		<h1>Mantenimiento de Trabajadores</h1>
 
 		<a class="btn btn-primary" href="trabajador?metodo=lista">Ver data</a>
 		<a class="btn btn-primary" href="itrabajador.jsp">Registra</a>
@@ -26,7 +26,6 @@
 	<br>
 	<div class="container">
 		<table class="table">
-
 			<tr>
 				<th>Codigo</th>
 				<th>Apellidos y Nombres</th>
@@ -34,6 +33,7 @@
 				<th>Dirección</th>
 				<th>Tipo</th>
 				<th>Estado</th>
+				<th></th>
 				<th></th>
 				<th></th>
 				<th></th>
@@ -53,27 +53,31 @@
 				<td><%=t.getTipo_trabajador()%></td>
 				<td><%=t.getEstado_trabajador()%></td>
 				<td><a
-					href="trabajador?metodo=desactiva&cod=<%=t.getCod_trabajador()%>"> <img
-						alt="Desactiva" src="images/Delete.gif">
+					href="trabajador?metodo=busca&cod=<%=t.getCod_trabajador()%>">
+						<img alt="Actualiza" src="images/edit.png">
 				</a></td>
-				<td><a href="trabajador?metodo=busca&cod=<%=t.getCod_trabajador()%>">
-						<img alt="Actualiza" src="images/Edit.gif">
+				<td><a
+					href="trabajador?metodo=muestra&cod=<%=t.getCod_trabajador()%>">
+						<img alt="Muestra" src="images/lens.png">
 				</a></td>
-				<td><a href="trabajador?metodo=activa&cod=<%=t.getCod_trabajador()%>">
-						<img alt="Activa" src="images/Edit.gif">
+				<td><a
+					href="trabajador?metodo=desactiva&cod=<%=t.getCod_trabajador()%>">
+						<img alt="Desactiva" src="images/inactive.png">
 				</a></td>
-				<td><a href="trabajador?metodo=elimina&cod=<%=t.getCod_trabajador()%>">
-						<img alt="Elimina" src="images/Edit.gif">
+				<td><a
+					href="trabajador?metodo=activa&cod=<%=t.getCod_trabajador()%>">
+						<img alt="Activa" src="images/activate.png">
+				</a></td>
+				<td><a
+					href="trabajador?metodo=elimina&cod=<%=t.getCod_trabajador()%>">
+						<img alt="Elimina" src="images/delete.png">
 				</a></td>
 			</tr>
 			<%
 				}
 				}
 			%>
-
 		</table>
 	</div>
-
-
 </body>
 </html>

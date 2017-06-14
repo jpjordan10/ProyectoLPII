@@ -1,4 +1,3 @@
-<%@taglib uri="WEB-INF/libreria.tld" prefix="libreria"%>
 <!DOCTYPE html>
 <html lang="esS">
 <%@page import="beans.TrabajadorDTO"%>
@@ -20,85 +19,108 @@
 			TrabajadorDTO t = (TrabajadorDTO) request.getAttribute("tra");
 		%>
 		<h1>Actualizacion de Trabajador</h1>
-		<input type="hidden" name="codigo" value="<%=t.getCod_trabajador()%>">
-		<form action="trabajador" id="id_form">
+		<form class="form-horizontal" action="trabajador" id="id_form">
 			<input type="hidden" name="metodo" value="actualiza">
+			<input type="hidden" name="codigo" value="<%=t.getCod_trabajador()%>">
 			<div class="form-group">
-				<label class="control-label" for="id_nombre">Nombre</label> <input
-					class="form-control" id="id_nombre" type="text" name="nombre"
-					placeholder="Ingrese Nombre" value="<%=t.getNom_trabajador()%>">
+				<label class="control-label col-sm-2" for="id_nombre">Nombre</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_nombre" type="text"
+						name="nombre" placeholder="Ingrese Nombre"
+						value="<%=t.getNom_trabajador()%>">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_apellidop">Apellido
-					Paterno</label> <input class="form-control" id="id_apellidop" type="text"
-					name="apellidop" placeholder="Ingrese Apellido Paterno" value="<%=t.getApep_trabajador()%>">
+				<label class="control-label col-sm-2" for="id_apellidop">Apellido
+					Paterno</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_apellidop" type="text"
+						name="apellidop" placeholder="Ingrese Apellido Paterno"
+						value="<%=t.getApep_trabajador()%>">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_apellidom">Apellido
-					Materno</label> <input class="form-control" id="id_apellidom" type="text"
-					name="apellidom" placeholder="Ingrese Apellido Materno" value="<%=t.getApem_trabajador()%>">
+				<label class="control-label col-sm-2" for="id_apellidom">Apellido
+					Materno</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_apellidom" type="text"
+						name="apellidom" placeholder="Ingrese Apellido Materno"
+						value="<%=t.getApem_trabajador()%>">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_dni">DNI</label> <input
-					class="form-control" id="id_dni" type="text" name="dni"
-					placeholder="Ingrese DNI" value="<%=t.getDni_trabajador()%>">
+				<label class="control-label col-sm-2" for="id_dni">DNI</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_dni" type="text" name="dni"
+						placeholder="Ingrese DNI" value="<%=t.getDni_trabajador()%>">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_email">E-mail</label> <input
-					class="form-control" id="id_email" type="text" name="email"
-					placeholder="Ingrese E-mail" value="<%=t.getEmail_trabajador()%>">
+				<label class="control-label col-sm-2" for="id_email">E-mail</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_email" type="text" name="email"
+						placeholder="Ingrese E-mail" value="<%=t.getEmail_trabajador()%>">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_telefono">Telefono</label> <input
-					class="form-control" id="id_telefono" type="text" name="telefono"
-					placeholder="Ingrese Telefono" value="<%=t.getTelefono_trabajador()%>">
+				<label class="control-label col-sm-2" for="id_telefono">Telefono</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_telefono" type="text"
+						name="telefono" placeholder="Ingrese Telefono"
+						value="<%=t.getTelefono_trabajador()%>">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_departamento">Departamento</label>
-				<input class="form-control" id="id_departamento" type="text"
-					name="departamento" placeholder="Ingrese Departamento" value="<%=t.getDepartamento_trabajador()%>">
+				<label class="control-label col-sm-2" for="id_departamento">Departamento</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_departamento" type="text"
+						name="departamento" placeholder="Ingrese Departamento"
+						value="<%=t.getDepartamento_trabajador()%>">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_provincia">Provincia</label> <input
-					class="form-control" id="id_provincia" type="text" name="provincia"
-					placeholder="Ingrese Provincia" value="<%=t.getProvincia_trabajador()%>">
+				<label class="control-label col-sm-2" for="id_provincia">Provincia</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_provincia" type="text"
+						name="provincia" placeholder="Ingrese Provincia"
+						value="<%=t.getProvincia_trabajador()%>">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_distrito">Distrito</label> <input
-					class="form-control" id="id_distrito" type="text" name="distrito"
-					placeholder="Ingrese Distrito" value="<%=t.getDistrito_trabajador()%>">
+				<label class="control-label col-sm-2" for="id_distrito">Distrito</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_distrito" type="text"
+						name="distrito" placeholder="Ingrese Distrito"
+						value="<%=t.getDistrito_trabajador()%>">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_direccion">Direccion</label> <input
-					class="form-control" id="id_direccion" type="text" name="direccion"
-					placeholder="Ingrese Direccion" value="<%=t.getDireccion_trabajador()%>">
+				<label class="control-label col-sm-2" for="id_direccion">Direccion</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_direccion" type="text"
+						name="direccion" placeholder="Ingrese Direccion"
+						value="<%=t.getDireccion_trabajador()%>">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_user">User</label> <input
-					class="form-control" id="id_user" type="text" name="user"
-					placeholder="Ingrese User" value="<%=t.getUser_trabajador()%>">
+				<label class="control-label col-sm-2" for="id_password">Password</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="id_password" type="text"
+						name="password" placeholder="Ingrese password"
+						value="<%=t.getPass_trabajador()%>">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_password">Password</label> <input
-					class="form-control" id="id_password" type="text" name="password"
-					placeholder="Ingrese password" value="<%=t.getPass_trabajador()%>">
-			</div>
-			<div class="form-group">
-				<label class="control-label" for="id_tipo">Tipo</label> <select
-					class="form-control" name="tipo" id="id_tipo">
-					<option><%=t.getTipo_trabajador()%></option>
-					<libreria:dameTipoTrabajador />
-				</select>
-			</div>
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Actualiza
-					Trabajador</button>
-			</div>
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="reset" class="btn btn-default" name="metodo"
+						value="lista">Cancelar</button>
+					<button type="submit" class="btn btn-default">Actualiza
+						Trabajador</button>
+				</div>
 
+			</div>
 		</form>
 	</div>
-
-
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#id_form').bootstrapValidator({
@@ -112,38 +134,158 @@
 					nombre : {
 						validators : {
 							notEmpty : {
-								message : 'El nombre es un campo obligatorio'
-							}
+								message : 'El Nombre es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Nombre solo puede contener letras y espacios'
+			 				}
 						}
 					},
-					apellido : {
+					apellidop : {
 						validators : {
 							notEmpty : {
-								message : 'El apellido es un campo obligatorio'
-							}
+								message : 'El Apellido Paterno es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Apellido Paterno solo puede contener letras y espacios'
+			 				}
 						}
 					},
-					edad : {
+					apellidom : {
 						validators : {
 							notEmpty : {
-								message : 'La edad es un campo obligatorio'
+								message : 'El Apellido Materno es un campo obligatorio'
 							},
-							integer : {
-								message : 'La edad es de tipo entero'
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Apellido Materno solo puede contener letras y espacios'
+			 				}
+						}
+					},
+					dni : {
+						validators : {
+							notEmpty : {
+								message : 'El DNI es un campo obligatorio'
 							},
-							between : {
-								min : 18,
-								max : 90,
-								message : 'La edad es entre 18 y 90 años'
+							identical : {
+								message : 'El DNI es un valor repetido'
+							},
+							regexp : {
+			 					regexp: /^[0-9]+$/,
+			 					message: 'El DNI solo puede contener números'
+			 				},
+			 				stringLength : {
+			 					min: 7,
+			 					max: 7,
+			 					message: 'El DNI debe contener 7 caracteres'
+			 				}
+						}
+					},
+					email : {
+						validators : {
+							notEmpty : {
+								message : 'El E-Mail es un campo obligatorio'
+							},
+							identical : {
+								message : 'La E-Mail es un valor repetido'
+							},
+							emailAddress : {
+								message : 'El E-Mail no es valido'
 							}
 						}
 					},
+					telefono : {
+						validators : {
+							notEmpty : {
+								message : 'El Teléfono es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[0-9]+$/,
+			 					message: 'El Teléfono solo puede contener números'
+			 				},
+			 				stringLength : {
+			 					min: 9,
+			 					max: 9,
+			 					message: 'El Teléfono debe contener 9 caracteres'
+			 				}
+						}
+					},
+					departamento : {
+						validators : {
+							notEmpty : {
+								message : 'El Departamento es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Departamento solo puede contener letras y espacios'
+			 				}
+						}
+					},
+					provincia : {
+						validators : {
+							notEmpty : {
+								message : 'La Provincia es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'La Provincia solo puede contener letras y espacios'
+			 				}
+						}
+					},
+					distrito : {
+						validators : {
+							notEmpty : {
+								message : 'El Distrito es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s]+$/,
+			 					message: 'El Distrito solo puede contener letras y espacios'
+			 				}
+						}
+					},
+					direccion : {
+						validators : {
+							notEmpty : {
+								message : 'La Dirección es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z\s_0-9]+$/,
+			 					message: 'La Dirección solo puede contener letras, números y espacios'
+			 				}
+						}
+					},
+					user : {
+						validators : {
+							notEmpty : {
+								message : 'El User es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z_0-9]+$/,
+			 					message: 'El User solo puede contener letras y números'
+			 				}
+						}
+					},
+					password : {
+						validators : {
+							notEmpty : {
+								message : 'El Password es un campo obligatorio'
+							},
+							regexp : {
+			 					regexp: /^[a-z_0-9]+$/,
+			 					message: 'El Password solo puede contener letras y números'
+			 				}
+						}
+					},
+					tipo : {
+						validators : {
+							notEmpty : {
+								message : 'El Tipo es un campo obligatorio'
+							}
+						}
+					}
 				}
-			});
-
-			// Validate the form manually
-			$('#validateBtn').click(function() {
-				$('#id_form').bootstrapValidator('validate');
 			});
 		});
 	</script>

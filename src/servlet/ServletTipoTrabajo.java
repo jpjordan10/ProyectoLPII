@@ -36,7 +36,18 @@ public class ServletTipoTrabajo extends HttpServlet {
 			activa(request, response);
 		} else if (metodo.equals("elimina")) {
 			elimina(request, response);
+		} else if (metodo.equals("muestra")) {
+			muestra(request, response);
 		}
+	}
+
+	private void muestra(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		TipoTrabajoService ts = new TipoTrabajoService();
+		String cod = request.getParameter("cod");
+		TipoTrabajoDTO t = ts.buscaTipoTrabajo(cod);
+		request.setAttribute("tipt", t);
+		request.getRequestDispatcher("vtiptra.jsp").forward(request, response);
 	}
 
 	private void activa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -95,9 +106,19 @@ public class ServletTipoTrabajo extends HttpServlet {
 		request.getRequestDispatcher("atiptra.jsp").forward(request, response);
 	}
 
-	private void actualiza(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-
+	private void actualiza(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String codigo = request.getParameter("codigo");
+		String descripcion = request.getParameter("descripcion");
+		TipoTrabajoService ts = new TipoTrabajoService();
+		TipoTrabajoDTO t = new TipoTrabajoDTO();
+		t.setCod_tiptrabajo(codigo);
+		t.setDes_tiptrabajo(descripcion);
+		int i = ts.actualizaTipoTrabajo(t);
+		if (i == 0) {
+			response.sendRedirect("error.jsp");
+		} else {
+			response.sendRedirect("mtiptra.jsp");
+		}
 	}
 
 }
