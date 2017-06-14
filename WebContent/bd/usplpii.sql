@@ -146,7 +146,6 @@ create procedure usp_ActualizaCliente
     P_PROVINCIA_CLIENTE		VARCHAR(20),
     P_DISTRITO_CLIENTE		VARCHAR(20),
     P_DIRECCION_CLIENTE		VARCHAR(20),
-    P_TIPO_CLIENTE			VARCHAR(20),
     P_REPRESENTANTE_CLIENTE	VARCHAR(20)
 )
 begin
@@ -160,13 +159,12 @@ SET
     PROVINCIA_CLIENTE = P_PROVINCIA_CLIENTE,
     DISTRITO_CLIENTE = P_DISTRITO_CLIENTE,
     DIRECCION_CLIENTE = P_DIRECCION_CLIENTE,
-    TIPO_CLIENTE = P_TIPO_CLIENTE,
     REPRESENTANTE_CLIENTE = P_REPRESENTANTE_CLIENTE
     WHERE COD_CLIENTE = P_COD_CLIENTE;
 end $$
 delimiter ;
 
-/*call usp_ActualizaCliente('C1000', 'Empresa x1', '12345678912', 'empresax@hotmail.com', '123456789', 'Lima', 'Lima', 'Surco', 'Una direccion x 134', 'GASAAA', 'Manuel Nuñez');*/
+/*call usp_ActualizaCliente('C1000', 'Empresa x1', '12345678912', 'empresax@hotmail.com', '123456789', 'Lima', 'Lima', 'Surco', 'Una direccion x 134', 'Manuel Nuñez');*/
 
 delimiter $$
 create procedure usp_ActualizaTipTrabajo

@@ -20,7 +20,6 @@
 		%>
 		<h1>Actualizacion de Trabajador</h1>
 		<form class="form-horizontal" action="trabajador" id="id_form">
-			
 			<input type="hidden" name="metodo" value="actualiza">
 			<input type="hidden" name="codigo" value="<%=t.getCod_trabajador()%>">
 			<div class="form-group">

@@ -37,7 +37,17 @@ public class ServletCliente extends HttpServlet {
 			activa(request, response);
 		} else if (metodo.equals("elimina")) {
 			elimina(request, response);
+		} else if (metodo.equals("muestra")) {
+			muestra(request, response);
 		}
+	}
+
+	private void muestra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ClienteService cs = new ClienteService();
+		String cod = request.getParameter("cod");
+		ClienteDTO c = cs.buscaCliente(cod);
+		request.setAttribute("cli", c);
+		request.getRequestDispatcher("vcliente.jsp").forward(request, response);
 	}
 
 	private void activa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -115,9 +125,35 @@ public class ServletCliente extends HttpServlet {
 		request.getRequestDispatcher("acliente.jsp").forward(request, response);
 	}
 
-	private void actualiza(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-
+	private void actualiza(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String codigo = request.getParameter("codigo");
+		String razon = request.getParameter("razon");
+		String ruc = request.getParameter("ruc");
+		String email = request.getParameter("email");
+		String telefono = request.getParameter("telefono");
+		String departamento = request.getParameter("departamento");
+		String provincia = request.getParameter("provincia");
+		String distrito = request.getParameter("distrito");
+		String direccion = request.getParameter("direccion");
+		String representante = request.getParameter("representante");
+		ClienteService cs = new ClienteService();
+		ClienteDTO c = new ClienteDTO();
+		c.setCod_cliente(codigo);
+		c.setRazsoc_cliente(razon);
+		c.setRuc_cliente(ruc);
+		c.setEmail_cliente(email);
+		c.setTelefono_cliente(telefono);
+		c.setDepartamento_cliente(departamento);
+		c.setProvincia_cliente(provincia);
+		c.setDistrito_cliente(distrito);
+		c.setDireccion_cliente(direccion);
+		c.setRepresentante_cliente(representante);
+		int i = cs.actualizaCliente(c);
+		if (i == 0) {
+			response.sendRedirect("error.jsp");
+		} else {
+			response.sendRedirect("mcliente.jsp");
+		}
 	}
 
 }

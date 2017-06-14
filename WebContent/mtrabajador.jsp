@@ -37,6 +37,7 @@
 				<th></th>
 				<th></th>
 				<th></th>
+				<th></th>
 			</tr>
 			<%
 				ArrayList<TrabajadorDTO> lista = (ArrayList<TrabajadorDTO>) request.getAttribute("data");

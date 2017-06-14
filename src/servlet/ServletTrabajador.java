@@ -33,13 +33,13 @@ public class ServletTrabajador extends HttpServlet {
 			activa(request, response);
 		} else if (metodo.equals("elimina")) {
 			elimina(request, response);
-		}
-		else if (metodo.equals("muestra")) {
+		} else if (metodo.equals("muestra")) {
 			muestra(request, response);
 		}
 	}
 
-	private void muestra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void muestra(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		TrabajadorService ts = new TrabajadorService();
 		String cod = request.getParameter("cod");
 		TrabajadorDTO t = ts.buscaTrabajador(cod);
@@ -154,7 +154,7 @@ public class ServletTrabajador extends HttpServlet {
 			response.sendRedirect("error.jsp");
 		} else {
 			response.sendRedirect("mtrabajador.jsp");
-			
+
 		}
 	}
 
