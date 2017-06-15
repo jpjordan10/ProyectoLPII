@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.TrabajadorDTO;
 import service.TrabajadorService;
@@ -15,6 +16,7 @@ import service.TrabajadorService;
 @WebServlet("/trabajador")
 public class ServletTrabajador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	TrabajadorService ts = new TrabajadorService();
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -35,6 +37,48 @@ public class ServletTrabajador extends HttpServlet {
 			elimina(request, response);
 		} else if (metodo.equals("muestra")) {
 			muestra(request, response);
+		} else if (metodo.equals("sesion")) {
+			iniciarSesion(request, response);
+		} else if (metodo.equals("cerrarSesion")) {
+			cerrarSesion(request, response);
+		}
+	}
+
+	private void cerrarSesion(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession sesion = request.getSession();
+		sesion.invalidate();
+		request.setAttribute("msg", "Iniciar sesion");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+	}
+
+	private void iniciarSesion(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String user_trabajador = request.getParameter("username");
+		String pass_trabajador = request.getParameter("password");
+
+		TrabajadorDTO obj = ts.iniciarSesion(user_trabajador);
+		if (obj != null) {
+			if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("GESTOR ARQUEOLOGO")) {
+				HttpSession sesion = request.getSession();
+				sesion.setAttribute("datos", obj);
+				request.getRequestDispatcher("mgestor.jsp").forward(request, response);
+			} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("OBRERO")) {
+				HttpSession sesion = request.getSession();
+				sesion.setAttribute("datos", obj);
+				request.getRequestDispatcher("mobrero.jsp").forward(request, response);
+			} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("ARQUEOLOGO")) {
+				HttpSession sesion = request.getSession();
+				sesion.setAttribute("datos", obj);
+				request.getRequestDispatcher("marqueologo.jsp").forward(request, response);
+			} else {
+				request.setAttribute("msg", "pass incorrecta o inactivo");
+				request.getRequestDispatcher("login.jsp").forward(request, response);
+			}
+
+		} else {
+			request.setAttribute("msg", "Usuario no existe o el usuario esta inactivo");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 

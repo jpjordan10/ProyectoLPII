@@ -20,4 +20,6 @@ public interface TrabajadorDAO {
 	public int activaTrabajador(String cod_trabajador);
 
 	public int eliminaTrabajador(String cod_trabajador);
+
+	public TrabajadorDTO iniciarSesion(String user_trabajador);
 }

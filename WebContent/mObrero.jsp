@@ -1,69 +1,42 @@
-<!DOCTYPE>
-<%@page import="beans.ProyectoDTO"%>
-<%@page import="beans.TrabajadorDTO"%>
-<%@page import="beans.TipoTrabajoDTO"%>
-<html>
+<!DOCTYPE html>
+<html lang="esS">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Menu Obrero</title>
-</head>
-
-<style>
-.btn {
-    border: center;
-    color: white;
-    padding: 14px 15px 15px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-
-
-.warning {background-color: #5882FA;} 
-.warning:hover {background: #5882FA;}
-
-.danger {background-color: #5882FA;}  
-.danger:hover {background: #5882FA;}
-
-.default {background-color: #5882FA; color: black;}  
-.default:hover {background: #5882FA;}
-</style>
-
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=10, maximum-scale=100, user-scalable=no">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/bootstrapValidator.css">
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrapValidator.js"></script>
 </head>
 <body>
-
-
-<div class="container">
-		<h1>MENÚ OBRERO</h1>
-		
-		<h1>-------------------------------------------------------------</h1>
-
-
-<button class="btn warning" href="mtrabajador.jsp">Proyectos en los que participas</button>
-<button class="btn danger" href="mtrabajador.jsp">Proyecto participados</button>
-
-
-</div>
-
-	
+	<div class="container">
+		<h1>Menu Obrero</h1>
+		<hr>
+		<a class="btn btn-primary" href="#">Proyectos Actuales</a>
+		<a class="btn btn-primary" href="#">Proyectos Participados</a>
+		<hr>
+	</div>
 	<br>
 	<br>
 	<div class="container">
 		<table class="table">
-
 			<tr>
 				<th>Nro Proyecto</th>
 				<th>Localidad</th>
 				<th>Fecha de Inicio</th>
 				<th>Fecha Final</th>
-				<th>Estado</th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
+				<th>Estado de Proyecto</th>
 			</tr>
-			</table>
-			</div>
-
+			<tr class="grilla_campo">
+				<td>Dato estatico</td>
+				<td>Dato estatico</td>
+				<td>Dato estatico</td>
+				<td>Dato estatico</td>
+				<td>Dato estatico</td>
+		</table>
+	</div>
 </body>
 </html>

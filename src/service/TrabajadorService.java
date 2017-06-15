@@ -41,4 +41,7 @@ public class TrabajadorService {
 	public int eliminaTrabajador(String cod_trabajador) {
 		return dao.eliminaTrabajador(cod_trabajador);
 	}
+	public TrabajadorDTO iniciarSesion(String user_trabajador){
+		return dao.iniciarSesion(user_trabajador);
+	}
 }

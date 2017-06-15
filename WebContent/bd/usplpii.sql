@@ -57,6 +57,7 @@ delimiter ;
 
 call usp_InsertaTrabajador('T1000', 'Jean Pierre', 'Jordan', 'Solis', '73755436', 'jeanpierrejordan@outlook.com', '962571835', 'Lima', 'Lima', 'Los Olivos', 'Psj Fobos 141 Urb Mercurio', 'jotape', 'jotape123', 'GESTOR ARQUEOLOGO', 'ACTIVO', CURDATE());
 call usp_InsertaTrabajador('T1001', 'Juan', 'Lopez', 'Baldeon', '78964752', 'juanlopez@outlook.com', '968947146', 'Lima', 'Lima', 'SMP', 'Psj Diamante148', 'juanjo', 'juan1345', 'ARQUEOLOGO', 'ACTIVO', CURDATE());
+call usp_InsertaTrabajador('T1002', 'Brandon', 'Lopez', 'Baldeon', '78964752', 'juanlopez@outlook.com', '968947146', 'Lima', 'Lima', 'SMP', 'Psj Diamante148', 'bran', '123456', 'OBRERO', 'ACTIVO', CURDATE());
 
 delimiter $$
 create procedure usp_InsertaCliente

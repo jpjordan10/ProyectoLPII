@@ -251,7 +251,7 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 		}
 		return "T" + num;
 	}
-	
+
 	@Override
 	public int activaTrabajador(String cod_trabajador) {
 		int valor = -1;
@@ -304,5 +304,51 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 			}
 		}
 		return valor;
+	}
+
+	@Override
+	public TrabajadorDTO iniciarSesion(String user_trabajador) {
+		TrabajadorDTO tr = null;
+		Connection cn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "select * from TRABAJADOR where user_trabajador = ?";
+			pstm = cn.prepareStatement(sql);
+			pstm.setString(1, user_trabajador);
+			rs = pstm.executeQuery();
+			if (rs.next()) {
+				tr = new TrabajadorDTO();
+				tr.setCod_trabajador(rs.getString(1));
+				tr.setNom_trabajador(rs.getString(2));
+				tr.setApep_trabajador(rs.getString(3));
+				tr.setApem_trabajador(rs.getString(4));
+				tr.setDni_trabajador(rs.getString(5));
+				tr.setEmail_trabajador(rs.getString(6));
+				tr.setTelefono_trabajador(rs.getString(7));
+				tr.setDepartamento_trabajador(rs.getString(8));
+				tr.setProvincia_trabajador(rs.getString(9));
+				tr.setDistrito_trabajador(rs.getString(10));
+				tr.setDireccion_trabajador(rs.getString(11));
+				tr.setUser_trabajador(rs.getString(12));
+				tr.setPass_trabajador(rs.getString(13));
+				tr.setTipo_trabajador(rs.getString(14));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstm != null)
+					pstm.close();
+				if (cn != null)
+					cn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return tr;
 	}
 }
