@@ -314,7 +314,7 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 		ResultSet rs = null;
 		try {
 			cn = MySQLConexion.getConexion();
-			String sql = "select * from TRABAJADOR where user_trabajador = ?";
+			String sql = "select * from TRABAJADOR where cod_trabajador = ?";
 			pstm = cn.prepareStatement(sql);
 			pstm.setString(1, user_trabajador);
 			rs = pstm.executeQuery();
