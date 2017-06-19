@@ -28,8 +28,9 @@ public class MySQLTipoTrabajoDAO implements TipoTrabajoDAO {
 				obj = new TipoTrabajoDTO();
 				obj.setCod_tiptrabajo(rs.getString(1));
 				obj.setDes_tiptrabajo(rs.getString(2));
-				obj.setEstado_tiptrabajo(rs.getString(3));
-				obj.setFecha_reg_tiptrabajo(rs.getString(4));
+				obj.setFecha_reg_tiptrabajo(rs.getString(3));
+				obj.setEstado_tiptrabajo(rs.getString(4));
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -60,8 +61,8 @@ public class MySQLTipoTrabajoDAO implements TipoTrabajoDAO {
 				TipoTrabajoDTO t = new TipoTrabajoDTO();
 				t.setCod_tiptrabajo(rs.getString(1));
 				t.setDes_tiptrabajo(rs.getString(2));
-				t.setEstado_tiptrabajo(rs.getString(3));
-				t.setFecha_reg_tiptrabajo(rs.getString(4));
+				t.setFecha_reg_tiptrabajo(rs.getString(3));
+				t.setEstado_tiptrabajo(rs.getString(4));
 				lista.add(t);
 			}
 		} catch (Exception e) {
@@ -88,10 +89,11 @@ public class MySQLTipoTrabajoDAO implements TipoTrabajoDAO {
 		CallableStatement cs = null;
 		try {
 			cn = MySQLConexion.getConexion();
-			String sql = "{call usp_InsertaTipoTrabajo(?, ?, 'ACTIVO',curdate())}";
+			String sql = "{call usp_InsertaTipoTrabajo(?, ?, ?,'ACTIVO')}";
 			cs = cn.prepareCall(sql);
 			cs.setString(1, generarCodigoTipoTrabajo());
 			cs.setString(2, t.getDes_tiptrabajo());
+			cs.setString(3, t.getFecha_reg_tiptrabajo());
 			valor = cs.executeUpdate();
 
 		} catch (Exception e) {

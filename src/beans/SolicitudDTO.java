@@ -2,11 +2,10 @@ package beans;
 
 public class SolicitudDTO {
 	private String num_solicitud;
-	private String fecha_reg_solicitud;
 	private String permisos_solicitud;
 	private String estado_solicitud;
+	private String fecha_reg_solicitud;
 	private String fecha_act_solicitud;
-	private String cod_trabajador;
 	private String cod_cliente;
 
 	public String getNum_solicitud() {
@@ -15,14 +14,6 @@ public class SolicitudDTO {
 
 	public void setNum_solicitud(String num_solicitud) {
 		this.num_solicitud = num_solicitud;
-	}
-
-	public String getFecha_reg_solicitud() {
-		return fecha_reg_solicitud;
-	}
-
-	public void setFecha_reg_solicitud(String fecha_reg_solicitud) {
-		this.fecha_reg_solicitud = fecha_reg_solicitud;
 	}
 
 	public String getPermisos_solicitud() {
@@ -41,20 +32,20 @@ public class SolicitudDTO {
 		this.estado_solicitud = estado_solicitud;
 	}
 
+	public String getFecha_reg_solicitud() {
+		return fecha_reg_solicitud;
+	}
+
+	public void setFecha_reg_solicitud(String fecha_reg_solicitud) {
+		this.fecha_reg_solicitud = fecha_reg_solicitud;
+	}
+
 	public String getFecha_act_solicitud() {
 		return fecha_act_solicitud;
 	}
 
 	public void setFecha_act_solicitud(String fecha_act_solicitud) {
 		this.fecha_act_solicitud = fecha_act_solicitud;
-	}
-
-	public String getCod_trabajador() {
-		return cod_trabajador;
-	}
-
-	public void setCod_trabajador(String cod_trabajador) {
-		this.cod_trabajador = cod_trabajador;
 	}
 
 	public String getCod_cliente() {

@@ -84,8 +84,8 @@
 						<div class="text">Mantenimientos</div>
 				</button>
 				<div class="dropdown-content">
-					<a href="mcliente.jsp">Clientes</a> <a href="mtrabajador.jsp">Trabajadores</a>
-					<a href="mtiptra.jsp">Tipos de Trabajo</a>
+					<a href="cliente?metodo=lista">Clientes</a> <a href="trabajador?metodo=lista">Trabajadores</a>
+					<a href="tt?metodo=lista">Tipos de Trabajo</a>
 				</div>
 			</div>
 			<div class="col-md-3">

@@ -15,4 +15,10 @@
 		<bodycontent>empty</bodycontent>
 		<info>Devuelve tipo de cliente</info>
 	</tag>
+	<tag>
+		<name>dameFecha</name>
+		<tagclass>etiquetas.FechaTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Devuelve la fecha del sistema</info>
+	</tag>
 </taglib>

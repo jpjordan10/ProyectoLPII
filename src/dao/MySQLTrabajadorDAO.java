@@ -38,11 +38,10 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 				t.setProvincia_trabajador(rs.getString(9));
 				t.setDistrito_trabajador(rs.getString(10));
 				t.setDireccion_trabajador(rs.getString(11));
-				t.setUser_trabajador(rs.getString(12));
-				t.setPass_trabajador(rs.getString(13));
-				t.setTipo_trabajador(rs.getString(14));
+				t.setPass_trabajador(rs.getString(12));
+				t.setTipo_trabajador(rs.getString(13));
+				t.setFecha_reg_trabajador(rs.getString(14));
 				t.setEstado_trabajador(rs.getString(15));
-				t.setFecha_reg_trabajador(rs.getString(16));
 			}
 		} catch (Exception e) {
 			System.out.println("Error en la sentencia");
@@ -85,11 +84,10 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 				t.setProvincia_trabajador(rs.getString(9));
 				t.setDistrito_trabajador(rs.getString(10));
 				t.setDireccion_trabajador(rs.getString(11));
-				t.setUser_trabajador(rs.getString(12));
-				t.setPass_trabajador(rs.getString(13));
-				t.setTipo_trabajador(rs.getString(14));
+				t.setPass_trabajador(rs.getString(12));
+				t.setTipo_trabajador(rs.getString(13));
+				t.setFecha_reg_trabajador(rs.getString(14));
 				t.setEstado_trabajador(rs.getString(15));
-				t.setFecha_reg_trabajador(rs.getString(16));
 				lista.add(t);
 			}
 		} catch (Exception e) {
@@ -116,7 +114,7 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 		CallableStatement cs = null;
 		try {
 			cn = MySQLConexion.getConexion();
-			String sql = "{call usp_InsertaTrabajador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'ACTIVO', CURDATE())}";
+			String sql = "{call usp_InsertaTrabajador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'ACTIVO')}";
 			cs = cn.prepareCall(sql);
 			cs.setString(1, generarCodigoTrabajador());
 			cs.setString(2, t.getNom_trabajador());
@@ -129,9 +127,9 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 			cs.setString(9, t.getProvincia_trabajador());
 			cs.setString(10, t.getDistrito_trabajador());
 			cs.setString(11, t.getDireccion_trabajador());
-			cs.setString(12, t.getUser_trabajador());
-			cs.setString(13, t.getPass_trabajador());
-			cs.setString(14, t.getTipo_trabajador());
+			cs.setString(12, t.getPass_trabajador());
+			cs.setString(13, t.getTipo_trabajador());
+			cs.setString(14, t.getFecha_reg_trabajador());
 			valor = cs.executeUpdate();
 
 		} catch (Exception e) {
@@ -331,9 +329,10 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 				tr.setProvincia_trabajador(rs.getString(9));
 				tr.setDistrito_trabajador(rs.getString(10));
 				tr.setDireccion_trabajador(rs.getString(11));
-				tr.setUser_trabajador(rs.getString(12));
-				tr.setPass_trabajador(rs.getString(13));
-				tr.setTipo_trabajador(rs.getString(14));
+				tr.setPass_trabajador(rs.getString(12));
+				tr.setTipo_trabajador(rs.getString(13));
+				tr.setFecha_reg_trabajador(rs.getString(14));
+				tr.setEstado_trabajador(rs.getString(15));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

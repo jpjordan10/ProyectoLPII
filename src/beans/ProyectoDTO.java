@@ -4,6 +4,10 @@ public class ProyectoDTO {
 	private String num_proyecto;
 	private String fecha_reg_proyecto;
 	private String fecha_act_proyecto;
+	private String departamento_proyecto;
+	private String provincia_proyecto;
+	private String distrito_proyecto;
+	private String direccion_proyecto;
 	private String etapa_proyecto;
 	private double costo_proyecto;
 	private double monto_total_proyecto;
@@ -34,6 +38,38 @@ public class ProyectoDTO {
 
 	public void setFecha_act_proyecto(String fecha_act_proyecto) {
 		this.fecha_act_proyecto = fecha_act_proyecto;
+	}
+
+	public String getDepartamento_proyecto() {
+		return departamento_proyecto;
+	}
+
+	public void setDepartamento_proyecto(String departamento_proyecto) {
+		this.departamento_proyecto = departamento_proyecto;
+	}
+
+	public String getProvincia_proyecto() {
+		return provincia_proyecto;
+	}
+
+	public void setProvincia_proyecto(String provincia_proyecto) {
+		this.provincia_proyecto = provincia_proyecto;
+	}
+
+	public String getDistrito_proyecto() {
+		return distrito_proyecto;
+	}
+
+	public void setDistrito_proyecto(String distrito_proyecto) {
+		this.distrito_proyecto = distrito_proyecto;
+	}
+
+	public String getDireccion_proyecto() {
+		return direccion_proyecto;
+	}
+
+	public void setDireccion_proyecto(String direccion_proyecto) {
+		this.direccion_proyecto = direccion_proyecto;
 	}
 
 	public String getEtapa_proyecto() {

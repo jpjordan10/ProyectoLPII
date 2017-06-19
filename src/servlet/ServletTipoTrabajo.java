@@ -75,10 +75,12 @@ public class ServletTipoTrabajo extends HttpServlet {
 
 	private void registra(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String descripcion = request.getParameter("descripcion");
+		String fecha = request.getParameter("fecha");
 		TipoTrabajoService ts = new TipoTrabajoService();
 		TipoTrabajoDTO t = new TipoTrabajoDTO();
 
 		t.setDes_tiptrabajo(descripcion);
+		t.setFecha_reg_tiptrabajo(fecha);
 
 		int i = ts.registraTipoTrabajo(t);
 		if (i == 0) {

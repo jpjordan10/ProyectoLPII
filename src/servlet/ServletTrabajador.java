@@ -59,15 +59,15 @@ public class ServletTrabajador extends HttpServlet {
 
 		TrabajadorDTO obj = ts.iniciarSesion(user_trabajador);
 		if (obj != null) {
-			if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("GESTOR ARQUEOLOGO")) {
+			if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("GESTOR ARQUEOLOGO") && obj.getEstado_trabajador().equals("ACTIVO")) {
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("datos", obj);
 				request.getRequestDispatcher("mgestor.jsp").forward(request, response);
-			} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("OBRERO")) {
+			} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("OBRERO") && obj.getEstado_trabajador().equals("ACTIVO")) {
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("datos", obj);
 				request.getRequestDispatcher("mobrero.jsp").forward(request, response);
-			} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("ARQUEOLOGO")) {
+			} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("ARQUEOLOGO") && obj.getEstado_trabajador().equals("ACTIVO")) {
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("datos", obj);
 				request.getRequestDispatcher("marqueologo.jsp").forward(request, response);
@@ -172,10 +172,9 @@ public class ServletTrabajador extends HttpServlet {
 		String provincia = request.getParameter("provincia");
 		String distrito = request.getParameter("distrito");
 		String direccion = request.getParameter("direccion");
-		String user = request.getParameter("user");
 		String password = request.getParameter("password");
 		String tipo = request.getParameter("tipo");
-
+		String fecha = request.getParameter("fecha");
 		TrabajadorService ts = new TrabajadorService();
 		TrabajadorDTO t = new TrabajadorDTO();
 
@@ -189,9 +188,9 @@ public class ServletTrabajador extends HttpServlet {
 		t.setProvincia_trabajador(provincia);
 		t.setDistrito_trabajador(distrito);
 		t.setDireccion_trabajador(direccion);
-		t.setUser_trabajador(user);
 		t.setPass_trabajador(password);
 		t.setTipo_trabajador(tipo);
+		t.setFecha_reg_trabajador(fecha);
 
 		int i = ts.registraTrabajador(t);
 		if (i == 0) {

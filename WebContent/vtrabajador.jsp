@@ -103,13 +103,6 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="id_user">User:</label>
-				<div class="col-sm-10">
-					<input class="form-control" id="id_user" type="text"
-						name="user" value="<%=t.getUser_trabajador()%>" disabled>
-				</div>
-			</div>
-			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_password">Password:</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="id_password" type="text"

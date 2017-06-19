@@ -38,8 +38,9 @@ public class MySQLClienteDAO implements ClienteDAO {
 				c.setDireccion_cliente(rs.getString(9));
 				c.setTipo_cliente(rs.getString(10));
 				c.setRepresentante_cliente(rs.getString(11));
-				c.setEstado_cliente(rs.getString(12));
-				c.setFecha_reg_cliente(rs.getString(13));
+				c.setFecha_reg_cliente(rs.getString(12));
+				c.setEstado_cliente(rs.getString(13));
+				
 			}
 		} catch (Exception e) {
 			System.out.println("Error en la sentencia");
@@ -82,8 +83,8 @@ public class MySQLClienteDAO implements ClienteDAO {
 				c.setDireccion_cliente(rs.getString(9));
 				c.setTipo_cliente(rs.getString(10));
 				c.setRepresentante_cliente(rs.getString(11));
-				c.setEstado_cliente(rs.getString(12));
-				c.setFecha_reg_cliente(rs.getString(13));
+				c.setFecha_reg_cliente(rs.getString(12));
+				c.setEstado_cliente(rs.getString(13));
 				lista.add(c);
 			}
 		} catch (Exception e) {
@@ -110,7 +111,7 @@ public class MySQLClienteDAO implements ClienteDAO {
 		CallableStatement cs = null;
 		try {
 			cn = MySQLConexion.getConexion();
-			String sql = "{call usp_InsertaCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'ACTIVO',curdate())}";
+			String sql = "{call usp_InsertaCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'ACTIVO')}";
 			cs = cn.prepareCall(sql);
 			cs.setString(1, generarCodigoCliente());
 			cs.setString(2, c.getRazsoc_cliente());
@@ -123,6 +124,7 @@ public class MySQLClienteDAO implements ClienteDAO {
 			cs.setString(9, c.getDireccion_cliente());
 			cs.setString(10, c.getTipo_cliente());
 			cs.setString(11, c.getRepresentante_cliente());
+			cs.setString(12, c.getFecha_reg_cliente());
 			valor = cs.executeUpdate();
 
 		} catch (Exception e) {

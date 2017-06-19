@@ -1,3 +1,4 @@
+<%@ taglib uri="WEB-INF/libreria.tld" prefix="libreria"%>
 <!DOCTYPE html>
 <html lang="esS">
 <head>
@@ -92,6 +93,12 @@
 				<div class="col-sm-10">
 					<input class="form-control" id="id_representante" type="text"
 						name="representante" placeholder="Ingrese Representante">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-10">
+					<input type="hidden" class="form-control" id="id_fecha" name="fecha"
+						value="<libreria:dameFecha/>">
 				</div>
 			</div>
 			<div class="form-group">

@@ -84,6 +84,7 @@ public class ServletCliente extends HttpServlet {
 		String distrito = request.getParameter("distrito");
 		String direccion = request.getParameter("direccion");
 		String tipo = request.getParameter("tipo");
+		String fecha = request.getParameter("fecha");
 		String representante = request.getParameter("representante");
 
 		ClienteService cs = new ClienteService();
@@ -99,6 +100,7 @@ public class ServletCliente extends HttpServlet {
 		c.setDireccion_cliente(direccion);
 		c.setTipo_cliente(tipo);
 		c.setRepresentante_cliente(representante);
+		c.setFecha_reg_cliente(fecha);
 
 		int i = cs.registraCliente(c);
 		if (i == 0) {
