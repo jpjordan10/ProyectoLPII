@@ -39,10 +39,21 @@ public class ServletCliente extends HttpServlet {
 			elimina(request, response);
 		} else if (metodo.equals("muestra")) {
 			muestra(request, response);
+		}else if (metodo.equals("listaclientemodal")) {
+			listaclientemodal(request, response);
 		}
+		
 	}
 
-	private void muestra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void listaclientemodal(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ClienteService ts = new ClienteService();
+		ArrayList<ClienteDTO> lista = ts.listaCliente();
+		request.setAttribute("data", lista);
+		request.getRequestDispatcher("gsolicitud.jsp#buscarCliente").forward(request, response);
+	}
+
+	private void muestra(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		ClienteService cs = new ClienteService();
 		String cod = request.getParameter("cod");
 		ClienteDTO c = cs.buscaCliente(cod);

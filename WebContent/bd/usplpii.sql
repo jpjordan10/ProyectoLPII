@@ -55,7 +55,7 @@ insert into TRABAJADOR values (P_COD_TRABAJADOR, P_NOM_TRABAJADOR, P_APEP_TRABAJ
 end $$
 delimiter ;
 
-call usp_InsertaTrabajador('T1000', 'Jean Pierre', 'Jordan', 'Solis', '73755436', 'jeanpierrejordan@outlook.com', '962571835', 'Lima', 'Lima', 'Los Olivos', 'Psj Fobos 141 Urb Mercurio', 'jotape123', 'GESTOR ARQUEOLOGO', '18-06-2017', 'ACTIVO');
+call usp_InsertaTrabajador('T1000', 'Jean Pierre', 'Jordan', 'Solis', '73755436', 'jeanpierrejordan@outlook.com', '962571835', 'Lima', 'Lima', 'Los Olivos', 'Psj Fobos 141 Urb Mercurio', '123', 'GESTOR ARQUEOLOGO', '18-06-2017', 'ACTIVO');
 call usp_InsertaTrabajador('T1001', 'Adrian Rodrigo', 'Cubas', 'Cardenas', '78954625', 'rodrigocardenas@outlook.com', '984657185', 'Lima', 'Lima', 'San Miguel', 'Jiron Cascada 135', '123', 'ARQUEOLOGO', '18-06-2017', 'ACTIVO');
 call usp_InsertaTrabajador('T1002', 'Oliver Aaron', 'Diaz', 'Tello', '09645781', 'aarontello@outlook.com', '909074658', 'Lima', 'Lima', 'Miraflores', 'Calle A mz 134', '123', 'OBRERO', '18-06-2017', 'ACTIVO');
 call usp_InsertaTrabajador('T1003', 'Gustavo Romario', 'Romero', 'Cordova', '45614795', 'romarioromero@outlook.com', '966024710', 'Lima', 'Lima', 'Miraflores', 'Calle 306 Las Manzanas', '123', 'OBRERO', '18-06-2017', 'ACTIVO');

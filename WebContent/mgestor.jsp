@@ -96,7 +96,7 @@
 					</div>
 				</button>
 				<div class="dropdown-content">
-					<a href="#">Menu de Solicitudes</a> <a href="#">Registrar
+					<a href="#">Menu de Solicitudes</a> <a href="gsolicitud.jsp">Registrar
 						Solicitud</a>
 				</div>
 			</div>

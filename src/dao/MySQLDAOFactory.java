@@ -1,6 +1,7 @@
 package dao;
 
 import interfaces.ClienteDAO;
+import interfaces.SolicitudDAO;
 import interfaces.TipoTrabajoDAO;
 import interfaces.TrabajadorDAO;
 
@@ -19,6 +20,11 @@ public class MySQLDAOFactory extends DAOFactory {
 	@Override
 	public TipoTrabajoDAO getTipoTrabajoDAO() {
 		return new MySQLTipoTrabajoDAO();
+	}
+
+	@Override
+	public SolicitudDAO getSolicitudDAO() {
+		return new MySQLSolicitudDAO();
 	}
 
 }
