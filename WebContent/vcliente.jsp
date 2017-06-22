@@ -20,7 +20,6 @@
 		%>
 		<h1>Actualizacion de Cliente</h1>
 		<form class="form-horizontal" action="cliente" id="id_form">
-			<input type="hidden" name="metodo" value="actualiza">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_codigo">Código:</label>
 				<div class="col-sm-10">
@@ -118,8 +117,6 @@
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="reset" class="btn btn-default" name="metodo"
 						value="lista">Cancelar</button>
-					<button type="submit" class="btn btn-default">Actualiza
-						Cliente</button>
 				</div>
 			</div>
 		</form>

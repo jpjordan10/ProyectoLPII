@@ -358,19 +358,17 @@ create procedure usp_ActualizaSolicitud
 (
 	P_NUM_SOLICITUD			CHAR(8) ,
     P_PERMISOS_SOLICITUD	VARCHAR(20),
-    P_ESTADO_SOLICITUD		VARCHAR(10),
     P_FECHA_ACT_SOLICITUD	VARCHAR(10)
 )
 begin
 	UPDATE SOLICITUD
     SET PERMISOS_SOLICITUD = P_PERMISOS_SOLICITUD,
-		ESTADO_SOLICITUD = P_ESTADO_SOLICITUD,
         FECHA_ACT_SOLICITUD = P_FECHA_ACT_SOLICITUD
     WHERE NUM_SOLICITUD = P_NUM_SOLICITUD;
 end $$
 delimiter ;
 
-call usp_ActualizaSolicitud ('S1000000', 'CONCEDIDOS', 'ATENDIDA', '19-06-2017');
+call usp_ActualizaSolicitud ('S1000000', 'CONCEDIDOS', '19-06-2017');
 
 /*Listar Solicitud*/
 delimiter $$
@@ -382,6 +380,17 @@ end $$
 delimiter ;
 
 call usp_ListarSolicitud();
+
+delimiter $$
+create procedure usp_ListarBusquedaSolicitud(num char(8))
+begin
+	SELECT S.NUM_SOLICITUD, S.PERMISOS_SOLICITUD, S.ESTADO_SOLICITUD, S.FECHA_REG_SOLICITUD, S.FECHA_ACT_SOLICITUD, C.COD_CLIENTE, C.RUC_CLIENTE, C.RAZSOC_CLIENTE, C.REPRESENTANTE_CLIENTE, C.TIPO_CLIENTE FROM SOLICITUD S INNER JOIN CLIENTE C 
+	ON C.COD_CLIENTE = S.COD_CLIENTE
+    WHERE S.NUM_SOLICITUD = num;
+end $$
+delimiter ;
+
+call usp_ListarBusquedaSolicitud('S1000000');
 
 /*Registro de Proyectos*/
 delimiter $$

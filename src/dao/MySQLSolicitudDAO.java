@@ -4,7 +4,8 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
+import java.util.ArrayList;
+import beans.Reporte;
 import beans.SolicitudDTO;
 import interfaces.SolicitudDAO;
 import utils.MySQLConexion;
@@ -79,6 +80,88 @@ public class MySQLSolicitudDAO implements SolicitudDAO {
 			}
 		}
 		return "S" + num;
+	}
+
+	@Override
+	public ArrayList<Reporte> listaSolicitud() {
+		ArrayList<Reporte> lista = new ArrayList<Reporte>();
+		ResultSet rs = null;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ListarSolicitud()}";
+			cs = cn.prepareCall(sql);
+			rs = cs.executeQuery();
+			while (rs.next()) {
+				Reporte x = new Reporte();
+				x.setNum_solicitud(rs.getString(1));
+				x.setRuc_cliente(rs.getString(2));
+				x.setRazsoc_cliente(rs.getString(3));
+				x.setRepresentante_cliente(rs.getString(4));
+				x.setPermisos_solicitud(rs.getString(5));
+				x.setEstado_solicitud(rs.getString(6));
+				x.setFecha_reg_solicitud(rs.getString(7));
+				x.setFecha_act_solicitud(rs.getString(8));
+				lista.add(x);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (rs != null)
+					rs.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return lista;
+	}
+
+	@Override
+	public Reporte buscaSolicitud(String num) {
+		Reporte x = null;
+		Connection cn = null;
+		CallableStatement cs = null;
+		ResultSet rs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ListarBusquedaSolicitud(?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, num);
+			rs = cs.executeQuery();
+			if (rs.next()) {
+				x = new Reporte();
+				x.setNum_solicitud(rs.getString(1));
+				x.setPermisos_solicitud(rs.getString(2));
+				x.setEstado_solicitud(rs.getString(3));
+				x.setFecha_reg_solicitud(rs.getString(4));
+				x.setFecha_act_solicitud(rs.getString(5));
+				x.setCod_cliente(rs.getString(6));
+				x.setRuc_cliente(rs.getString(7));
+				x.setRazsoc_cliente(rs.getString(8));
+				x.setRepresentante_cliente(rs.getString(9));
+				x.setTipo_cliente(rs.getString(10));
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (cs != null)
+					cs.close();
+				if (cn != null)
+					cn.close();
+			} catch (Exception e2) {
+				System.out.println("Error en cerrar");
+			}
+		}
+		return x;
 	}
 
 }

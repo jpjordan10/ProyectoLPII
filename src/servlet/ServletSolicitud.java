@@ -1,11 +1,15 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import beans.Reporte;
 import beans.SolicitudDTO;
 import service.SolicitudService;
 
@@ -34,6 +38,10 @@ public class ServletSolicitud extends HttpServlet {
 	}
 
 	private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		SolicitudService sc = new SolicitudService();
+		ArrayList<Reporte> lista = sc.listaSolicitud();
+		request.setAttribute("data", lista);
+		request.getRequestDispatcher("msolicitud.jsp").forward(request, response);
 	}
 
 	private void registra(HttpServletRequest request, HttpServletResponse response)
@@ -69,6 +77,11 @@ public class ServletSolicitud extends HttpServlet {
 
 	private void muestra(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		SolicitudService sc = new SolicitudService();
+		String num = request.getParameter("num");
+		Reporte x = sc.buscaSolicitud(num);
+		request.setAttribute("sol", x);
+		request.getRequestDispatcher("vsolicitud.jsp").forward(request, response);
 	}
 
 }
