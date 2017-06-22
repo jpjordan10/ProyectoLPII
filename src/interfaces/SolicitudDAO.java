@@ -13,4 +13,8 @@ public interface SolicitudDAO {
 	public ArrayList<Reporte> listaSolicitud();
 	
 	public Reporte buscaSolicitud(String num);
+	
+	public int concederPermisos(SolicitudDTO x);
+	
+	public int concederPermisos1(String num, String fc);
 }

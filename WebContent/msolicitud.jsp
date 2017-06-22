@@ -1,3 +1,4 @@
+<%@ taglib uri="WEB-INF/libreria.tld" prefix="libreria"%>
 <!DOCTYPE>
 <%@page import="java.util.ArrayList"%>
 <%@page import="beans.Reporte"%>
@@ -20,7 +21,7 @@
 		<h1>Solicitudes</h1>
 
 		<a class="btn btn-primary" href="soli?metodo=lista">Ver data</a> <a
-			class="btn btn-primary" href="#">Generar Solicitud</a>
+			class="btn btn-primary" href="gsolicitud.jsp">Generar Solicitud</a>
 	</div>
 	<br>
 	<br>
@@ -54,13 +55,14 @@
 					<td><%=x.getEstado_solicitud()%></td>
 					<td><%=x.getFecha_reg_solicitud()%></td>
 					<td><%=x.getFecha_act_solicitud()%></td>
-					<td><a href="#"> <img alt="Actualiza"
-							src="images/edit.png">
+					<td><a
+						href="soli?metodo=busca&num=<%=x.getNum_solicitud()%>"> <img
+							alt="Actualiza" src="images/edit.png">
 					</a></td>
 					<td><a
-					href="soli?metodo=muestra&num=<%=x.getNum_solicitud()%>">
-						<img alt="Muestra" src="images/lens.png">
-				</a></td>
+						href="soli?metodo=muestra&num=<%=x.getNum_solicitud()%>"> <img
+							alt="Muestra" src="images/lens.png">
+					</a></td>
 				</tr>
 				<%
 					}
@@ -68,6 +70,12 @@
 				%>
 			</tbody>
 		</table>
+		<div class="form-group">
+			<div class="col-sm-10">
+				<input type="hidden" class="form-control" id="id_fechaa"
+					name="fechaa" value="<libreria:dameFecha/>">
+			</div>
+		</div>
 	</div>
 
 

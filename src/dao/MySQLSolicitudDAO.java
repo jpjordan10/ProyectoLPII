@@ -164,4 +164,61 @@ public class MySQLSolicitudDAO implements SolicitudDAO {
 		return x;
 	}
 
+	@Override
+	public int concederPermisos(SolicitudDTO x) {
+		int valor = -1;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ActualizaSolicitud (?, ?, ?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, x.getNum_solicitud());
+			cs.setString(2, x.getPermisos_solicitud());
+			cs.setString(3, x.getFecha_act_solicitud());
+			valor = cs.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return valor;
+	}
+
+	@Override
+	public int concederPermisos1(String num, String fc) {
+		int valor = -1;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ConcederPermisos(?, ?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, num);
+			cs.setString(2, fc);
+			valor = cs.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return valor;
+	}
+
 }

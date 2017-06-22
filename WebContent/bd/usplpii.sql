@@ -351,6 +351,7 @@ end $$
 delimiter ;
 
 call usp_RegistraSolicitud('S1000000', 'PENDIENTES', 'PENDIENTE', '19-06-2017', '19-06-2017', 'C1001');
+call usp_RegistraSolicitud('S1000001', 'PENDIENTES', 'PENDIENTE', '19-06-2017', '19-06-2017', 'C1001');
 
 /*Registro de Solicitud*/
 delimiter $$
@@ -368,7 +369,7 @@ begin
 end $$
 delimiter ;
 
-call usp_ActualizaSolicitud ('S1000000', 'CONCEDIDOS', '19-06-2017');
+/*call usp_ActualizaSolicitud ('S1000000', 'CONCEDIDOS', '19-06-2017');*/
 
 /*Listar Solicitud*/
 delimiter $$
@@ -391,6 +392,24 @@ end $$
 delimiter ;
 
 call usp_ListarBusquedaSolicitud('S1000000');
+
+delimiter $$
+create procedure usp_ConcederPermisos
+(
+	P_NUM_SOLICITUD			CHAR(8),
+    P_FECHA_ACT_SOLICITUD	VARCHAR(10)
+)
+begin
+UPDATE SOLICITUD
+SET
+	PERMISOS_SOLICITUD = 'CONCEDIDOS',
+    FECHA_ACT_SOLICITUD = P_FECHA_ACT_SOLICITUD
+    WHERE NUM_SOLICITUD = P_NUM_SOLICITUD;
+end $$
+delimiter ;
+
+/*call usp_ConcederPermisos('S1000001', '22-06-2017');
+call usp_ConcederPermisos('S1000000', '18-06-2017');*/
 
 /*Registro de Proyectos*/
 delimiter $$

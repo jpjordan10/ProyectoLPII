@@ -69,10 +69,30 @@ public class ServletSolicitud extends HttpServlet {
 	}
 
 	private void busca(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		SolicitudService sc = new SolicitudService();
+		String num = request.getParameter("num");
+		Reporte r = sc.buscaSolicitud(num);
+		request.setAttribute("sol", r);
+		request.getRequestDispatcher("asolicitud.jsp").forward(request, response);
 	}
 
 	private void actualiza(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String num = request.getParameter("num");
+		String fechaa = request.getParameter("fechaa");
+		String permisos = request.getParameter("permisos");
+		SolicitudService sc = new SolicitudService();
+		SolicitudDTO s = new SolicitudDTO();
+		s.setNum_solicitud(num);
+		s.setFecha_act_solicitud(fechaa);
+		s.setPermisos_solicitud(permisos);
+		int i = sc.concederPermisos(s);
+		if (i == 0) {
+			response.sendRedirect("error.jsp");
+		} else {
+			lista(request, response);
+			//response.sendRedirect("msolicitud.jsp");
+		}
 	}
 
 	private void muestra(HttpServletRequest request, HttpServletResponse response)

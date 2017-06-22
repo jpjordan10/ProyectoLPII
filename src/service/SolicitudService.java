@@ -25,4 +25,11 @@ public class SolicitudService {
 	public Reporte buscaSolicitud(String num){
 		return dao.buscaSolicitud(num);
 	}
+	public int concederPermisos(SolicitudDTO x){
+		return dao.concederPermisos(x);
+	}
+	
+	public int concederPermisos1(String num, String fc){
+		return dao.concederPermisos1(num, fc);
+	}
 }
