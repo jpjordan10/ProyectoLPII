@@ -59,25 +59,30 @@ public class ServletTrabajador extends HttpServlet {
 
 		TrabajadorDTO obj = ts.iniciarSesion(user_trabajador);
 		if (obj != null) {
-			if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("GESTOR ARQUEOLOGO") && obj.getEstado_trabajador().equals("ACTIVO")) {
-				HttpSession sesion = request.getSession();
-				sesion.setAttribute("datos", obj);
-				request.getRequestDispatcher("mgestor.jsp").forward(request, response);
-			} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("OBRERO") && obj.getEstado_trabajador().equals("ACTIVO")) {
-				HttpSession sesion = request.getSession();
-				sesion.setAttribute("datos", obj);
-				request.getRequestDispatcher("mobrero.jsp").forward(request, response);
-			} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("ARQUEOLOGO") && obj.getEstado_trabajador().equals("ACTIVO")) {
-				HttpSession sesion = request.getSession();
-				sesion.setAttribute("datos", obj);
-				request.getRequestDispatcher("marqueologo.jsp").forward(request, response);
-			} else {
-				request.setAttribute("msg", "pass incorrecta o inactivo");
+			if(obj.getEstado_trabajador().equals("ACTIVO")){
+				if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("GESTOR ARQUEOLOGO")) {
+					HttpSession sesion = request.getSession();
+					sesion.setAttribute("datos", obj);
+					request.getRequestDispatcher("mgestor.jsp").forward(request, response);
+				} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("OBRERO")) {
+					HttpSession sesion = request.getSession();
+					sesion.setAttribute("datos", obj);
+					request.getRequestDispatcher("mObrero.jsp").forward(request, response);
+				} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("ARQUEOLOGO")) {
+					HttpSession sesion = request.getSession();
+					sesion.setAttribute("datos", obj);
+					request.getRequestDispatcher("marqueologo.jsp").forward(request, response);
+				} else {
+					request.setAttribute("msg", "Contraseña Incorrecta");
+					request.getRequestDispatcher("login.jsp").forward(request, response);
+				}
+			}else{
+				request.setAttribute("msg", "Usuario Inactivo");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 
 		} else {
-			request.setAttribute("msg", "Usuario no existe o el usuario esta inactivo");
+			request.setAttribute("msg", "El usuario no existe");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
