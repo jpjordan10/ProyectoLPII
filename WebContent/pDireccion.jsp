@@ -18,8 +18,8 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Proyectos Dirigidos</h1>
-		<form action="reporte?metodo=pDirigidos" method="post">
+		<h1>Proyectos en Dirección</h1>
+		<form action="Prueba">
 			<div>
 				<input type="text" name="user" >
 			</div>

@@ -127,6 +127,8 @@ public class MySQLReportesDAO implements ReportesDAO {
 				r.setMonto_total_proyecto(rs.getDouble(10));
 				r.setCan_mes_proyecto(rs.getInt(11));
 				r.setNum_solicitud(rs.getString(12));
+				r.setSueldo_mes_det_proyecto(rs.getDouble(13));
+				r.setSueldo_tot_det_proyecto(rs.getDouble(14));
 				lista.add(r);
 			}
 		} catch (Exception e) {
@@ -172,6 +174,8 @@ public class MySQLReportesDAO implements ReportesDAO {
 				r.setMonto_total_proyecto(rs.getDouble(10));
 				r.setCan_mes_proyecto(rs.getInt(11));
 				r.setNum_solicitud(rs.getString(12));
+				r.setSueldo_mes_det_proyecto(rs.getDouble(13));
+				r.setSueldo_tot_det_proyecto(rs.getDouble(14));
 				lista.add(r);
 			}
 		} catch (Exception e) {

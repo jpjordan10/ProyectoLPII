@@ -18,8 +18,8 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Proyectos Dirigidos</h1>
-		<form action="reporte?metodo=pDirigidos" method="post">
+		<h1>Proyectos en Participación</h1>
+		<form action="Prueba">
 			<div>
 				<input type="text" name="user" >
 			</div>
@@ -41,7 +41,9 @@
 			<display:column property="costo_proyecto" title="Costro Proyecto"/>
 			<display:column property="monto_total_proyecto" title="Monto Total"/>
 			<display:column property="can_mes_proyecto" title="Meses"/>
-			<display:column property="num_solicitud" title="Número Solicitud"/> 
+			<display:column property="num_solicitud" title="Número Solicitud"/>
+			<display:column property="sueldo_mes_det_proyecto" title="Sueldo Mes"/>
+			<display:column property="sueldo_tot_det_proyecto" title="Sueldo Total"/> 
 		</display:table>
 	</form>
 	</div>

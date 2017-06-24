@@ -127,7 +127,7 @@
 				</button>
 			</div>
 			<div class="col-md-3">
-				<button type="button" class="btn btn-link">
+				<button type="button" class="btn btn-link" onclick="location='./pDireccion.jsp'">
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay2">
 						<div class="text">En Dirección</div>
@@ -135,15 +135,15 @@
 				</button>
 			</div>
 			<div class="col-md-3">
-				<button type="button" class="btn btn-link">
+				<button type="button" class="btn btn-link" onclick="location='./pParticipas.jsp'">
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay3">
-						<div class="text">Actuales</div>
+						<div class="text">En Participación</div>
 					</div>
 				</button>
 			</div>
 			<div class="col-md-3">
-				<button  type="button" class="btn btn-link">
+				<button  type="button" class="btn btn-link" onclick="location='./pParticipados.jsp'">
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay4">
 						<div class="text">Participados</div>

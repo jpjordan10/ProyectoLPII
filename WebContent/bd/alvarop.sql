@@ -20,6 +20,8 @@ delimiter ;
 
 call usp_ProyectosDirigidos('T1001');
 
+select * from PROYECTO;
+
 /*PROYECTOS EN DIRECCIÓN*/
 delimiter $$
 CREATE PROCEDURE usp_ProyectosDireccion(P_COD_TRABAJADOR	CHAR(5))
