@@ -19,7 +19,7 @@
 <body>
 	<div class="container">
 		<h1>Proyectos en Participación</h1>
-		<form action="Prueba">
+		<form action="reporte?metodo=pParticipas" method="post">
 			<div>
 				<input type="text" name="user" >
 			</div>
@@ -29,7 +29,7 @@
 				<a class="btn btn-primary" href="menuArq.jsp">Regresar</a>
 			</div>
 			<br>
-		<display:table name="Dirigidos" >
+		<display:table name="Participas" >
 			<display:column property="num_proyecto" title="Número Proyecto"/>
 			<display:column property="fecha_reg_proyecto" title="Fecha de Registro"/>
 			<display:column property="fecha_act_proyecto" title="Fecha Activación"/>
