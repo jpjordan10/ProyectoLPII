@@ -22,7 +22,24 @@
 	height: auto;
 }
 
-.overlay {
+.overlay1 {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: red;
+}
+
+.col-md-3:hover .overlay1 {
+	opacity: 1;
+}
+
+.overlay2 {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -35,13 +52,41 @@
 	background-color: #008CBA;
 }
 
-.dropdown-content {
-	display: none;
+.col-md-3:hover .overlay2 {
+	opacity: 1;
+}
+
+.overlay3 {
 	position: absolute;
-	background-color: #f9f9f9;
-	min-width: 85%;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: green;
+}
+
+.col-md-3:hover .overlay3 {
+	opacity: 1;
+}
+.overlay4 {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: orange;
+}
+
+.col-md-3:hover .overlay4 {
+	opacity: 1;
 }
 
 .dropdown-content a {
@@ -49,10 +94,6 @@
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
-}
-
-.col-md-3:hover .overlay {
-	opacity: 1;
 }
 
 .col-md-3:hover .dropdown-content {
@@ -72,61 +113,42 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Menu del Gestor</h1>
+		<h1>Menu Arqueólogo</h1>
 		<hr>
-		<br>
+		<h3>Reportes de Proyectos :</h3>
 		<br>
 		<div class="row">
 			<div class="col-md-3">
-				<button type="button" class="btn btn-link">
-					<img src="./images/mantenimientos.png" style="width: 97%">
-					<div class="overlay">
-						<div class="text">Mantenimientos</div>
+				<button type="button" class="btn btn-link" onclick="location='./pDirigidos.jsp'">
+					<img src="./images/reportes.png" style="width: 100%">
+					<div class="overlay1" >
+						<div class="text">Dirigidos</div>
 					</div>
 				</button>
-				<div class="dropdown-content">
-					<a href="cliente?metodo=lista">Clientes</a> <a href="trabajador?metodo=lista">Trabajadores</a>
-					<a href="tt?metodo=lista">Tipos de Trabajo</a>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<button type="button" class="btn btn-link">
-					<img src="./images/encuestas.png" style="width: 100%">
-					<div class="overlay">
-						<div class="text">Solicitudes</div>
-					</div>
-				</button>
-				<div class="dropdown-content">
-					<a href="soli?metodo=lista">Menu de Solicitudes</a> <a href="gsolicitud.jsp">Registrar
-						Solicitud</a>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<button type="button" class="btn btn-link">
-					<img src="./images/proyectos.png" style="width: 100%">
-					<div class="overlay">
-						<div class="text">Proyectos</div>
-					</div>
-				</button>
-				<div class="dropdown-content">
-					<a href="#">Menu de Proyectos</a> <a href="#">Registrar
-						Proyecto</a>
-				</div>
 			</div>
 			<div class="col-md-3">
 				<button type="button" class="btn btn-link">
 					<img src="./images/reportes.png" style="width: 100%">
-					<div class="overlay">
-						<div class="text">Reportes</div>
+					<div class="overlay2">
+						<div class="text">En Dirección</div>
 					</div>
 				</button>
-				<div class="dropdown-content">
-					<a href="#">Reporte segun ...</a> 
-					<a href="#">Reporte segun ...</a>
-					<a href="#">Reporte segun ...</a>
-					<a href="#">Reporte segun ...</a>
-					<a href="#">Reporte segun ...</a>
-				</div>
+			</div>
+			<div class="col-md-3">
+				<button type="button" class="btn btn-link">
+					<img src="./images/reportes.png" style="width: 100%">
+					<div class="overlay3">
+						<div class="text">Actuales</div>
+					</div>
+				</button>
+			</div>
+			<div class="col-md-3">
+				<button  type="button" class="btn btn-link">
+					<img src="./images/reportes.png" style="width: 100%">
+					<div class="overlay4">
+						<div class="text">Participados</div>
+					</div>
+				</button>
 			</div>
 		</div>
 	</div>

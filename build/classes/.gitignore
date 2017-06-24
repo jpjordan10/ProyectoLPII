@@ -1,7 +1,2 @@
-/beans/
-/dao/
-/etiquetas/
-/interfaces/
-/service/
+/displaytag.properties
 /servlet/
-/utils/
