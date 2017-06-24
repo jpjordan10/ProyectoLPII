@@ -70,8 +70,8 @@ public class ServletTrabajador extends HttpServlet {
 					request.getRequestDispatcher("mObrero.jsp").forward(request, response);
 				} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("ARQUEOLOGO")) {
 					HttpSession sesion = request.getSession();
-					sesion.setAttribute("datos", obj);
-					request.getRequestDispatcher("mArqueologo.jsp").forward(request, response);
+					sesion.setAttribute("datos", obj.getCod_trabajador());
+					request.getRequestDispatcher("menuArq.jsp").forward(request, response);
 				} else {
 					request.setAttribute("msg", "Contraseña Incorrecta");
 					request.getRequestDispatcher("login.jsp").forward(request, response);

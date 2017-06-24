@@ -21,7 +21,7 @@
 		<h1>Proyectos Dirigidos</h1>
 		<form action="reporte?metodo=pDirigidos" method="post">
 			<div>
-				<input type="text" name="user" >
+				<input type="text" name="user" value="${datos}"  style="visibility:hidden;">
 			</div>
 			<hr>
 			<div>

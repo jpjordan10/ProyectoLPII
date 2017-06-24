@@ -21,7 +21,7 @@
 		<h1>Proyectos en Participación</h1>
 		<form action="reporte?metodo=pParticipas" method="post">
 			<div>
-				<input type="text" name="user" >
+				<input type="text" name="user" value="${datos}"  style="visibility:hidden;">
 			</div>
 			<hr>
 			<div>

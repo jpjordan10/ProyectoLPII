@@ -21,7 +21,7 @@
 		<h1>Proyectos en Dirección</h1>
 		<form action="reporte?metodo=pDireccion" method="post">
 			<div>
-				<input type="text" name="user" >
+				<input type="text" name="user"  value="${datos}" style="visibility:hidden;">
 			</div>
 			<hr>
 			<div>

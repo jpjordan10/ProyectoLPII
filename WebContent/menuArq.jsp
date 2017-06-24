@@ -112,8 +112,10 @@
 </style>
 </head>
 <body>
+
+
 	<div class="container">
-		<h1>Menu Arqueólogo</h1>
+		<h1>Menu Arqueólogo</h1> <input type="text" name="user" value="${datos}" style="visibility:hidden;">
 		<hr>
 		<h3>Reportes de Proyectos :</h3>
 		<br>

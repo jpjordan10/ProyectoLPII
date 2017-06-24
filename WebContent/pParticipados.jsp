@@ -21,7 +21,7 @@
 		<h1>Proyectos Participados</h1>
 		<form action="reporte?metodo=pParticipados" method="post">
 			<div>
-				<input type="text" name="user" >
+				<input type="text" name="user" value="${datos}"  style="visibility:hidden;">
 			</div>
 			<hr>
 			<div>
