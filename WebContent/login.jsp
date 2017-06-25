@@ -24,7 +24,7 @@
 				type="password" class="form-control" name="password"
 				placeholder="Contraseña" required="" /> <br>
 			<button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
-			<a class="btn btn-lg btn-default btn-block" href="index.jsp">Cancelar</a>
+			<a class="btn btn-lg btn-default btn-block" href="index.jsp" >Cancelar</a>
 			<label>${requestScope.msg}</label>
 		</form>
 	</div>

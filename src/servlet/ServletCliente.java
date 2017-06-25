@@ -48,8 +48,9 @@ public class ServletCliente extends HttpServlet {
 	private void listaclientemodal(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ClienteService ts = new ClienteService();
 		ArrayList<ClienteDTO> lista = ts.listaCliente();
-		request.setAttribute("data", lista);
+		request.getSession().setAttribute("data1", lista);
 		request.getRequestDispatcher("gsolicitud.jsp#buscarCliente").forward(request, response);
+		
 	}
 
 	private void muestra(HttpServletRequest request, HttpServletResponse response)

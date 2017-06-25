@@ -82,6 +82,7 @@
 					<img src="./images/mantenimientos.png" style="width: 97%">
 					<div class="overlay">
 						<div class="text">Mantenimientos</div>
+					</div>
 				</button>
 				<div class="dropdown-content">
 					<a href="cliente?metodo=lista">Clientes</a> <a href="trabajador?metodo=lista">Trabajadores</a>

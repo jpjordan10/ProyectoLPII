@@ -50,6 +50,8 @@ public class Reporte {
 	private double costo_proyecto;
 	private double monto_total_proyecto;
 	private int can_mes_proyecto;
+	private double sueldo_mes_det_proyecto;
+	private double sueldo_tot_det_proyecto;
 
 	public String getCod_trabajador() {
 		return cod_trabajador;
@@ -438,9 +440,25 @@ public class Reporte {
 	public int getCan_mes_proyecto() {
 		return can_mes_proyecto;
 	}
-
+	
 	public void setCan_mes_proyecto(int can_mes_proyecto) {
 		this.can_mes_proyecto = can_mes_proyecto;
 	}
 
+
+	public double getSueldo_mes_det_proyecto() {
+		return sueldo_mes_det_proyecto;
+	}
+
+	public void setSueldo_mes_det_proyecto(double sueldo_mes_det_proyecto) {
+		this.sueldo_mes_det_proyecto = sueldo_mes_det_proyecto;
+	}
+
+	public double getSueldo_tot_det_proyecto() {
+		return sueldo_tot_det_proyecto;
+	}
+
+	public void setSueldo_tot_det_proyecto(double sueldo_tot_det_proyecto) {
+		this.sueldo_tot_det_proyecto = sueldo_tot_det_proyecto;
+	}
 }
