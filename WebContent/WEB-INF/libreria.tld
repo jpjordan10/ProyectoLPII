@@ -4,21 +4,21 @@
 	<jspversion>1.0</jspversion>
 	<shortname>Custom Tags</shortname>
 	<tag>
-		<name>dameTipoTrabajador</name>
-		<tagclass>etiquetas.TipoTrabajador</tagclass>
-		<bodycontent>empty</bodycontent>
-		<info>Devuelve tipo de trabjador</info>
-	</tag>
-	<tag>
-		<name>dameTipoCliente</name>
-		<tagclass>etiquetas.TipoCliente</tagclass>
-		<bodycontent>empty</bodycontent>
-		<info>Devuelve tipo de cliente</info>
-	</tag>
-	<tag>
 		<name>dameFecha</name>
 		<tagclass>etiquetas.FechaTag</tagclass>
 		<bodycontent>empty</bodycontent>
 		<info>Devuelve la fecha del sistema</info>
+	</tag>
+	<tag>
+		<name>dameTipoTrabajo</name>
+		<tagclass>etiquetas.ComboTipoTrabajo</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Devuelve TipoTrabajo de la bd</info>
+	</tag>
+	<tag>
+		<name>dameCliente</name>
+		<tagclass>etiquetas.ComboCliente</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Devuelve Cliente de la bd</info>
 	</tag>
 </taglib>

@@ -436,7 +436,7 @@ end $$
 delimiter ;
 
 call usp_RegistrarProyecto ('P1000000', '19-06-2017', '19-06-2017', 'Lima', 'Lima', 'Miraflores', 'Pasaje 7854', 'PRIMERA', 1200.50, 5000.98, 1, 'S1000000', 'T1001', 'W1001');
-call usp_RegistrarProyecto ('P1000001', '19-06-2017', '19-06-2017', 'Lima', 'Lima', 'Miraflores', 'Pasaje 7854', 'SEGUNDA', 1200.50, 5000.98, 1, 'S1000000', 'T1001', 'W1001');
+call usp_RegistrarProyecto ('P1000001', '19-06-2017', '19-06-2017', 'Lima', 'Lima', 'Miraflores', 'Pasaje 7854', 'SEGUNDA', 1200.50, 5000.98, 1, 'S1000000', 'T1001', 'W1006');
 
 /*Actualizar Proyectos*/
 delimiter $$

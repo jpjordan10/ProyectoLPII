@@ -12,6 +12,6 @@ public class Wrapper extends TableDecorator {
 		String l = c.getRepresentante_cliente();
 		String p = c.getRuc_cliente();
 		String o = c.getTipo_cliente();
-		return "<a href='gsolicitud.jsp?k="+k+"&r="+r+"&l="+l+"&p="+p+"&o="+o+"'><img src='img/plus.png' alt=''></a>";
+		return "<a href='gsolicitud.jsp?k="+k+"&r="+r+"&l="+l+"&p="+p+"&o="+o+"'><img src='images/plus.png' alt=''></a>";
 	}
 }

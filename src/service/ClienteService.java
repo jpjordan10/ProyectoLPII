@@ -42,8 +42,4 @@ public class ClienteService {
 		return dao.eliminaCliente(cod_cliente);
 		
 	}
-	//naho
-		public ArrayList<ClienteDTO> Cliente(){
-			return dao.Cliente(null, null);
-		}
 }

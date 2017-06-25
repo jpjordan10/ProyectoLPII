@@ -10,31 +10,28 @@ import interfaces.SolicitudDAO;
 public class SolicitudService {
 	DAOFactory fabrica = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 	SolicitudDAO dao = fabrica.getSolicitudDAO();
-	
-	public int registrarSolicitud(SolicitudDTO x){
+
+	public int registrarSolicitud(SolicitudDTO x) {
 		return dao.registrarSolicitud(x);
 	}
 
-	public String generarNumSolicitud(){
+	public String generarNumSolicitud() {
 		return dao.generarNumSolicitud();
 	}
-	
-	public ArrayList<Reporte> listaSolicitud(){
+
+	public ArrayList<Reporte> listaSolicitud() {
 		return dao.listaSolicitud();
 	}
-	public Reporte buscaSolicitud(String num){
+
+	public Reporte buscaSolicitud(String num) {
 		return dao.buscaSolicitud(num);
 	}
-	public int concederPermisos(SolicitudDTO x){
+
+	public int concederPermisos(SolicitudDTO x) {
 		return dao.concederPermisos(x);
 	}
-	
-	public int concederPermisos1(String num, String fc){
+
+	public int concederPermisos1(String num, String fc) {
 		return dao.concederPermisos1(num, fc);
 	}
-	
-	public ArrayList<SolicitudDTO> rangoporfecha(String fecha_r,String fecha_a){
-	  return dao.porRangofecha(fecha_r, fecha_a);	
-	}
-	}
-
+}

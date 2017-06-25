@@ -40,12 +40,6 @@ public class TipoTrabajoService {
 
 	public int eliminaTipoTrabajo(String cod_tiptrabajo) {
 		return dao.eliminaTipoTrabajo(cod_tiptrabajo);
-		
-		}
-	//naho
-		public ArrayList<TipoTrabajoDTO> listar(String cod_tiptrabajo){
-			return dao.listartipo(cod_tiptrabajo);
-			
-			
-		}
+
+	}
 }

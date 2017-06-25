@@ -56,8 +56,6 @@
 	opacity: 1;
 }
 
-
-
 .dropdown-content a {
 	color: black;
 	padding: 12px 16px;
@@ -83,21 +81,25 @@
 <body>
 
 	<div class="container">
-		<h1>Menu Obrero</h1> <input type="text" name="user" value="${datos}" style="visibility:hidden;">
+		<h1>Menu Obrero</h1>
+		<input type="text" name="user" value="${datos}"
+			style="visibility: hidden;">
 		<hr>
 		<h3>Reportes de Proyectos :</h3>
 		<br>
 		<div class="row">
 			<div class="col-md-3">
-				<button type="button" class="btn btn-link" onclick="location='./poParticipas.jsp'">
+				<button type="button" class="btn btn-link"
+					onclick="location='./poParticipas.jsp'">
 					<img src="./images/reportes.png" style="width: 100%">
-					<div class="overlay1" >
+					<div class="overlay1">
 						<div class="text">Actuales</div>
 					</div>
 				</button>
 			</div>
 			<div class="col-md-3">
-				<button type="button" class="btn btn-link" onclick="location='./poParticipados.jsp'">
+				<button type="button" class="btn btn-link"
+					onclick="location='./poParticipados.jsp'">
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay2">
 						<div class="text">Participados</div>

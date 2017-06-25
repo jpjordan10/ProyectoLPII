@@ -4,7 +4,7 @@
 <%@page import="java.util.ArrayList"%>
 <html lang="en">
 <head>
-<title>Reporte por Cliente</title>
+<title>Reporte Por Tipo de Trabajo</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -18,11 +18,11 @@
 
 	<div class="container">
 		<form class="form-horizontal" action="reporte" id="id_form">
-		<input type="hidden" name="metodo" value="rxcliente">
-			<h2>Reporte por Cliente</h2>
-			<label class="control-label col-sm-2" for="id_tipo">Cliente:</label>
+		<input type="hidden" name="metodo" value="rxtipotrabajo">
+			<h2>Reporte Por Tipo de Trabajo</h2>
+			<label class="control-label col-sm-2" for="id_tipo">Tipo Trabajo:</label>
 			<div class="col-sm-8">
-				<libreria:dameCliente />
+				<libreria:dameTipoTrabajo />
 				<button type="submit" class="btn btn-default">Consultar</button>
 			</div>
 		</form>

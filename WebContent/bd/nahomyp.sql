@@ -1,45 +1,56 @@
 USE BD_PLPII;
 /*Archivo sql de Nahomy*/
-/*Reporte TipoxTrabajador*/
-drop procedure if exists usp_ReporteXTipoTrabajo
+DROP PROCEDURE IF EXISTS usp_ReportePorTipoDeTrabajo;
+DROP PROCEDURE IF EXISTS usp_ReportePorCliente;
+DROP PROCEDURE IF EXISTS usp_ReporteTipoDeTrabajo;
+DROP PROCEDURE IF EXISTS usp_ReporteCliente;
+
+/*ReportePorTipoDeTrabajo*/
 delimiter $$
-create procedure usp_ListarXTipoTrabajo(ESTADO varchar(9))
+create procedure usp_ReporteTipoDeTrabajo()
 begin
-select COD_TIPTRABAJO,DES_TIPTRABAJO,FECHA_REG_TIPOTRABAJO, ESTADO_TIPTRABAJO from TIPO_TRABAJO
-where ESTADO_TIPTRABAJO= ESTADO AND (ESTADO_TIPTRABAJO = 'ACTIVO' or ESTADO_TIPTRABAJO = 'INACTIVO');
+	select p.NUM_PROYECTO, c.RAZSOC_CLIENTE, p.ETAPA_PROYECTO, p.FECHA_ACT_PROYECTO, p.DEPARTAMENTO_PROYECTO, p.PROVINCIA_PROYECTO, p.DISTRITO_PROYECTO, p.DIRECCION_PROYECTO, tt.DES_TIPTRABAJO from tipo_trabajo tt inner join proyecto p
+    on p.COD_TIPTRABAJO = tt.COD_TIPTRABAJO inner join solicitud s
+    on s.NUM_SOLICITUD = p.NUM_SOLICITUD inner join cliente c
+    on c.COD_CLIENTE = s.COD_CLIENTE;
 end $$
 delimiter ;
+call usp_ReporteTipoDeTrabajo();
 
-call usp_ListarXTipoTrabajo('INACTIVO');
+/*ReportePorTipoDeTrabajo*/
+delimiter $$
+create procedure usp_ReportePorTipoDeTrabajo(CODT CHAR(5))
+begin
+	select p.NUM_PROYECTO, c.RAZSOC_CLIENTE, p.ETAPA_PROYECTO, p.FECHA_ACT_PROYECTO, p.DEPARTAMENTO_PROYECTO, p.PROVINCIA_PROYECTO, p.DISTRITO_PROYECTO, p.DIRECCION_PROYECTO, tt.DES_TIPTRABAJO from tipo_trabajo tt inner join proyecto p
+    on p.COD_TIPTRABAJO = tt.COD_TIPTRABAJO inner join solicitud s
+    on s.NUM_SOLICITUD = p.NUM_SOLICITUD inner join cliente c
+    on c.COD_CLIENTE = s.COD_CLIENTE
+    where tt.COD_TIPTRABAJO = CODT;
+end $$
+delimiter ;
+call usp_ReportePorTipoDeTrabajo('W1006');
 
-/*insertar algunos tipo= inactivo*/
-insert into TIPO_TRABAJO values('W1007', 'Excavaciones para delimitar', '18-06-2017','INACTIVO');
-insert into TIPO_TRABAJO values('W1008', 'Excavaciones para delimitar', '18-06-2017','INACTIVO');
-
-
-
-
-/*Reporte por rango de fechas*/
-
-	delimiter $$
-		create procedure usp_rangofecha  (fecha_r VARCHAR(10), fecha_a	VARCHAR(10))
-		begin
-		  select * 
-		   from solicitud
-		   where FECHA_REG_SOLICITUD = fecha_r AND FECHA_ACT_SOLICITUD = fecha_a;
-		
-           end$$
-           DELIMiTER ;
-
-call usp_rangofecha( '19-06-2017', '19-06-2017');
-
-/*Reporte por cliente*/
-
+/*ReportePorCliente*/
 delimiter $$
 create procedure usp_ReporteCliente()
 begin
-select cod_cliente, razsoc_cliente from cliente;
+	select p.NUM_PROYECTO, c.RAZSOC_CLIENTE, p.ETAPA_PROYECTO, p.FECHA_ACT_PROYECTO, p.DEPARTAMENTO_PROYECTO, p.PROVINCIA_PROYECTO, p.DISTRITO_PROYECTO, p.DIRECCION_PROYECTO, tt.DES_TIPTRABAJO from tipo_trabajo tt inner join proyecto p
+    on p.COD_TIPTRABAJO = tt.COD_TIPTRABAJO inner join solicitud s
+    on s.NUM_SOLICITUD = p.NUM_SOLICITUD inner join cliente c
+    on c.COD_CLIENTE = s.COD_CLIENTE;
 end $$
 delimiter ;
-
 call usp_ReporteCliente();
+
+/*ReportePorCliente*/
+delimiter $$
+create procedure usp_ReportePorCliente(CODC CHAR(5))
+begin
+	select p.NUM_PROYECTO, c.RAZSOC_CLIENTE, p.ETAPA_PROYECTO, p.FECHA_ACT_PROYECTO, p.DEPARTAMENTO_PROYECTO, p.PROVINCIA_PROYECTO, p.DISTRITO_PROYECTO, p.DIRECCION_PROYECTO, tt.DES_TIPTRABAJO from tipo_trabajo tt inner join proyecto p
+    on p.COD_TIPTRABAJO = tt.COD_TIPTRABAJO inner join solicitud s
+    on s.NUM_SOLICITUD = p.NUM_SOLICITUD inner join cliente c
+    on c.COD_CLIENTE = s.COD_CLIENTE
+    where c.COD_CLIENTE = CODC;
+end $$
+delimiter ;
+call usp_ReportePorCliente('C1000');
