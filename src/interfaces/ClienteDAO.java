@@ -3,7 +3,6 @@ package interfaces;
 import java.util.ArrayList;
 
 import beans.ClienteDTO;
-import beans.Reporte;
 
 public interface ClienteDAO {
 	public ClienteDTO buscaCliente(String cod_cliente);
