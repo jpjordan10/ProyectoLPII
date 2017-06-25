@@ -20,4 +20,10 @@ public interface TipoTrabajoDAO {
 	public int activaTipoTrabajo(String cod_tiptrabajo);
 
 	public int eliminaTipoTrabajo(String cod_tiptrabajo);
+	
+
+	//	naho
+	
+
+	public ArrayList<TipoTrabajoDTO> listartipo(String cod_tiptrabajo);
 }

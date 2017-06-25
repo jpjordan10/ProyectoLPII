@@ -4,10 +4,12 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 import beans.ClienteDTO;
+import beans.Reporte;
 import interfaces.ClienteDAO;
 import utils.MySQLConexion;
 
@@ -295,6 +297,52 @@ public class MySQLClienteDAO implements ClienteDAO {
 			}
 		}
 		return valor;
+	}
+//NAHO
+	@Override
+	public ArrayList<ClienteDTO> Cliente(String cod_cliente, String razsoc_cliente) {
+		ArrayList<ClienteDTO> lista = new ArrayList<ClienteDTO>();
+		Connection cn = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		
+		try {
+			cn = MySQLConexion.getConexion();
+			String query = "{usp_ReporteCliente()}";
+			pst = cn.prepareStatement(query);
+			//pst.setInt(1, tip);
+			rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				ClienteDTO c = new ClienteDTO();
+				c.setCod_cliente(rs.getString(1));
+				c.setRazsoc_cliente(rs.getString(2));
+				c.setRuc_cliente(rs.getString(3));
+				c.setEmail_cliente(rs.getString(4));
+				c.setTelefono_cliente(rs.getString(5));
+				c.setDepartamento_cliente(rs.getString(6));
+				c.setProvincia_cliente(rs.getString(7));
+				c.setDistrito_cliente(rs.getString(8));
+				c.setDireccion_cliente(rs.getString(9));
+				c.setTipo_cliente(rs.getString(10));
+				c.setRepresentante_cliente(rs.getString(11));
+				c.setEstado_cliente(rs.getString(12));
+				c.setFecha_reg_cliente(rs.getString(13));
+				
+			
+				lista.add(c);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la Sentencia");
+		}finally {
+			try {
+				if(pst!=null) pst.close();
+				if(cn!=null) cn.close();
+			} catch (SQLException e) {
+				System.out.println("Error al cerrar ");
+			}
+		}
+		return lista;
 	}
 
 }

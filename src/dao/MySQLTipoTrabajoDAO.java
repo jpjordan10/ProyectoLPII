@@ -4,9 +4,11 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import beans.TipoTrabajoDTO;
+import etiquetas.TipoTrabajador;
 import interfaces.TipoTrabajoDAO;
 import utils.MySQLConexion;
 
@@ -257,5 +259,44 @@ public class MySQLTipoTrabajoDAO implements TipoTrabajoDAO {
 		}
 		return valor;
 	}
+//NAHO
+	@Override
+	public ArrayList<TipoTrabajoDTO> listartipo(String cod_tiptrabajo) {
+		ArrayList<TipoTrabajoDTO> lista = new ArrayList<TipoTrabajoDTO>();
+		Connection cn = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		
+		try {
+			cn = MySQLConexion.getConexion();
+			String query = "{call usp_ReporteXTipoTrabajo(?)}";
+			pst = cn.prepareStatement(query);
+			//pst.setString(1, TipoTrabajador);
+			rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				TipoTrabajoDTO t = new TipoTrabajoDTO();
+				
+				t.setCod_tiptrabajo(rs.getString(1));
+				t.setDes_tiptrabajo(rs.getString(2));
+				t.setEstado_tiptrabajo(rs.getString(3));
+				t.setFecha_reg_tiptrabajo(rs.getString(4));
+				
+				lista.add(t);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la Sentencia");
+		}finally {
+			try {
+				if(pst!=null) pst.close();
+				if(cn!=null) cn.close();
+			} catch (SQLException e) {
+				System.out.println("Error al cerrar ");
+			}
+		}
+		return lista;
+	}
 
-}
+	}
+
+

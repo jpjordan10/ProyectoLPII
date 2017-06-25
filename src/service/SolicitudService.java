@@ -32,4 +32,9 @@ public class SolicitudService {
 	public int concederPermisos1(String num, String fc){
 		return dao.concederPermisos1(num, fc);
 	}
-}
+	
+	public ArrayList<SolicitudDTO> rangoporfecha(String fecha_r,String fecha_a){
+	  return dao.porRangofecha(fecha_r, fecha_a);	
+	}
+	}
+

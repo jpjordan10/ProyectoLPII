@@ -3,8 +3,12 @@ package dao;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import com.mysql.jdbc.PreparedStatement;
+
 import beans.Reporte;
 import beans.SolicitudDTO;
 import interfaces.SolicitudDAO;
@@ -219,6 +223,45 @@ public class MySQLSolicitudDAO implements SolicitudDAO {
 			}
 		}
 		return valor;
+	}
+//NAHO
+	@Override
+	public ArrayList<SolicitudDTO> porRangofecha(String fecha_reg_solicitud, String fecha_act_solicitud) {
+		SolicitudDTO rep =  new SolicitudDTO();
+		ArrayList<SolicitudDTO> lista = new ArrayList<SolicitudDTO>(); 
+		ResultSet rs = null; 
+		Connection con = null;
+		PreparedStatement pst = null;
+		 
+		try {
+		   con = MySQLConexion.getConexion();
+
+		   String sql = "call usp_rangofecha(?)(?)";
+		   
+		   pst = (PreparedStatement) con.prepareStatement(sql);   
+		   
+		   rs = pst.executeQuery();
+		   
+		   while (rs.next()) {
+			   rep = new SolicitudDTO();
+			   rep.setFecha_reg_solicitud(rs.getString(1));
+			   rep.setFecha_act_solicitud(rs.getString(2));
+			   
+			   
+			   lista.add(rep);
+		}
+
+		} catch (Exception e) {
+		   System.out.println("Error en la sentencia ");
+		} finally {
+			try {
+				if(pst!=null) pst.close();
+				if(con!=null) con.close();
+			} catch (SQLException e) {
+				System.out.println("Error al cerrar ");
+			}
+		}
+		return lista;
 	}
 
 }
