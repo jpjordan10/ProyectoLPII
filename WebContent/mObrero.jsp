@@ -13,30 +13,28 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Menu Obrero</h1>
+		<h1>Menu Obrero</h1> <input type="text" name="user" value="${datos}" style="visibility:hidden;">
 		<hr>
-		<a class="btn btn-primary" href="#">Proyectos Actuales</a>
-		<a class="btn btn-primary" href="#">Proyectos Participados</a>
-		<hr>
-	</div>
-	<br>
-	<br>
-	<div class="container">
-		<table class="table">
-			<tr>
-				<th>Nro Proyecto</th>
-				<th>Localidad</th>
-				<th>Fecha de Inicio</th>
-				<th>Fecha Final</th>
-				<th>Estado de Proyecto</th>
-			</tr>
-			<tr class="grilla_campo">
-				<td>Dato estatico</td>
-				<td>Dato estatico</td>
-				<td>Dato estatico</td>
-				<td>Dato estatico</td>
-				<td>Dato estatico</td>
-		</table>
+		<h3>Reportes de Proyectos :</h3>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<button type="button" class="btn btn-link" onclick="location='./poParticipas.jsp'">
+					<img src="./images/reportes.png" style="width: 100%">
+					<div class="overlay1" >
+						<div class="text">Participas</div>
+					</div>
+				</button>
+			</div>
+			<div class="col-md-3">
+				<button type="button" class="btn btn-link" onclick="location='./poParticipados.jsp'">
+					<img src="./images/reportes.png" style="width: 100%">
+					<div class="overlay2">
+						<div class="text">Participados</div>
+					</div>
+				</button>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
