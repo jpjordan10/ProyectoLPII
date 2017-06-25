@@ -120,9 +120,9 @@
 					</div>
 				</button>
 				<div class="dropdown-content">
-					<a href="#">Reporte segun ...</a> 
-					<a href="#">Reporte segun ...</a>
-					<a href="#">Reporte segun ...</a>
+					<a href="rxtiptra.jsp">Tipo de Trabajo </a> 
+					<a href="rrangofechas.jsp">Por Rango de Fechas</a>
+					<a href="rxcliente.jsp">Por Cliente</a>
 					<a href="#">Reporte segun ...</a>
 					<a href="#">Reporte segun ...</a>
 				</div>

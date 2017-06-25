@@ -17,4 +17,7 @@ public interface SolicitudDAO {
 	public int concederPermisos(SolicitudDTO x);
 	
 	public int concederPermisos1(String num, String fc);
+	
+	//naho
+	public ArrayList<SolicitudDTO> porRangofecha (String fecha_reg_solicitud, String fecha_act_solicitud);
 }

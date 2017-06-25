@@ -3,6 +3,7 @@ package interfaces;
 import java.util.ArrayList;
 
 import beans.ClienteDTO;
+import beans.Reporte;
 
 public interface ClienteDAO {
 	public ClienteDTO buscaCliente(String cod_cliente);
@@ -20,4 +21,7 @@ public interface ClienteDAO {
 	public int activaCliente(String cod_cliente);
 
 	public int eliminaCliente(String cod_cliente);
+	
+	//naho --> importe de Reporte Bean
+	public ArrayList<ClienteDTO> Cliente(String cod_cliente,String razsoc_cliente);
 }
