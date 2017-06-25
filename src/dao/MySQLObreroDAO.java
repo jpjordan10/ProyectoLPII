@@ -21,7 +21,7 @@ public class MySQLObreroDAO implements ObreroDAO {
 			cn = MySQLConexion.getConexion();
 			String sql = "{call usp_ListarParticipado(?)}";
 			cs = cn.prepareCall(sql);
-			cs.setString(1, cod_trabajador);
+			cs.setString(1,cod_trabajador);
 			rs = cs.executeQuery();
 			while (rs.next()) {
 				Reporte r = new Reporte();
@@ -62,7 +62,7 @@ public class MySQLObreroDAO implements ObreroDAO {
 			cn = MySQLConexion.getConexion();
 			String sql = "{call usp_ListarParticipas(?)}";
 			cs = cn.prepareCall(sql);
-			cs.setString(1, cod_trabajador);
+			cs.setString(1,cod_trabajador);
 			rs = cs.executeQuery();
 			while (rs.next()) {
 				Reporte r = new Reporte();

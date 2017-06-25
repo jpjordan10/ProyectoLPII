@@ -1,14 +1,24 @@
 <%@ taglib prefix="display" uri="http://displaytag.sf.net"  %>
 
 <!DOCTYPE html>
-<html>
+<html lang="esS">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=10, maximum-scale=100, user-scalable=no">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/bootstrapValidator.css">
+<link href="css/displaytag.css" rel="stylesheet" type="text/css" >
+<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrapValidator.js"></script>
 </head>
 <body>
-	<div class="container"> 
-		<h1>Proyectos Participados</h1>
+	<div class="container">
+		<h1>Proyectos en Participación</h1>
 		<form action="obrero?metodo=Oparticipas" method="post">
 			<div>
 				<input type="text" name="user" value="${datos}"  style="visibility:hidden;">
@@ -19,18 +29,17 @@
 				<a class="btn btn-primary" href="mObrero.jsp">Regresar</a>
 			</div>
 			<br>
-		<display:table name="participas">
-			<display:column property="num_proyecto" title="Numero Proyecto"/>
+		<display:table name="participas" >
+			<display:column property="num_proyecto" title="Número Proyecto"/>
 			<display:column property="departamento_proyecto" title="Departamento"/>
 			<display:column property="provincia_proyecto" title="Provincia"/>
 			<display:column property="distrito_proyecto" title="Distrito"/>
-			<display:column property="direccion_proyecto" title="Direccion"/>
-			<display:column property="fecha_reg_proyecto" title="Fecha de Inicio"/>
-			<display:column property="fecha_act_proyecto" title="Fecha Final"/>
-			<display:column property="etapa_proyecto" title="Estado Proyecto"/>
-			
+			<display:column property="direccion_proyecto" title="Dirección"/>
+			<display:column property="fecha_reg_proyecto" title="Fecha de Registro"/>
+			<display:column property="fecha_act_proyecto" title="Fecha Activación"/>
+			<display:column property="etapa_proyecto" title="Etapa"/>
 		</display:table>
-	</form>		
-	</div>	
+	</form>
+	</div>
 </body>
 </html>

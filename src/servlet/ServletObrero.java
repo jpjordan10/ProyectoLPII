@@ -23,31 +23,26 @@ public class ServletObrero extends HttpServlet {
     	   
     	   String metodo = request.getParameter("metodo");
     	   
-    	   if(metodo.equals("Oparticipas")){
+    	   if (metodo.equals("Oparticipas")){
     		   obreroParticipas(request, response);
-    	   }
-    	   if(metodo.equals("Oparticipados")){
+    	   } else if(metodo.equals("Oparticipados")){
     		   obreroParticipados(request, response);
     	   }
     	   
        }
 
-	private void obreroParticipados(HttpServletRequest request, HttpServletResponse response) {
-		String cod = request.getParameter("username");
+	private void obreroParticipados(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("user");
 		ArrayList<Reporte> listado = os.listaParticipado(cod);
 		request.setAttribute("participados", listado);
-		request.getRequestDispatcher("poParticipados.jsp");
-		System.out.println(cod);
-		
+		request.getRequestDispatcher("poParticipados.jsp").forward(request, response);
 	}
 
-	private void obreroParticipas(HttpServletRequest request, HttpServletResponse response) {
-		String cod = request.getParameter("username");
+	private void obreroParticipas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("user");
 		ArrayList<Reporte> listado = os.listaParticipas(cod);
 		request.setAttribute("participas", listado);
-		request.getRequestDispatcher("poParticipas.jsp");
-		System.out.println(cod);
-		
+		request.getRequestDispatcher("poParticipas.jsp").forward(request, response);
 	}
     
 
