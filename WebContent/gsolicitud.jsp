@@ -85,23 +85,26 @@
 				<label class="control-label col-sm-2" for="id_codigocli">Codigo
 					de Cliente:</label>
 				<div class="col-sm-6">
-					<input class="form-control" id="id_codigocli" type="text"
-						name="codcli" placeholder="Codigo de Cliente">
+					<input class="form-control" id="id_codigocli" type="text" placeholder="Codigo de Cliente" value="${param.k}" disabled>
+						<input class="form-control" id="id_codigocli" type="hidden"
+						name="codcli" value="${param.k}">
 				</div>
 				<div class="col-sm-2">
-					<a class="btn btn-default btn-block"
+					<!--  <a class="btn btn-default btn-block"
 						href="cliente?metodo=listaclientemodal" data-toggle="modal"
-						data-target="#buscarCliente">Buscar Cliente</a>
-					<!-- Modal -->
+						data-target="#buscarCliente">Buscar Cliente</a>-->
+						<a class="btn btn-default btn-block"
+						href="cliente?metodo=listaclientemodal1">Buscar Cliente</a>
+					<!-- Modal
 					<div class="modal fade" id="buscarCliente" role="dialog">
 						<div class="modal-dialog">
-							<!-- Modal content-->
+							<!-- Modal content
 							<div class="modal-content" id="todo">
 								<div class="modal-header">
 									<h4 class="modal-title">Buscar Cliente</h4>
 								</div>
 								<div class="modal-body">
-									<!-- Listado de Clientes-->
+									<!-- Listado de Clientes
 									<table class="table table-striped table-bordered nowrap"
 										id="show">
 										<thead>
@@ -114,21 +117,21 @@
 											</tr>
 										</thead>
 										<tbody>
-											<%
+											
 												ArrayList<ClienteDTO> lista = (ArrayList<ClienteDTO>) request.getSession().getAttribute("data1");
 												if (lista != null) {
 													for (ClienteDTO c : lista) {
 											%>
 											<tr>
-												<td><%=c.getCod_cliente()%></td>
-												<td><%=c.getRazsoc_cliente()%></td>
-												<td><%=c.getRuc_cliente()%></td>
-												<td><%=c.getRepresentante_cliente()%></td>
+												<td>c.getCod_cliente()%></td>
+												<td>c.getRazsoc_cliente()%></td>
+												<td>c.getRuc_cliente()%></td>
+												<td>c.getRepresentante_cliente()%></td>
 												<td>imageeeeen</td>
 											</tr>
-											<%
-												}
-												}
+											
+												//}
+												//}
 											%>
 										</tbody>
 									</table>
@@ -139,7 +142,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
 				<div class="col-sm-1">&nbsp;</div>
 			</div>
@@ -149,13 +152,13 @@
 					Social:</label>
 				<div class="col-sm-3">
 					<input class="form-control" id="id_razon" type="text" name="razon"
-						placeholder="Razon Social de la empresa">
+						placeholder="Razon Social de la empresa" value="${param.r}" disabled>
 				</div>
 				<label class="control-label col-sm-2" for="id_ruc">RUC de la
 					empresa:</label>
 				<div class="col-sm-3">
 					<input class="form-control" id="id_ruc" type="text" name="ruc"
-						placeholder="Ruc de la empresa">
+						placeholder="Ruc de la empresa" value="${param.p}" disabled>
 				</div>
 				<div class="col-sm-1">&nbsp;</div>
 			</div>
@@ -165,12 +168,12 @@
 					Cliente</label>
 				<div class="col-sm-3">
 					<input class="form-control" id="id_tipo" type="text" name="tipo"
-						placeholder="Tipo de cliente">
+						placeholder="Tipo de cliente" value="${param.o}" disabled>
 				</div>
 				<label class="control-label col-sm-2" for="id_rep">Representante:</label>
 				<div class="col-sm-3">
 					<input class="form-control" id="id_rep" type="text" name="rep"
-						placeholder="Representante de la empresa">
+						placeholder="Representante de la empresa" value="${param.l}" disabled>
 				</div>
 				<div class="col-sm-1">&nbsp;</div>
 			</div>
