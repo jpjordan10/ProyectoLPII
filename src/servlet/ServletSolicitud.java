@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.Reporte;
 import beans.SolicitudDTO;
@@ -16,6 +17,7 @@ import service.SolicitudService;
 @WebServlet("/soli")
 public class ServletSolicitud extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	SolicitudService sc = new SolicitudService();
 
 	public ServletSolicitud() {
 		super();
@@ -34,11 +36,29 @@ public class ServletSolicitud extends HttpServlet {
 			actualiza(request, response);
 		} else if (metodo.equals("muestra")) {
 			muestra(request, response);
+		} else if (metodo.equals("listapendientes")) {
+			listapendientes(request, response);
+		} else if (metodo.equals("buscasolicitudpendiente")) {
+			buscasolicitudpendiente(request, response);
 		}
 	}
 
+	private void buscasolicitudpendiente(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String nome = request.getParameter("nome");
+		request.setAttribute("solicitudes", sc.buscarSolicitudPendiente(nome));
+		request.getRequestDispatcher("busSolicitud.jsp").forward(request, response);
+	}
+
+	private void listapendientes(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		ArrayList<Reporte> lista = sc.listaSolicitudPendientes();
+		session.setAttribute("lstpendientes", lista);
+		request.getRequestDispatcher("bsolicitud.jsp").forward(request, response);
+	}
+
 	private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SolicitudService sc = new SolicitudService();
 		ArrayList<Reporte> lista = sc.listaSolicitud();
 		request.setAttribute("data", lista);
 		request.getRequestDispatcher("msolicitud.jsp").forward(request, response);
@@ -51,16 +71,14 @@ public class ServletSolicitud extends HttpServlet {
 		String fechar = request.getParameter("fechar");
 		String fechaa = request.getParameter("fechaa");
 		String cliente = request.getParameter("codcli");
-
-		SolicitudService cs = new SolicitudService();
 		SolicitudDTO x = new SolicitudDTO();
-		
+
 		x.setPermisos_solicitud(permiso);
 		x.setEstado_solicitud(estado);
 		x.setFecha_reg_solicitud(fechar);
 		x.setFecha_act_solicitud(fechaa);
 		x.setCod_cliente(cliente);
-		int i = cs.registrarSolicitud(x);
+		int i = sc.registrarSolicitud(x);
 		if (i == 0) {
 			response.sendRedirect("error.jsp");
 		} else {
@@ -69,7 +87,6 @@ public class ServletSolicitud extends HttpServlet {
 	}
 
 	private void busca(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SolicitudService sc = new SolicitudService();
 		String num = request.getParameter("num");
 		Reporte r = sc.buscaSolicitud(num);
 		request.setAttribute("sol", r);
@@ -81,7 +98,6 @@ public class ServletSolicitud extends HttpServlet {
 		String num = request.getParameter("num");
 		String fechaa = request.getParameter("fechaa");
 		String permisos = request.getParameter("permisos");
-		SolicitudService sc = new SolicitudService();
 		SolicitudDTO s = new SolicitudDTO();
 		s.setNum_solicitud(num);
 		s.setFecha_act_solicitud(fechaa);
@@ -91,13 +107,12 @@ public class ServletSolicitud extends HttpServlet {
 			response.sendRedirect("error.jsp");
 		} else {
 			lista(request, response);
-			//response.sendRedirect("msolicitud.jsp");
+			// response.sendRedirect("msolicitud.jsp");
 		}
 	}
 
 	private void muestra(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		SolicitudService sc = new SolicitudService();
 		String num = request.getParameter("num");
 		Reporte x = sc.buscaSolicitud(num);
 		request.setAttribute("sol", x);

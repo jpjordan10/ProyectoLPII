@@ -21,4 +21,10 @@
 		<bodycontent>empty</bodycontent>
 		<info>Devuelve Cliente de la bd</info>
 	</tag>
+	<tag>
+		<name>dameEtapa</name>
+		<tagclass>etiquetas.EtapaTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Devuelve Etapa de Proyecto</info>
+	</tag>
 </taglib>

@@ -53,4 +53,4 @@ begin
     where c.COD_CLIENTE = CODC;
 end $$
 delimiter ;
-call usp_ReportePorCliente('C1000');
+call usp_ReportePorCliente('C1001');

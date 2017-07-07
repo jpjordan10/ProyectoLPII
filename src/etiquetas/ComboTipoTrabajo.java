@@ -16,7 +16,7 @@ public class ComboTipoTrabajo extends TagSupport {
 			TipoTrabajoService ts = new TipoTrabajoService();
 			ArrayList<TipoTrabajoDTO> lista = ts.listaTipoTrabajo();
 			out.print("<select class='form-control' name='tipo' id='id_tipo'>");
-			out.println("<option value='x'>Todos los Tipo de Trabajos</option>");
+			out.print("<option value='x'>Todos los Tipo de Trabajos</option>");
 			for (TipoTrabajoDTO t : lista) {
 				out.println("<option value='" + t.getCod_tiptrabajo() + "'>" + t.getDes_tiptrabajo() + "</option>");
 			}

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.ClienteDTO;
 import service.ClienteService;
@@ -15,7 +16,7 @@ import service.ClienteService;
 @WebServlet("/cliente")
 public class ServletCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	ClienteService cs = new ClienteService();
 	public ServletCliente() {
 		super();
 	}
@@ -49,16 +50,15 @@ public class ServletCliente extends HttpServlet {
 
 	private void listaclientemodal1(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ClienteService cs = new ClienteService();
+		HttpSession session = request.getSession();
 		ArrayList<ClienteDTO> lista = cs.listaCliente();
-		request.getSession().setAttribute("lstClientes", lista);
+		session.setAttribute("lstClientes", lista);
 		request.getRequestDispatcher("bclientes.jsp").forward(request, response);
 	}
 
 	private void listaclientemodal(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ClienteService ts = new ClienteService();
-		ArrayList<ClienteDTO> lista = ts.listaCliente();
+		ArrayList<ClienteDTO> lista = cs.listaCliente();
 		request.getSession().setAttribute("data1", lista);
 		request.getRequestDispatcher("gsolicitud.jsp#buscarCliente").forward(request, response);
 
@@ -66,7 +66,6 @@ public class ServletCliente extends HttpServlet {
 
 	private void muestra(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ClienteService cs = new ClienteService();
 		String cod = request.getParameter("cod");
 		ClienteDTO c = cs.buscaCliente(cod);
 		request.setAttribute("cli", c);
@@ -75,22 +74,19 @@ public class ServletCliente extends HttpServlet {
 
 	private void activa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cod = request.getParameter("cod");
-		ClienteService ts = new ClienteService();
-		ts.activaCliente(cod);
+		cs.activaCliente(cod);
 		lista(request, response);
 	}
 
 	private void elimina(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String cod = request.getParameter("cod");
-		ClienteService ts = new ClienteService();
-		ts.eliminaCliente(cod);
+		cs.eliminaCliente(cod);
 		lista(request, response);
 	}
 
 	private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ClienteService ts = new ClienteService();
-		ArrayList<ClienteDTO> lista = ts.listaCliente();
+		ArrayList<ClienteDTO> lista = cs.listaCliente();
 		request.setAttribute("data", lista);
 		request.getRequestDispatcher("mcliente.jsp").forward(request, response);
 
@@ -109,8 +105,6 @@ public class ServletCliente extends HttpServlet {
 		String tipo = request.getParameter("tipo");
 		String fecha = request.getParameter("fecha");
 		String representante = request.getParameter("representante");
-
-		ClienteService cs = new ClienteService();
 		ClienteDTO c = new ClienteDTO();
 
 		c.setRazsoc_cliente(razon);
@@ -136,14 +130,12 @@ public class ServletCliente extends HttpServlet {
 	private void desactiva(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String cod = request.getParameter("cod");
-		ClienteService ts = new ClienteService();
-		ts.desactivaCliente(cod);
+		cs.desactivaCliente(cod);
 		lista(request, response);
 
 	}
 
 	private void busca(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ClienteService cs = new ClienteService();
 		String cod = request.getParameter("cod");
 		ClienteDTO c = cs.buscaCliente(cod);
 		request.setAttribute("cli", c);
@@ -161,7 +153,6 @@ public class ServletCliente extends HttpServlet {
 		String distrito = request.getParameter("distrito");
 		String direccion = request.getParameter("direccion");
 		String representante = request.getParameter("representante");
-		ClienteService cs = new ClienteService();
 		ClienteDTO c = new ClienteDTO();
 		c.setCod_cliente(codigo);
 		c.setRazsoc_cliente(razon);

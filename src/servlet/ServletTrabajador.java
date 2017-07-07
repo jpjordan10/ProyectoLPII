@@ -41,7 +41,28 @@ public class ServletTrabajador extends HttpServlet {
 			iniciarSesion(request, response);
 		} else if (metodo.equals("cerrarSesion")) {
 			cerrarSesion(request, response);
+		} else if (metodo.equals("listaArqObr")) {
+			listaArqObr(request, response);
+		} else if (metodo.equals("listaArq")) {
+			listaArq(request, response);
 		}
+	}
+
+	private void listaArq(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		ArrayList<TrabajadorDTO> lista = ts.listaTrabajadorArq();
+		session.setAttribute("lstsarq", lista);
+		request.getRequestDispatcher("barque.jsp").forward(request, response);
+
+	}
+
+	private void listaArqObr(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		ArrayList<TrabajadorDTO> lista = ts.listaTrabajadorArq();
+		session.setAttribute("lstsarqobr", lista);
+		request.getRequestDispatcher("barqueobr.jsp").forward(request, response);
 	}
 
 	private void cerrarSesion(HttpServletRequest request, HttpServletResponse response)
@@ -59,16 +80,19 @@ public class ServletTrabajador extends HttpServlet {
 
 		TrabajadorDTO obj = ts.iniciarSesion(user_trabajador);
 		if (obj != null) {
-			if(obj.getEstado_trabajador().equals("ACTIVO")){
-				if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("GESTOR ARQUEOLOGO")) {
+			if (obj.getEstado_trabajador().equals("ACTIVO")) {
+				if (obj.getPass_trabajador().equals(pass_trabajador)
+						&& obj.getTipo_trabajador().equals("GESTOR ARQUEOLOGO")) {
 					HttpSession sesion = request.getSession();
 					sesion.setAttribute("datos", obj);
 					request.getRequestDispatcher("mgestor.jsp").forward(request, response);
-				} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("OBRERO")) {
+				} else if (obj.getPass_trabajador().equals(pass_trabajador)
+						&& obj.getTipo_trabajador().equals("OBRERO")) {
 					HttpSession sesion = request.getSession();
 					sesion.setAttribute("datos", obj.getCod_trabajador());
 					request.getRequestDispatcher("mobrero.jsp").forward(request, response);
-				} else if (obj.getPass_trabajador().equals(pass_trabajador) && obj.getTipo_trabajador().equals("ARQUEOLOGO")) {
+				} else if (obj.getPass_trabajador().equals(pass_trabajador)
+						&& obj.getTipo_trabajador().equals("ARQUEOLOGO")) {
 					HttpSession sesion = request.getSession();
 					sesion.setAttribute("datos", obj.getCod_trabajador());
 					request.getRequestDispatcher("marqueologo.jsp").forward(request, response);
@@ -76,7 +100,7 @@ public class ServletTrabajador extends HttpServlet {
 					request.setAttribute("msg", "Contraseña Incorrecta");
 					request.getRequestDispatcher("login.jsp").forward(request, response);
 				}
-			}else{
+			} else {
 				request.setAttribute("msg", "Usuario Inactivo");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}

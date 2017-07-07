@@ -220,4 +220,81 @@ public class MySQLSolicitudDAO implements SolicitudDAO {
 		}
 		return valor;
 	}
+
+	@Override
+	public ArrayList<Reporte> listaSolicitudPendientes() {
+		ArrayList<Reporte> lista = new ArrayList<Reporte>();
+		ResultSet rs = null;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ListarSolicitudPendientes()}";
+			cs = cn.prepareCall(sql);
+			rs = cs.executeQuery();
+			while (rs.next()) {
+				Reporte x = new Reporte();
+				x.setNum_solicitud(rs.getString(1));
+				x.setRuc_cliente(rs.getString(2));
+				x.setRazsoc_cliente(rs.getString(3));
+				x.setRepresentante_cliente(rs.getString(4));
+				x.setTipo_cliente(rs.getString(5));
+				x.setEstado_solicitud(rs.getString(6));
+				lista.add(x);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (rs != null)
+					rs.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return lista;
+	}
+
+	@Override
+	public ArrayList<Reporte> buscarSolicitudPendiente(String nome) {
+		ArrayList<Reporte> lista = new ArrayList<Reporte>();
+		ResultSet rs = null;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_BuscarSolicitudPendientes(?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, nome);
+			rs = cs.executeQuery();
+			while (rs.next()) {
+				Reporte x = new Reporte();
+				x.setNum_solicitud(rs.getString(1));
+				x.setRuc_cliente(rs.getString(2));
+				x.setRazsoc_cliente(rs.getString(3));
+				x.setRepresentante_cliente(rs.getString(4));
+				x.setTipo_cliente(rs.getString(5));
+				x.setEstado_solicitud(rs.getString(6));
+				lista.add(x);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (rs != null)
+					rs.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return lista;
+	}
 }

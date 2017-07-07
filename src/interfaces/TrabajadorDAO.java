@@ -8,6 +8,10 @@ public interface TrabajadorDAO {
 	public TrabajadorDTO buscaTrabajador(String cod_trabajador);
 
 	public ArrayList<TrabajadorDTO> listaTrabajador();
+	
+	public ArrayList<TrabajadorDTO> listaTrabajadorArqObr();
+	
+	public ArrayList<TrabajadorDTO> listaTrabajadorArq();
 
 	public int registraTrabajador(TrabajadorDTO t);
 

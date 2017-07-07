@@ -124,8 +124,6 @@
 					<a href="reporte?metodo=ltipotrabajo">Por Tipo de Trabajo</a> 
 					<a href="reporte?metodo=lcliente">Por Cliente</a>
 					<a href="#">Por Rango de Fechas</a>
-					<a href="#">Reporte segun ...</a>
-					<a href="#">Reporte segun ...</a>
 				</div>
 			</div>
 		</div>

@@ -85,9 +85,9 @@
 				<label class="control-label col-sm-2" for="id_codigocli">Codigo
 					de Cliente:</label>
 				<div class="col-sm-6">
-					<input class="form-control" id="id_codigocli" type="text" placeholder="Codigo de Cliente" value="${param.k}" disabled>
+					<input class="form-control" id="id_codigocli" type="text" placeholder="Codigo de Cliente" value="${param.q}" disabled>
 						<input class="form-control" id="id_codigocli" type="hidden"
-						name="codcli" value="${param.k}">
+						name="codcli" value="${param.q}">
 				</div>
 				<div class="col-sm-2">
 					<!--  <a class="btn btn-default btn-block"
@@ -152,13 +152,13 @@
 					Social:</label>
 				<div class="col-sm-3">
 					<input class="form-control" id="id_razon" type="text" name="razon"
-						placeholder="Razon Social de la empresa" value="${param.r}" disabled>
+						placeholder="Razon Social de la empresa" value="${param.w}" disabled>
 				</div>
 				<label class="control-label col-sm-2" for="id_ruc">RUC de la
 					empresa:</label>
 				<div class="col-sm-3">
 					<input class="form-control" id="id_ruc" type="text" name="ruc"
-						placeholder="Ruc de la empresa" value="${param.p}" disabled>
+						placeholder="Ruc de la empresa" value="${param.r}" disabled>
 				</div>
 				<div class="col-sm-1">&nbsp;</div>
 			</div>
@@ -168,12 +168,12 @@
 					Cliente</label>
 				<div class="col-sm-3">
 					<input class="form-control" id="id_tipo" type="text" name="tipo"
-						placeholder="Tipo de cliente" value="${param.o}" disabled>
+						placeholder="Tipo de cliente" value="${param.t}" disabled>
 				</div>
 				<label class="control-label col-sm-2" for="id_rep">Representante:</label>
 				<div class="col-sm-3">
 					<input class="form-control" id="id_rep" type="text" name="rep"
-						placeholder="Representante de la empresa" value="${param.l}" disabled>
+						placeholder="Representante de la empresa" value="${param.e}" disabled>
 				</div>
 				<div class="col-sm-1">&nbsp;</div>
 			</div>

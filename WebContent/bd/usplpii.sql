@@ -5,11 +5,31 @@ delimiter $$
 create procedure usp_ListaTrabajador()
 begin
 select * from TRABAJADOR
+WHERE TIPO_TRABAJADOR = 'OBRERO' or TIPO_TRABAJADOR = 'ARQUEOLOGO' or TIPO_TRABAJADOR = 'ARQUEOLOGO MAYOR';
+end $$
+delimiter ;
+
+/*call usp_ListaTrabajador();*/
+
+delimiter $$
+create procedure usp_ListaTrabajadorArqObr()
+begin
+select * from TRABAJADOR
 WHERE TIPO_TRABAJADOR = 'OBRERO' or TIPO_TRABAJADOR = 'ARQUEOLOGO';
 end $$
 delimiter ;
 
 /*call usp_ListaTrabajador();*/
+
+delimiter $$
+create procedure usp_ListaTrabajadorAr()
+begin
+select * from TRABAJADOR
+WHERE TIPO_TRABAJADOR = 'ARQUEOLOGO MAYOR';
+end $$
+delimiter ;
+
+/*call usp_ListaTrabajadorAr();*/
 
 delimiter $$
 create procedure usp_ListaCliente()
@@ -66,6 +86,7 @@ call usp_InsertaTrabajador('T1007', 'Jhonatan Walter', 'Ricaldi', 'Alban', '6947
 call usp_InsertaTrabajador('T1008', 'Andres Ivan', 'Chavez', 'Menacho', '73196548', 'ivmena@outlook.com', '900278945', 'Lima', 'Lima', 'Ancon', 'Calle 145 Urb Manzanal', '123', 'OBRERO', '18-06-2017', 'ACTIVO');
 call usp_InsertaTrabajador('T1009', 'Henry Bob', 'Manrique', 'Marley', '71934852', 'bobman@outlook.com', '938471548', 'Lima', 'Lima', 'Independencia', 'Avenida Ternera 146', '123', 'OBRERO', '18-06-2017', 'ACTIVO');
 call usp_InsertaTrabajador('T1010', 'Pedro Manuel', 'Lujan', 'Luna', '94051278', 'manuluj@outlook.com', '964000147', 'Lima', 'Lima', 'Surquillo', 'Pasaje 7854', '123', 'ARQUEOLOGO', '18-06-2017', 'ACTIVO');
+call usp_InsertaTrabajador('T1011', 'Donkey', 'Kong', 'Country', '12348578', 'dk@outlook.com', '974692017', 'Lima', 'Lima', 'Surquillo', 'Jungla hejeje', '123', 'ARQUEOLOGO MAYOR', '18-06-2017', 'ACTIVO');
 
 delimiter $$
 create procedure usp_InsertaCliente
@@ -93,6 +114,7 @@ call usp_InsertaCliente('C1000', 'Empresa x', '12345678912', 'empresax@hotmail.c
 call usp_InsertaCliente('C1001', 'Empresa y', '78954125014', 'empresay@hotmail.com', '900570014', 'Lima', 'Lima', 'La Molina', 'Una direccion y 458', 'PETROLERO', 'Diego Landa', '18-06-2017', 'ACTIVO');
 call usp_InsertaCliente('C1002', 'Empresa z', '96454421236', 'empresaz@hotmail.com', '963554785', 'Lima', 'Lima', 'Surquillo', 'Una direccion z 496', 'CONSTRUCTOR', 'Alex Daser', '18-06-2017', 'ACTIVO');
 call usp_InsertaCliente('C1003', 'Empresa a', '89445621456', 'empresaa@hotmail.com', '987445896', 'Lima', 'Lima', 'Independencia', 'Una direccion z 4798', 'MUNICIPAL', 'Juan Lopez', '18-06-2017', 'ACTIVO');
+call usp_InsertaCliente('C1004', 'Empa', '89445621456', 'empresaa@hotmail.com', '987445896', 'Lima', 'Lima', 'Independencia', 'Una direccion z 4798', 'MUNICIPAL', 'Juan Lopez', '18-06-2017', 'ACTIVO');
 
 delimiter $$
 create procedure usp_InsertaTipoTrabajo
@@ -352,6 +374,8 @@ delimiter ;
 
 call usp_RegistraSolicitud('S1000000', 'PENDIENTES', 'PENDIENTE', '19-06-2017', '19-06-2017', 'C1001');
 call usp_RegistraSolicitud('S1000001', 'PENDIENTES', 'PENDIENTE', '19-06-2017', '19-06-2017', 'C1001');
+call usp_RegistraSolicitud('S1000003', 'PENDIENTES', 'PENDIENTE', '19-06-2017', '19-06-2017', 'C1004');
+call usp_RegistraSolicitud('S1000002', 'PENDIENTES', 'ATENDIDA', '19-06-2017', '19-06-2017', 'C1002');
 
 /*Registro de Solicitud*/
 delimiter $$
@@ -381,6 +405,18 @@ end $$
 delimiter ;
 
 call usp_ListarSolicitud();
+
+/*Listar SolicitudPendientes*/
+delimiter $$
+create procedure usp_ListarSolicitudPendientes()
+begin
+	SELECT S.NUM_SOLICITUD, C.RUC_CLIENTE, C.RAZSOC_CLIENTE, C.REPRESENTANTE_CLIENTE, C.TIPO_CLIENTE, S.ESTADO_SOLICITUD FROM SOLICITUD S INNER JOIN CLIENTE C 
+	ON C.COD_CLIENTE = S.COD_CLIENTE
+    WHERE S.ESTADO_SOLICITUD = 'PENDIENTE';
+end $$
+delimiter ;
+
+call usp_ListarSolicitudPendientes();
 
 delimiter $$
 create procedure usp_ListarBusquedaSolicitud(num char(8))
@@ -427,16 +463,15 @@ create procedure usp_RegistrarProyecto
     P_MONTO_TOTAL_PROYECTO		DECIMAL(10,2),
     P_CAN_MES_TRABAJO			INT,
     P_NUM_SOLICITUD				CHAR(8),
-    P_COD_TRABAJADOR			CHAR(5),
     P_COD_TIPTRABAJO			CHAR(5)
 )
 begin
-	INSERT INTO PROYECTO VALUES (P_NUM_PROYECTO, P_FECHA_REG_PROYECTO, P_FECHA_ACT_PROYECTO, P_DEPARTAMENTO_PROYECTO, P_PROVINCIA_PROYECTO, P_DISTRITO_PROYECTO, P_DIRECCION_PROYECTO, P_ETAPA_PROYECTO, P_COSTO_PROYECTO, P_MONTO_TOTAL_PROYECTO, P_CAN_MES_TRABAJO, P_NUM_SOLICITUD, P_COD_TRABAJADOR, P_COD_TIPTRABAJO);
+	INSERT INTO PROYECTO VALUES (P_NUM_PROYECTO, P_FECHA_REG_PROYECTO, P_FECHA_ACT_PROYECTO, P_DEPARTAMENTO_PROYECTO, P_PROVINCIA_PROYECTO, P_DISTRITO_PROYECTO, P_DIRECCION_PROYECTO, P_ETAPA_PROYECTO, P_COSTO_PROYECTO, P_MONTO_TOTAL_PROYECTO, P_CAN_MES_TRABAJO, P_NUM_SOLICITUD, P_COD_TIPTRABAJO);
 end $$
 delimiter ;
 
-call usp_RegistrarProyecto ('P1000000', '19-06-2017', '19-06-2017', 'Lima', 'Lima', 'Miraflores', 'Pasaje 7854', 'PRIMERA', 1200.50, 5000.98, 1, 'S1000000', 'T1001', 'W1001');
-call usp_RegistrarProyecto ('P1000001', '19-06-2017', '19-06-2017', 'Lima', 'Lima', 'Miraflores', 'Pasaje 7854', 'SEGUNDA', 1200.50, 5000.98, 1, 'S1000000', 'T1001', 'W1006');
+call usp_RegistrarProyecto ('P1000000', '19-06-2017', '19-06-2017', 'Lima', 'Lima', 'Miraflores', 'Pasaje 7854', 'PRIMERA', 1200.50, 5000.98, 1, 'S1000000', 'W1001');
+call usp_RegistrarProyecto ('P1000001', '19-06-2017', '19-06-2017', 'Lima', 'Lima', 'Miraflores', 'Pasaje 7854', 'SEGUNDA', 1200.50, 5000.98, 1, 'S1000000', 'W1006');
 
 /*Actualizar Proyectos*/
 delimiter $$
@@ -460,11 +495,10 @@ call usp_ActualizaProyecto('P1000000', '19-06-2017', 'CUARTA');
 delimiter $$
 create procedure usp_ListarProyecto()
 begin
-	SELECT P.NUM_PROYECTO, C.RAZSOC_CLIENTE, C.REPRESENTANTE_CLIENTE, TT.DES_TIPTRABAJO, P.DEPARTAMENTO_PROYECTO, P.PROVINCIA_PROYECTO, P.DISTRITO_PROYECTO, P.DIRECCION_PROYECTO, T.APEP_TRABAJADOR, T.APEM_TRABAJADOR, T.NOM_TRABAJADOR, P.FECHA_REG_PROYECTO, P.ETAPA_PROYECTO, P.MONTO_TOTAL_PROYECTO, P.FECHA_ACT_PROYECTO FROM PROYECTO P INNER JOIN SOLICITUD S
+	SELECT P.NUM_PROYECTO, C.RAZSOC_CLIENTE, C.REPRESENTANTE_CLIENTE, TT.DES_TIPTRABAJO, P.DEPARTAMENTO_PROYECTO, P.PROVINCIA_PROYECTO, P.DISTRITO_PROYECTO, P.DIRECCION_PROYECTO,  P.FECHA_REG_PROYECTO, P.ETAPA_PROYECTO, P.MONTO_TOTAL_PROYECTO, P.FECHA_ACT_PROYECTO FROM PROYECTO P INNER JOIN SOLICITUD S
     ON S.NUM_SOLICITUD = P.NUM_SOLICITUD INNER JOIN CLIENTE C
     ON S.COD_CLIENTE = C.COD_CLIENTE INNER JOIN TIPO_TRABAJO TT
-    ON TT.COD_TIPTRABAJO = P.COD_TIPTRABAJO INNER JOIN TRABAJADOR T
-    ON T.COD_TRABAJADOR = P.COD_TRABAJADOR;
+    ON TT.COD_TIPTRABAJO = P.COD_TIPTRABAJO;
 end $$
 delimiter ;
 
@@ -512,7 +546,7 @@ delimiter ;
 
 CALL usp_ListarProyectoParticipadoxObrero('T1008');
 
-/*ListaProyectosEnDireccionArqueologo*/
+/*ListaProyectosEnDireccionArqueologo
 delimiter $$
 create procedure usp_ListarProyectoEnDireccionArqueologo(CODT CHAR(5))
 begin
@@ -521,4 +555,6 @@ begin
 end $$
 delimiter ;
 
-CALL usp_ListarProyectoEnDireccionArqueologo('T1001');
+CALL usp_ListarProyectoEnDireccionArqueologo('T1001');*/
+
+/*select max(NUM_PROYECTO) from PROYECTO;*/

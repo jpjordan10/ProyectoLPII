@@ -40,7 +40,6 @@ public class MySQLClienteDAO implements ClienteDAO {
 				c.setRepresentante_cliente(rs.getString(11));
 				c.setFecha_reg_cliente(rs.getString(12));
 				c.setEstado_cliente(rs.getString(13));
-				
 			}
 		} catch (Exception e) {
 			System.out.println("Error en la sentencia");

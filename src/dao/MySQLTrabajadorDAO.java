@@ -350,4 +350,98 @@ public class MySQLTrabajadorDAO implements TrabajadorDAO {
 		}
 		return tr;
 	}
+
+	@Override
+	public ArrayList<TrabajadorDTO> listaTrabajadorArqObr() {
+		ArrayList<TrabajadorDTO> lista = new ArrayList<TrabajadorDTO>();
+		ResultSet rs = null;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ListaTrabajadorArqObr()}";
+			cs = cn.prepareCall(sql);
+			rs = cs.executeQuery();
+			while (rs.next()) {
+				TrabajadorDTO t = new TrabajadorDTO();
+				t.setCod_trabajador(rs.getString(1));
+				t.setNom_trabajador(rs.getString(2));
+				t.setApep_trabajador(rs.getString(3));
+				t.setApem_trabajador(rs.getString(4));
+				t.setDni_trabajador(rs.getString(5));
+				t.setEmail_trabajador(rs.getString(6));
+				t.setTelefono_trabajador(rs.getString(7));
+				t.setDepartamento_trabajador(rs.getString(8));
+				t.setProvincia_trabajador(rs.getString(9));
+				t.setDistrito_trabajador(rs.getString(10));
+				t.setDireccion_trabajador(rs.getString(11));
+				t.setPass_trabajador(rs.getString(12));
+				t.setTipo_trabajador(rs.getString(13));
+				t.setFecha_reg_trabajador(rs.getString(14));
+				t.setEstado_trabajador(rs.getString(15));
+				lista.add(t);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (rs != null)
+					rs.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return lista;
+	}
+
+	@Override
+	public ArrayList<TrabajadorDTO> listaTrabajadorArq() {
+		ArrayList<TrabajadorDTO> lista = new ArrayList<TrabajadorDTO>();
+		ResultSet rs = null;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ListaTrabajadorAr()}";
+			cs = cn.prepareCall(sql);
+			rs = cs.executeQuery();
+			while (rs.next()) {
+				TrabajadorDTO t = new TrabajadorDTO();
+				t.setCod_trabajador(rs.getString(1));
+				t.setNom_trabajador(rs.getString(2));
+				t.setApep_trabajador(rs.getString(3));
+				t.setApem_trabajador(rs.getString(4));
+				t.setDni_trabajador(rs.getString(5));
+				t.setEmail_trabajador(rs.getString(6));
+				t.setTelefono_trabajador(rs.getString(7));
+				t.setDepartamento_trabajador(rs.getString(8));
+				t.setProvincia_trabajador(rs.getString(9));
+				t.setDistrito_trabajador(rs.getString(10));
+				t.setDireccion_trabajador(rs.getString(11));
+				t.setPass_trabajador(rs.getString(12));
+				t.setTipo_trabajador(rs.getString(13));
+				t.setFecha_reg_trabajador(rs.getString(14));
+				t.setEstado_trabajador(rs.getString(15));
+				lista.add(t);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (rs != null)
+					rs.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return lista;
+	}
 }

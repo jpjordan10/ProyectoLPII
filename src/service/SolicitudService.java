@@ -34,4 +34,10 @@ public class SolicitudService {
 	public int concederPermisos1(String num, String fc) {
 		return dao.concederPermisos1(num, fc);
 	}
+	public ArrayList<Reporte> listaSolicitudPendientes(){
+		return dao.listaSolicitudPendientes();
+	}
+	public ArrayList<Reporte> buscarSolicitudPendiente(String nome){
+		return dao.buscarSolicitudPendiente(nome);
+	}
 }
