@@ -24,7 +24,6 @@
 				<td>${f.ruc}</td>
 				<td>${f.razon}</td>
 				<td>${f.representante}</td>
-				
 				<td>${f.tipo}</td>
 				<td>${f.estado}</td>
 			</tr>

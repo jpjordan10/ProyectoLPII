@@ -85,7 +85,8 @@
 					</div>
 				</button>
 				<div class="dropdown-content">
-					<a href="cliente?metodo=lista">Clientes</a> <a href="trabajador?metodo=lista">Trabajadores</a>
+					<a href="cliente?metodo=lista">Clientes</a> 
+					<a href="trabajador?metodo=lista">Trabajadores</a>
 					<a href="tt?metodo=lista">Tipos de Trabajo</a>
 				</div>
 			</div>

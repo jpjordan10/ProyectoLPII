@@ -88,6 +88,7 @@
 		<h3>Reportes de Proyectos :</h3>
 		<br>
 		<div class="row">
+		
 			<div class="col-md-3">
 				<button type="button" class="btn btn-link"
 					onclick="location='./poParticipas.jsp'">
