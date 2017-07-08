@@ -19,14 +19,14 @@
 <body>
 	<div class="container">
 		<h1>Proyectos en Participación</h1>
-		<form action="obrero?metodo=Oparticipas" method="post">
+		<form action="reporte?metodo=Oparticipas" method="post">
 			<div>
 				<input type="text" name="user" value="${datos}"  style="visibility:hidden;">
 			</div>
 			<hr>
 			<div>
 				<button type="submit" class="btn btn-primary">Consultar</button>
-				<a class="btn btn-primary" href="mObrero.jsp">Regresar</a>
+				<a class="btn btn-primary" href="mobrero.jsp">Regresar</a>
 			</div>
 			<br>
 		<display:table name="${participas}" >

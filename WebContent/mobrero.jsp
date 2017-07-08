@@ -82,31 +82,32 @@
 
 	<div class="container">
 		<h1>Menu Obrero</h1>
-		<input type="text" name="user" value="${datos}"
-			style="visibility: hidden;">
 		<hr>
 		<h3>Reportes de Proyectos :</h3>
 		<br>
-		<div class="row">
-		
+		<div>
+		<form action="reporte?metodo=Oparticipas" method="post">
 			<div class="col-md-3">
-				<button type="button" class="btn btn-link"
-					onclick="location='./poparticipas.jsp'">
+				<input type="text" name="user" value="${datos}" style="visibility: hidden;">
+				<button type="submit" class="btn btn-link">
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay1">
 						<div class="text">Actuales</div>
 					</div>
 				</button>
 			</div>
+		</form>
+		<form action="reporte?metodo=Oparticipados" method="post">	
 			<div class="col-md-3">
-				<button type="button" class="btn btn-link"
-					onclick="location='./poparticipados.jsp'">
+				<input type="text" name="user" value="${datos}" style="visibility: hidden;">
+				<button type="submit" class="btn btn-link">
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay2">
 						<div class="text">Participados</div>
 					</div>
 				</button>
 			</div>
+		</form>
 		</div>
 	</div>
 </body>
