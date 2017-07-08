@@ -40,8 +40,26 @@ public class ServletReporte extends HttpServlet {
 			rxcliente(request, response);
 		} else if (metodo.equals("lcliente")) {
 			lcliente(request, response);
-		}
+		} else if (metodo.equals("Oparticipas")){
+ 		   obreroParticipas(request, response);
+ 	   } else if(metodo.equals("Oparticipados")){
+ 		   obreroParticipados(request, response);
+ 	   }
 
+	}
+	
+	private void obreroParticipados(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("user");
+		ArrayList<Reporte> listado = rs.listaParticipado(cod);
+		request.setAttribute("participados", listado);
+		request.getRequestDispatcher("poparticipados.jsp").forward(request, response);
+	}
+
+	private void obreroParticipas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("user");
+		ArrayList<Reporte> listado = rs.listaParticipas(cod);
+		request.setAttribute("participas", listado);
+		request.getRequestDispatcher("poparticipas.jsp").forward(request, response);
 	}
 
 	private void lcliente(HttpServletRequest request, HttpServletResponse response)
@@ -87,7 +105,7 @@ public class ServletReporte extends HttpServlet {
 		String cod = request.getParameter("user");
 		ArrayList<Reporte> rep = rs.proyectosDirigidos(cod);
 		request.setAttribute("Dirigidos", rep);
-		request.getRequestDispatcher("pDirigidos.jsp").forward(request, response);
+		request.getRequestDispatcher("pdirigidos.jsp").forward(request, response);
 		System.out.println(cod);
 	}
 
@@ -96,7 +114,7 @@ public class ServletReporte extends HttpServlet {
 		String cod = request.getParameter("user");
 		ArrayList<Reporte> rep = rs.proyectosDireccion(cod);
 		request.setAttribute("Direccion", rep);
-		request.getRequestDispatcher("pDireccion.jsp").forward(request, response);
+		request.getRequestDispatcher("pdireccion.jsp").forward(request, response);
 		System.out.println(cod);
 	}
 
@@ -105,7 +123,7 @@ public class ServletReporte extends HttpServlet {
 		String cod = request.getParameter("user");
 		ArrayList<Reporte> rep = rs.proyectosParticipas(cod);
 		request.setAttribute("Participas", rep);
-		request.getRequestDispatcher("pParticipas.jsp").forward(request, response);
+		request.getRequestDispatcher("pparticipas.jsp").forward(request, response);
 		System.out.println(cod);
 	}
 
@@ -114,7 +132,7 @@ public class ServletReporte extends HttpServlet {
 		String cod = request.getParameter("user");
 		ArrayList<Reporte> rep = rs.proyectosParticipados(cod);
 		request.setAttribute("Participados", rep);
-		request.getRequestDispatcher("pParticipados.jsp").forward(request, response);
+		request.getRequestDispatcher("pparticipados.jsp").forward(request, response);
 		System.out.println(cod);
 	}
 }

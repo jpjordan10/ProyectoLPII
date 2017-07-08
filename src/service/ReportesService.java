@@ -42,4 +42,12 @@ public class ReportesService {
 	public ArrayList<Reporte> reporteCliente(){
 		return dao.reporteCliente();
 	}
+
+	public ArrayList<Reporte> listaParticipado(String cod_trabajador){
+		return dao.listaParticipado(cod_trabajador);
+	}
+	
+	public ArrayList<Reporte> listaParticipas(String cod_trabajador){
+		return dao.listaParticipas(cod_trabajador);
+	}
 }

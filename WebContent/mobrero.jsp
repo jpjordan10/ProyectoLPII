@@ -91,7 +91,7 @@
 		
 			<div class="col-md-3">
 				<button type="button" class="btn btn-link"
-					onclick="location='./poParticipas.jsp'">
+					onclick="location='./poparticipas.jsp'">
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay1">
 						<div class="text">Actuales</div>
@@ -100,7 +100,7 @@
 			</div>
 			<div class="col-md-3">
 				<button type="button" class="btn btn-link"
-					onclick="location='./poParticipados.jsp'">
+					onclick="location='./poparticipados.jsp'">
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay2">
 						<div class="text">Participados</div>

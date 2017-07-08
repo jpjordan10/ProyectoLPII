@@ -18,18 +18,18 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Proyectos Dirigidos</h1>
-		<form action="reporte?metodo=pDirigidos" method="post">
+		<h1>Proyectos en Dirección</h1>
+		<form action="reporte?metodo=pDireccion" method="post">
 			<div>
-				<input type="text" name="user" value="${datos}"  style="visibility:hidden;">
+				<input type="text" name="user"  value="${datos}" style="visibility:hidden;">
 			</div>
 			<hr>
 			<div>
 				<button type="submit" class="btn btn-primary">Consultar</button>
-				<a class="btn btn-primary" href="menuArq.jsp">Regresar</a>
+				<a class="btn btn-primary" href="marqueologo.jsp">Regresar</a>
 			</div>
 			<br>
-		<display:table name="Dirigidos" >
+		<display:table name="${Direccion}" >
 			<display:column property="num_proyecto" title="Número Proyecto"/>
 			<display:column property="fecha_reg_proyecto" title="Fecha de Registro"/>
 			<display:column property="fecha_act_proyecto" title="Fecha Activación"/>

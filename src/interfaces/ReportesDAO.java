@@ -21,4 +21,9 @@ public interface ReportesDAO {
 	public ArrayList<Reporte> reportePorCliente(String cod_cliente);
 
 	public ArrayList<Reporte> reporteCliente();
+	
+	public ArrayList<Reporte> listaParticipado(String cod_trabajador);
+	
+	public ArrayList<Reporte> listaParticipas(String cod_trabajador);
+	
 }

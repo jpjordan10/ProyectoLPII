@@ -1,3 +1,5 @@
+<%@ taglib prefix="display" uri="http://displaytag.sf.net"  %>
+
 <!DOCTYPE html>
 <html lang="esS">
 <head>
@@ -10,6 +12,9 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/bootstrapValidator.js"></script>
+
+<link href="css/displaytag.css" rel="stylesheet" type="text/css" >
+<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen" />
 <style>
 .container {
 	position: relative;
@@ -115,45 +120,56 @@
 
 
 	<div class="container">
-		<h1>Menu Arqueólogo</h1> <input type="text" name="user" value="${datos}" style="visibility:hidden;">
+		<h1>Menu Arqueólogo</h1>
 		<hr>
 		<h3>Reportes de Proyectos :</h3>
 		<br>
-		<div class="row">
+		<div>
+		<form action="reporte?metodo=pDirigidos" method="post">
 			<div class="col-md-3">
-				<button type="button" class="btn btn-link" onclick="location='./pDirigidos.jsp'">
+			<input type="text" name="user" value="${datos}" style="visibility:hidden;">
+				<button type="submit" class="btn btn-link" >
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay1" >
 						<div class="text">Dirigidos</div>
 					</div>
 				</button>
 			</div>
+		</form>
+		<form action="reporte?metodo=pDireccion" method="post">
 			<div class="col-md-3">
-				<button type="button" class="btn btn-link" onclick="location='./pDireccion.jsp'">
+			<input type="text" name="user" value="${datos}" style="visibility:hidden;">
+				<button type="submit" class="btn btn-link" >
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay2">
 						<div class="text">En Dirección</div>
 					</div>
 				</button>
-			</div>
+			</div>		
+		</form>
+		<form action="reporte?metodo=pParticipas" method="post">
 			<div class="col-md-3">
-				<button type="button" class="btn btn-link" onclick="location='./pParticipas.jsp'">
+			<input type="text" name="user" value="${datos}" style="visibility:hidden;">
+				<button type="submit" class="btn btn-link" >
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay3">
 						<div class="text">En Participación</div>
 					</div>
 				</button>
 			</div>
+		</form>
+		<form action="reporte?metodo=pParticipados" method="post">
 			<div class="col-md-3">
-				<button  type="button" class="btn btn-link" onclick="location='./pParticipados.jsp'">
+			<input type="text" name="user" value="${datos}" style="visibility:hidden;">
+				<button  type="submit" class="btn btn-link" >
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay4">
 						<div class="text">Participados</div>
 					</div>
 				</button>
 			</div>
+		</form>
 		</div>
 	</div>
-
 </body>
 </html>
