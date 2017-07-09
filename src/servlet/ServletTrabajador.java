@@ -45,7 +45,71 @@ public class ServletTrabajador extends HttpServlet {
 			listaArqObr(request, response);
 		} else if (metodo.equals("listaArq")) {
 			listaArq(request, response);
+		} else if (metodo.equals("cambiadatos")) {
+			cambiadatos(request, response);
+		} else if (metodo.equals("actualizad")) {
+			actualizad(request, response);
 		}
+	}
+
+	private void actualizad(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		
+		String codigo = request.getParameter("codigo");
+		String nombre = request.getParameter("nombre");
+		String apellidop = request.getParameter("apellidop");
+		String apellidom = request.getParameter("apellidom");
+		String dni = request.getParameter("dni");
+		String email = request.getParameter("email");
+		String telefono = request.getParameter("telefono");
+		String departamento = request.getParameter("departamento");
+		String provincia = request.getParameter("provincia");
+		String distrito = request.getParameter("distrito");
+		String direccion = request.getParameter("direccion");
+		String password = request.getParameter("password");
+		String tipo = request.getParameter("tipo");
+
+
+		TrabajadorService ts = new TrabajadorService();
+		TrabajadorDTO t = new TrabajadorDTO();
+		t.setCod_trabajador(codigo);
+		t.setNom_trabajador(nombre);
+		t.setApep_trabajador(apellidop);
+		t.setApem_trabajador(apellidom);
+		t.setDni_trabajador(dni);
+		t.setEmail_trabajador(email);
+		t.setTelefono_trabajador(telefono);
+		t.setDepartamento_trabajador(departamento);
+		t.setProvincia_trabajador(provincia);
+		t.setDistrito_trabajador(distrito);
+		t.setDireccion_trabajador(direccion);
+		t.setPass_trabajador(password);
+
+		int i = ts.actualizaTrabajador(t);
+		if (i == 0) {
+			response.sendRedirect("error.jsp");
+		} else {
+			if (tipo.equals("OBRERO")) {
+				response.sendRedirect("mobrero.jsp");
+				System.out.println("Datos Actualizados");
+			}
+			else { 
+				response.sendRedirect("marqueologo.jsp");
+				System.out.println("Datos Actualizados");
+			}
+		}
+		
+	}
+
+	private void cambiadatos(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		String cod = request.getParameter("user");
+		TrabajadorDTO t = ts.buscaTrabajador(cod);
+		request.setAttribute("obj", t);
+		request.getRequestDispatcher("adatos.jsp").forward(request, response);
+		System.out.println(cod);
+		
+		
 	}
 
 	private void listaArq(HttpServletRequest request, HttpServletResponse response)

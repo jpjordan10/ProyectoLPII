@@ -53,6 +53,7 @@ public class ServletReporte extends HttpServlet {
 		ArrayList<Reporte> listado = rs.listaParticipado(cod);
 		request.setAttribute("participados", listado);
 		request.getRequestDispatcher("poparticipados.jsp").forward(request, response);
+		System.out.println(cod);
 	}
 
 	private void obreroParticipas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,6 +61,7 @@ public class ServletReporte extends HttpServlet {
 		ArrayList<Reporte> listado = rs.listaParticipas(cod);
 		request.setAttribute("participas", listado);
 		request.getRequestDispatcher("poparticipas.jsp").forward(request, response);
+		System.out.println(cod);
 	}
 
 	private void lcliente(HttpServletRequest request, HttpServletResponse response)

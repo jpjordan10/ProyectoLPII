@@ -170,6 +170,17 @@
 			</div>
 		</form>
 		</div>
+		<form action="trabajador?metodo=cambiadatos" method="post">	
+			<div class="col-md-3">
+				<input type="text" name="user" value="${datos}" style="visibility: hidden;">
+				<button type="submit" class="btn btn-link">
+					<img src="./images/usuario.png" style="width: 100%">
+					<div class="overlay2">
+						<div class="text">Datos</div>
+					</div>
+				</button>
+			</div>
+		</form>
 	</div>
 </body>
 </html>
