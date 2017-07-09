@@ -42,42 +42,7 @@
 				<th></th>
 				<th></th>
 				<th></th>
-				
 			</tr>
-			<%
-				ArrayList<ProyectoDTO> lista = (ArrayList<ProyectoDTO>) request.getAttribute("data");
-				if (lista != null) {
-					for (ProyectoDTO t : lista) {
-			%>
-			<tr class="grilla_campo">
-				<td><%=t.getNum_proyecto()%></td>
-				<td><%=t.getCod_trabajador()%></td>
-				<td><%=t.getCod_tiptrabajo()%></td>
-				<td><%=t.getFecha_reg_proyecto()%></td>
-				<td><%=t.getEtapa_proyecto()%></td>
-				<td><%=t.getFecha_act_proyecto()%></td>
-				<td><%=t.getMonto_total_proyecto()%></td>
-				
-				<td><a
-					href="proyecto?metodo=desactiva&cod=<%=t.getNum_proyecto()%>"> <img
-						alt="Desactiva" src="images/Delete.gif">
-				</a></td>
-				<td><a href="trabajador?metodo=busca&cod=<%=t.getCod_trabajador()%>">
-						<img alt="Actualiza" src="images/Edit.gif">
-				</a></td>
-				<td><a href="trabajador?metodo=activa&cod=<%=t.getCod_trabajador()%>">
-						<img alt="Activa" src="images/Edit.gif">
-				</a></td>
-				<td><a href="trabajador?metodo=elimina&cod=<%=t.getCod_trabajador()%>">
-						<img alt="Elimina" src="images/Edit.gif">
-				</a></td>
-			</tr>
-			<%
-				}
-				}
-			%>
-			 
-
 		</table>
 	</div>
 

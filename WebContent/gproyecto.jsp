@@ -17,7 +17,7 @@
 	<div class="container">
 		<h2>Registrar Proyecto</h2>
 		<hr>
-		<form class="form-horizontal" action="#" id="id_form">
+		<form class="form-horizontal" action="proy" id="id_form">
 			<input type="hidden" name="metodo" value="registra">
 			<!-- DATOS DE LA SOLICITUD -->
 			<div class="form-group">
@@ -103,6 +103,30 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-1">&nbsp;</div>
+					<label class="control-label col-sm-2" for="id_departamento">Departamento:</label>
+				<div class="col-sm-3">
+					<input class="form-control" type="text" placeholder="Ingrese Departamento" name="departamento" id="id_departamento">
+				</div>
+					<label class="control-label col-sm-2" for="id_provincia">Provincia:</label>
+				<div class="col-sm-3">
+					<input class="form-control" type="text" placeholder="Ingrese Provincia" name="provincia" id="id_provincia">
+				</div>
+				<div class="col-sm-1">&nbsp;</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-1">&nbsp;</div>
+					<label class="control-label col-sm-2" for="id_distrito">Distrito:</label>
+				<div class="col-sm-3">
+					<input class="form-control" type="text" placeholder="Ingrese Distrito" name="distrito" id="id_distrito">
+				</div>
+					<label class="control-label col-sm-2" for="id_direccion">Dirección:</label>
+				<div class="col-sm-3">
+					<input class="form-control" type="text" placeholder="Ingrese Direccion" name="direccion" id="id_direccion">
+				</div>
+				<div class="col-sm-1">&nbsp;</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-1">&nbsp;</div>
 					<label class="control-label col-sm-2" for="id_trabajo">Trabajo a realizar:</label>
 				<div class="col-sm-3">
 					<libreria:dameTipoTrabajo/>
@@ -110,7 +134,7 @@
 				<label class="control-label col-sm-2" for="id_etapa">Etapa de Proyecto</label>
 				<div class="col-sm-3">
 					<input class="form-control" type="text" placeholder="PRIMERA" disabled>
-					<input type="hidden" class="form-control" id="id_etapa" name="PRIMERA" value="PRIMERA">
+					<input type="hidden" class="form-control" id="id_etapa" name="etapa" value="PRIMERA">
 				</div>
 				<div class="col-sm-1">&nbsp;</div>
 			</div>
@@ -128,7 +152,7 @@
 			</div>
 			<!-- FIN DATOS DE DATOS DE PROYECTO -->
 			<hr>
-			<!-- DETALLE DE PROYECTO -->
+			<!-- DETALLE DE PROYECTO
 			<div class="form-group">
 				<div class="col-sm-1">&nbsp;</div>
 				<div class="col-sm-10">
@@ -177,9 +201,12 @@
 				</div>
 				<div class="col-sm-1">&nbsp;</div>
 			</div>
-			<hr>
+			<hr> -->
 			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-10">
+				<div class="col-sm-8">
+					&nbsp;
+				</div>
+				<div class="col-sm-4">
 					<button type="reset" class="btn btn-default">Cancelar</button>
 					<button type="submit" class="btn btn-default">Generar
 						Solicitud</button>

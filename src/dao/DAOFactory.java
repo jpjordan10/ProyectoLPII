@@ -1,6 +1,7 @@
 package dao;
 
 import interfaces.ClienteDAO;
+import interfaces.ProyectoDAO;
 import interfaces.ReportesDAO;
 import interfaces.SolicitudDAO;
 import interfaces.TipoTrabajoDAO;
@@ -14,6 +15,7 @@ public abstract class DAOFactory {
 	public abstract TipoTrabajoDAO getTipoTrabajoDAO();
 	public abstract	SolicitudDAO getSolicitudDAO();
 	public abstract ReportesDAO getReportesDAO(); 
+	public abstract ProyectoDAO getProyectoDAO(); 
 
 	public static DAOFactory getDAOFactory(int qFactory) {
 		switch (qFactory) {

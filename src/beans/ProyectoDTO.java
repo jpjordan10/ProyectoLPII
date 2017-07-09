@@ -10,10 +10,8 @@ public class ProyectoDTO {
 	private String direccion_proyecto;
 	private String etapa_proyecto;
 	private double costo_proyecto;
-	private double monto_total_proyecto;
 	private int can_mes_proyecto;
 	private String num_solicitud;
-	private String cod_trabajador;
 	private String cod_tiptrabajo;
 
 	public String getNum_proyecto() {
@@ -88,14 +86,6 @@ public class ProyectoDTO {
 		this.costo_proyecto = costo_proyecto;
 	}
 
-	public double getMonto_total_proyecto() {
-		return monto_total_proyecto;
-	}
-
-	public void setMonto_total_proyecto(double monto_total_proyecto) {
-		this.monto_total_proyecto = monto_total_proyecto;
-	}
-
 	public int getCan_mes_proyecto() {
 		return can_mes_proyecto;
 	}
@@ -110,14 +100,6 @@ public class ProyectoDTO {
 
 	public void setNum_solicitud(String num_solicitud) {
 		this.num_solicitud = num_solicitud;
-	}
-
-	public String getCod_trabajador() {
-		return cod_trabajador;
-	}
-
-	public void setCod_trabajador(String cod_trabajador) {
-		this.cod_trabajador = cod_trabajador;
 	}
 
 	public String getCod_tiptrabajo() {
