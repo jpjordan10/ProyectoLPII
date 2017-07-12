@@ -24,15 +24,7 @@ public class ServletReporte extends HttpServlet {
 			throws ServletException, IOException {
 
 		String metodo = request.getParameter("metodo");
-		if (metodo.equals("pDirigidos")) {
-			listaDirigidos(request, response);
-		} else if (metodo.equals("pDireccion")) {
-			listaDireccion(request, response);
-		} else if (metodo.equals("pParticipas")) {
-			listaParticipas(request, response);
-		} else if (metodo.equals("pParticipados")) {
-			listaParticipados(request, response);
-		} else if (metodo.equals("rxtipotrabajo")) {
+		if (metodo.equals("rxtipotrabajo")) {
 			rxtipotrabajo(request, response);
 		} else if (metodo.equals("ltipotrabajo")) {
 			ltipotrabajo(request, response);
@@ -40,14 +32,54 @@ public class ServletReporte extends HttpServlet {
 			rxcliente(request, response);
 		} else if (metodo.equals("lcliente")) {
 			lcliente(request, response);
-		} else if (metodo.equals("Oparticipas")){
+		} else if (metodo.equals("oparticipas")){
  		   obreroParticipas(request, response);
- 	   } else if(metodo.equals("Oparticipados")){
+ 	   } else if(metodo.equals("oparticipados")){
  		   obreroParticipados(request, response);
+ 	   }else if (metodo.equals("aparticipas")){
+ 		   arqueologoParticipas(request, response);
+ 	   } else if(metodo.equals("aparticipados")){
+ 		  arqueologoParticipados(request, response);
+ 	   }else if (metodo.equals("amparticipas")){
+ 		  arqueologomayorDireccion(request, response);
+ 	   } else if(metodo.equals("amparticipados")){
+ 		  arqueologomayorDirigidos(request, response);
  	   }
 
 	}
 	
+	private void arqueologoParticipas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("user");
+		ArrayList<Reporte> listado = rs.listaParticipas(cod);
+		request.setAttribute("participas", listado);
+		request.getRequestDispatcher("pparticipas.jsp").forward(request, response);
+		System.out.println(cod);
+	}
+
+	private void arqueologoParticipados(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("user");
+		ArrayList<Reporte> listado = rs.listaParticipado(cod);
+		request.setAttribute("participados", listado);
+		request.getRequestDispatcher("pparticipados.jsp").forward(request, response);
+		System.out.println(cod);
+	}
+
+	private void arqueologomayorDireccion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("user");
+		ArrayList<Reporte> listado = rs.listaParticipas(cod);
+		request.setAttribute("participas", listado);
+		request.getRequestDispatcher("pdireccion.jsp").forward(request, response);
+		System.out.println(cod);
+	}
+
+	private void arqueologomayorDirigidos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("user");
+		ArrayList<Reporte> listado = rs.listaParticipado(cod);
+		request.setAttribute("participados", listado);
+		request.getRequestDispatcher("pdirigidos.jsp").forward(request, response);
+		System.out.println(cod);
+	}
+
 	private void obreroParticipados(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cod = request.getParameter("user");
 		ArrayList<Reporte> listado = rs.listaParticipado(cod);
@@ -100,41 +132,5 @@ public class ServletReporte extends HttpServlet {
 			request.setAttribute("milistado", lista);
 			request.getRequestDispatcher("rxtipotrabajo.jsp").forward(request, response);
 		}
-	}
-
-	private void listaDirigidos(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String cod = request.getParameter("user");
-		ArrayList<Reporte> rep = rs.proyectosDirigidos(cod);
-		request.setAttribute("Dirigidos", rep);
-		request.getRequestDispatcher("pdirigidos.jsp").forward(request, response);
-		System.out.println(cod);
-	}
-
-	private void listaDireccion(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String cod = request.getParameter("user");
-		ArrayList<Reporte> rep = rs.proyectosDireccion(cod);
-		request.setAttribute("Direccion", rep);
-		request.getRequestDispatcher("pdireccion.jsp").forward(request, response);
-		System.out.println(cod);
-	}
-
-	private void listaParticipas(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String cod = request.getParameter("user");
-		ArrayList<Reporte> rep = rs.proyectosParticipas(cod);
-		request.setAttribute("Participas", rep);
-		request.getRequestDispatcher("pparticipas.jsp").forward(request, response);
-		System.out.println(cod);
-	}
-
-	private void listaParticipados(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String cod = request.getParameter("user");
-		ArrayList<Reporte> rep = rs.proyectosParticipados(cod);
-		request.setAttribute("Participados", rep);
-		request.getRequestDispatcher("pparticipados.jsp").forward(request, response);
-		System.out.println(cod);
 	}
 }

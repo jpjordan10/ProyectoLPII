@@ -19,7 +19,7 @@
 <body>
 	<div class="container">
 		<h1>Proyectos en Participación</h1>
-		<form action="reporte?metodo=Oparticipas" method="post">
+		<form action="reporte?metodo=oparticipas" method="post">
 			<div>
 				<input type="text" name="user" value="${datos}"  style="visibility:hidden;">
 			</div>

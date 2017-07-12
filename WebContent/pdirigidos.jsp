@@ -19,29 +19,25 @@
 <body>
 	<div class="container">
 		<h1>Proyectos Dirigidos</h1>
-		<form action="reporte?metodo=pDirigidos" method="post">
+		<form action="reporte?metodo=amparticipados" method="post">
 			<div>
 				<input type="text" name="user" value="${datos}"  style="visibility:hidden;">
 			</div>
 			<hr>
 			<div>
 				<button type="submit" class="btn btn-primary">Consultar</button>
-				<a class="btn btn-primary" href="marqueologo.jsp">Regresar</a>
+				<a class="btn btn-primary" href="marqueologomayor.jsp">Regresar</a>
 			</div>
 			<br>
-		<display:table name="${Dirigidos}" >
+		<display:table name="${participados}" >
 			<display:column property="num_proyecto" title="Número Proyecto"/>
-			<display:column property="fecha_reg_proyecto" title="Fecha de Registro"/>
-			<display:column property="fecha_act_proyecto" title="Fecha Activación"/>
 			<display:column property="departamento_proyecto" title="Departamento"/>
 			<display:column property="provincia_proyecto" title="Provincia"/>
 			<display:column property="distrito_proyecto" title="Distrito"/>
 			<display:column property="direccion_proyecto" title="Dirección"/>
+			<display:column property="fecha_reg_proyecto" title="Fecha de Registro"/>
+			<display:column property="fecha_act_proyecto" title="Fecha Activación"/>
 			<display:column property="etapa_proyecto" title="Etapa"/>
-			<display:column property="costo_proyecto" title="Costro Proyecto"/>
-			<display:column property="monto_total_proyecto" title="Monto Total"/>
-			<display:column property="can_mes_proyecto" title="Meses"/>
-			<display:column property="num_solicitud" title="Número Solicitud"/> 
 		</display:table>
 	</form>
 	</div>
