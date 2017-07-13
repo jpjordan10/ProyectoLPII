@@ -12,9 +12,11 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/bootstrapValidator.js"></script>
+<title>Menu de Proyecto</title>
 </head>
 <body>
 	<div class="container">
+	<a href="mgestor.jsp"><img alt="" src="images/return.png" width="25px"> Regresar al Menu</a>
 		<h1>Menu de Proyectos</h1>
 		<a class="btn btn-primary" href="proy?metodo=lista">Ver data</a> <a
 			class="btn btn-primary" href="gproyecto.jsp">Registrar Proyecto</a>

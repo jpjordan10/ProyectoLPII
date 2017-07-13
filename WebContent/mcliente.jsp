@@ -9,19 +9,18 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrap-theme.css">
 <link rel="stylesheet" href="css/bootstrapValidator.css">
-
+<title>Menu de cliente</title>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/bootstrapValidator.js"></script>
 </head>
 <body>
 	<div class="container">
+	<a href="mgestor.jsp"><img alt="" src="images/return.png" width="25px"> Regresar al Menu</a>
 		<h1>Menu de Clientes</h1>
-
 		<a class="btn btn-primary" href="cliente?metodo=lista">Ver data</a> <a
 			class="btn btn-primary" href="icliente.jsp">Registra</a>
 	</div>
-
 	<br>
 	<br>
 	<div class="container">

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrap-theme.css">
 <link rel="stylesheet" href="css/bootstrapValidator.css">
-
+<title>Buscar Cliente</title>
 <link href="css/displaytag.css" rel="stylesheet" type="text/css" >
 <link href="css/screen.css" rel="stylesheet" type="text/css" media="screen">
 

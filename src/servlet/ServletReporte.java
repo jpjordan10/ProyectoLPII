@@ -32,6 +32,7 @@ public class ServletReporte extends HttpServlet {
 			rxcliente(request, response);
 		} else if (metodo.equals("lcliente")) {
 			lcliente(request, response);
+<<<<<<< HEAD
 		} else if (metodo.equals("oparticipas")){
  		   obreroParticipas(request, response);
  	   } else if(metodo.equals("oparticipados")){
@@ -45,8 +46,38 @@ public class ServletReporte extends HttpServlet {
  	   } else if(metodo.equals("amparticipados")){
  		  arqueologomayorDirigidos(request, response);
  	   }
+=======
+		} else if (metodo.equals("Oparticipas")) {
+			obreroParticipas(request, response);
+		} else if (metodo.equals("Oparticipados")) {
+			obreroParticipados(request, response);
+		} else if (metodo.equals("rxfechas")) {
+			rxfechas(request, response);
+		} else if (metodo.equals("lfecha")) {
+			lfecha(request, response);
+		}
 
 	}
+
+	private void lfecha(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ArrayList<Reporte> lista = rs.reporteFechas();
+		request.setAttribute("milistado", lista);
+		request.getRequestDispatcher("rxfechas.jsp").forward(request, response);
+	}
+>>>>>>> 075f23b... antes
+
+	private void rxfechas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String fi = request.getParameter("fi");
+		String ff = request.getParameter("ff");
+		if (fi.equals("") || ff.equals("")) {
+			lfecha(request, response);
+		} else {
+			ArrayList<Reporte> lista = rs.reportePorFechas(fi, ff);
+			request.setAttribute("milistado", lista);
+			request.getRequestDispatcher("rxfechas.jsp").forward(request, response);
+		}
+	}
+<<<<<<< HEAD
 	
 	private void arqueologoParticipas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cod = request.getParameter("user");
@@ -81,6 +112,11 @@ public class ServletReporte extends HttpServlet {
 	}
 
 	private void obreroParticipados(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+=======
+
+	private void obreroParticipados(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+>>>>>>> 075f23b... antes
 		String cod = request.getParameter("user");
 		ArrayList<Reporte> listado = rs.listaParticipado(cod);
 		request.setAttribute("participados", listado);
@@ -88,7 +124,8 @@ public class ServletReporte extends HttpServlet {
 		System.out.println(cod);
 	}
 
-	private void obreroParticipas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void obreroParticipas(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String cod = request.getParameter("user");
 		ArrayList<Reporte> listado = rs.listaParticipas(cod);
 		request.setAttribute("participas", listado);

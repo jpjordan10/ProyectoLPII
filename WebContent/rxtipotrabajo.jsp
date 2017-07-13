@@ -23,6 +23,7 @@
 			<label class="control-label col-sm-2" for="id_tipo">Tipo Trabajo:</label>
 			<div class="col-sm-8">
 				<libreria:dameTipoTrabajo />
+				<a href="mgestor.jsp" class="btn btn-default">Cancelar</a>
 				<button type="submit" class="btn btn-default">Consultar</button>
 			</div>
 		</form>

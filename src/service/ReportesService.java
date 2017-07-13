@@ -34,4 +34,11 @@ public class ReportesService {
 	public ArrayList<Reporte> listaParticipas(String cod_trabajador){
 		return dao.listaParticipas(cod_trabajador);
 	}
+	public ArrayList<Reporte> reportePorFechas(String fi, String ff){
+		return dao.reportePorFechas(fi, ff);
+	}
+
+	public ArrayList<Reporte> reporteFechas(){
+		return dao.reporteFechas();
+	}
 }

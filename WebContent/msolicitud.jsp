@@ -16,6 +16,7 @@
 </head>
 <body>
 	<div class="container">
+	<a href="mgestor.jsp"><img alt="" src="images/return.png" width="25px"> Regresar al Menu</a>
 		<h1>Menu de Solicitudes</h1>
 		<a class="btn btn-primary" href="soli?metodo=lista">Ver data</a> <a
 			class="btn btn-primary" href="gsolicitud.jsp">Generar Solicitud</a>

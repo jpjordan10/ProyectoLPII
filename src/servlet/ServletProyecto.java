@@ -106,7 +106,7 @@ public class ServletProyecto extends HttpServlet {
 		if (rp == 0 && as == 0) {
 			response.sendRedirect("error.jsp");
 		} else {
-			response.sendRedirect("mproyecto.jsp");
+			lista(request, response);
 		}
 	}
 

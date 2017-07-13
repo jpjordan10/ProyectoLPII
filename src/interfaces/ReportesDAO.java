@@ -14,6 +14,10 @@ public interface ReportesDAO {
 
 	public ArrayList<Reporte> reporteCliente();
 	
+	public ArrayList<Reporte> reportePorFechas(String fi, String ff);
+
+	public ArrayList<Reporte> reporteFechas();
+	
 	public ArrayList<Reporte> listaParticipado(String cod_trabajador);
 	
 	public ArrayList<Reporte> listaParticipas(String cod_trabajador);

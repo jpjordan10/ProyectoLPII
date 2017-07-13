@@ -10,6 +10,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/bootstrapValidator.js"></script>
+<title>Menu del Gestor</title>
 <style>
 .container {
 	position: relative;
@@ -71,11 +72,21 @@
 </style>
 </head>
 <body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand">Consultoria y Estudios en Herencia Cultural</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="trabajador?metodo=cerrarSesion"><span class="glyphicon glyphicon-log-in"></span>
+						Cerrar Sesión</a></li>
+			</ul>
+		</div>
+	</nav>
 	<div class="container">
 		<h1>Menu del Gestor</h1>
 		<hr>
-		<br>
-		<br>
+		<br> <br>
 		<div class="row">
 			<div class="col-md-3">
 				<button type="button" class="btn btn-link">
@@ -85,9 +96,9 @@
 					</div>
 				</button>
 				<div class="dropdown-content">
-					<a href="cliente?metodo=lista">Clientes</a> 
-					<a href="trabajador?metodo=lista">Trabajadores</a>
-					<a href="tt?metodo=lista">Tipos de Trabajo</a>
+					<a href="cliente?metodo=lista">Clientes</a> <a
+						href="trabajador?metodo=lista">Trabajadores</a> <a
+						href="tt?metodo=lista">Tipos de Trabajo</a>
 				</div>
 			</div>
 			<div class="col-md-3">
@@ -98,8 +109,8 @@
 					</div>
 				</button>
 				<div class="dropdown-content">
-					<a href="soli?metodo=lista">Menu de Solicitudes</a> <a href="gsolicitud.jsp">Registrar
-						Solicitud</a>
+					<a href="soli?metodo=lista">Menu de Solicitudes</a> <a
+						href="gsolicitud.jsp">Registrar Solicitud</a>
 				</div>
 			</div>
 			<div class="col-md-3">
@@ -110,8 +121,8 @@
 					</div>
 				</button>
 				<div class="dropdown-content">
-					<a href="proy?metodo=lista">Menu de Proyectos</a> <a href="gproyecto.jsp">Registrar
-						Proyecto</a>
+					<a href="proy?metodo=lista">Menu de Proyectos</a> <a
+						href="gproyecto.jsp">Registrar Proyecto</a>
 				</div>
 			</div>
 			<div class="col-md-3">
@@ -122,9 +133,9 @@
 					</div>
 				</button>
 				<div class="dropdown-content">
-					<a href="reporte?metodo=ltipotrabajo">Por Tipo de Trabajo</a> 
-					<a href="reporte?metodo=lcliente">Por Cliente</a>
-					<a href="#">Por Rango de Fechas</a>
+					<a href="reporte?metodo=ltipotrabajo">Por Tipo de Trabajo</a> <a
+						href="reporte?metodo=lcliente">Por Cliente</a> <a href="reporte?metodo=lfecha">Por
+						Rango de Fechas</a>
 				</div>
 			</div>
 		</div>

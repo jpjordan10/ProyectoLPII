@@ -82,7 +82,7 @@ public class ServletSolicitud extends HttpServlet {
 		if (i == 0) {
 			response.sendRedirect("error.jsp");
 		} else {
-			response.sendRedirect("msolicitud.jsp");
+			lista(request, response);
 		}
 	}
 
@@ -107,7 +107,6 @@ public class ServletSolicitud extends HttpServlet {
 			response.sendRedirect("error.jsp");
 		} else {
 			lista(request, response);
-			// response.sendRedirect("msolicitud.jsp");
 		}
 	}
 

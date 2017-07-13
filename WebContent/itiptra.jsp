@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrap-theme.css">
 <link rel="stylesheet" href="css/bootstrapValidator.css">
-
+<title>Registrar Tipo de Trabajado</title>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/bootstrapValidator.js"></script>
