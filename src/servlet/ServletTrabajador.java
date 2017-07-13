@@ -160,6 +160,11 @@ public class ServletTrabajador extends HttpServlet {
 					HttpSession sesion = request.getSession();
 					sesion.setAttribute("datos", obj.getCod_trabajador());
 					request.getRequestDispatcher("marqueologo.jsp").forward(request, response);
+				} else if (obj.getPass_trabajador().equals(pass_trabajador)
+						&& obj.getTipo_trabajador().equals("ARQUEOLOGO MAYOR")) {
+					HttpSession sesion = request.getSession();
+					sesion.setAttribute("datos", obj.getCod_trabajador());
+					request.getRequestDispatcher("marqueologomayor.jsp").forward(request, response);
 				} else {
 					request.setAttribute("msg", "Contraseña Incorrecta");
 					request.getRequestDispatcher("login.jsp").forward(request, response);

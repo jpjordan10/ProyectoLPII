@@ -1,3 +1,5 @@
+<%@ taglib prefix="display" uri="http://displaytag.sf.net"  %>
+
 <!DOCTYPE html>
 <html lang="esS">
 <head>
@@ -10,6 +12,9 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/bootstrapValidator.js"></script>
+
+<link href="css/displaytag.css" rel="stylesheet" type="text/css" >
+<link href="css/screen.css" rel="stylesheet" type="text/css" media="screen" />
 <style>
 .container {
 	position: relative;
@@ -96,35 +101,36 @@
 </style>
 </head>
 <body>
+
+
 	<div class="container">
-	
-		<h1>Menu Obrero</h1>
+		<h1>Menu Arqueólogo Mayor</h1>
 		<hr>
 		<h3>Reportes de Proyectos :</h3>
 		<br>
 		<div>
-		<form action="reporte?metodo=oparticipas" method="post">
+		<form action="reporte?metodo=amparticipados" method="post">
 			<div class="col-md-3">
-				<input type="text" name="user" value="${datos}" style="visibility: hidden;">
-				<button type="submit" class="btn btn-link">
+			<input type="text" name="user" value="${datos}" style="visibility:hidden;">
+				<button type="submit" class="btn btn-link" >
 					<img src="./images/reportes.png" style="width: 100%">
-					<div class="overlay1">
-						<div class="text">Actuales</div>
+					<div class="overlay1" >
+						<div class="text">Dirigidos</div>
 					</div>
 				</button>
 			</div>
 		</form>
-		<form action="reporte?metodo=oparticipados" method="post">	
+		<form action="reporte?metodo=amparticipas" method="post">
 			<div class="col-md-3">
-				<input type="text" name="user" value="${datos}" style="visibility: hidden;">
-				<button type="submit" class="btn btn-link">
+			<input type="text" name="user" value="${datos}" style="visibility:hidden;">
+				<button type="submit" class="btn btn-link" >
 					<img src="./images/reportes.png" style="width: 100%">
 					<div class="overlay2">
-						<div class="text">Participados</div>
+						<div class="text">En Dirección</div>
 					</div>
 				</button>
-			</div>
-		</form>	
+			</div>		
+		</form>
 		</div>
 		<form action="trabajador?metodo=cambiadatos" method="post">	
 			<div class="col-md-3">

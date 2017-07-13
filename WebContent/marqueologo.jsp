@@ -77,22 +77,6 @@
 .col-md-3:hover .overlay3 {
 	opacity: 1;
 }
-.overlay4 {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 100%;
-	width: 100%;
-	opacity: 0;
-	transition: .5s ease;
-	background-color: orange;
-}
-
-.col-md-3:hover .overlay4 {
-	opacity: 1;
-}
 
 .dropdown-content a {
 	color: black;
@@ -125,45 +109,23 @@
 		<h3>Reportes de Proyectos :</h3>
 		<br>
 		<div>
-		<form action="reporte?metodo=pDirigidos" method="post">
+		<form action="reporte?metodo=aparticipas" method="post">
 			<div class="col-md-3">
 			<input type="text" name="user" value="${datos}" style="visibility:hidden;">
 				<button type="submit" class="btn btn-link" >
 					<img src="./images/reportes.png" style="width: 100%">
-					<div class="overlay1" >
-						<div class="text">Dirigidos</div>
+					<div class="overlay1">
+						<div class="text">Actuales</div>
 					</div>
 				</button>
 			</div>
 		</form>
-		<form action="reporte?metodo=pDireccion" method="post">
-			<div class="col-md-3">
-			<input type="text" name="user" value="${datos}" style="visibility:hidden;">
-				<button type="submit" class="btn btn-link" >
-					<img src="./images/reportes.png" style="width: 100%">
-					<div class="overlay2">
-						<div class="text">En Dirección</div>
-					</div>
-				</button>
-			</div>		
-		</form>
-		<form action="reporte?metodo=pParticipas" method="post">
-			<div class="col-md-3">
-			<input type="text" name="user" value="${datos}" style="visibility:hidden;">
-				<button type="submit" class="btn btn-link" >
-					<img src="./images/reportes.png" style="width: 100%">
-					<div class="overlay3">
-						<div class="text">En Participación</div>
-					</div>
-				</button>
-			</div>
-		</form>
-		<form action="reporte?metodo=pParticipados" method="post">
+		<form action="reporte?metodo=aparticipados" method="post">
 			<div class="col-md-3">
 			<input type="text" name="user" value="${datos}" style="visibility:hidden;">
 				<button  type="submit" class="btn btn-link" >
 					<img src="./images/reportes.png" style="width: 100%">
-					<div class="overlay4">
+					<div class="overlay2">
 						<div class="text">Participados</div>
 					</div>
 				</button>
@@ -175,7 +137,7 @@
 				<input type="text" name="user" value="${datos}" style="visibility: hidden;">
 				<button type="submit" class="btn btn-link">
 					<img src="./images/usuario.png" style="width: 100%">
-					<div class="overlay2">
+					<div class="overlay3">
 						<div class="text">Datos</div>
 					</div>
 				</button>
