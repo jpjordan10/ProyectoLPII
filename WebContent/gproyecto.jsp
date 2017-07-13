@@ -17,7 +17,7 @@
 	<div class="container">
 		<h2>Registrar Proyecto</h2>
 		<hr>
-		<form class="form-horizontal" action="proy" id="id_form">
+		<form class="form-horizontal" action="proy" id="id_form" method="post">
 			<input type="hidden" name="metodo" value="registra">
 			<!-- DATOS DE LA SOLICITUD -->
 			<div class="form-group">
@@ -157,7 +157,7 @@
 					&nbsp;
 				</div>
 				<div class="col-sm-4">
-					<button type="reset" class="btn btn-default">Cancelar</button>
+					<a class="btn btn-default" href="proy?metodo=lista">Cancelar</a>
 					<button type="submit" class="btn btn-default">Registrar</button>
 				</div>
 			</div>

@@ -16,7 +16,7 @@
 	<div class="container">
 		<h2>Seleccion de Personal</h2>
 		<hr>
-		<form class="form-horizontal" action="#" id="id_form">
+		<form class="form-horizontal" action="#" id="id_form" method="post">
 			<div class="form-group">
 				<div class="col-sm-1">&nbsp;</div>
 				<div class="col-sm-10">

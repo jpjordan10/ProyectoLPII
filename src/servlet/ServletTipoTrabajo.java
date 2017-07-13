@@ -73,7 +73,7 @@ public class ServletTipoTrabajo extends HttpServlet {
 
 	}
 
-	private void registra(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	private void registra(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String descripcion = request.getParameter("descripcion");
 		String fecha = request.getParameter("fecha");
 		TipoTrabajoService ts = new TipoTrabajoService();
@@ -86,7 +86,8 @@ public class ServletTipoTrabajo extends HttpServlet {
 		if (i == 0) {
 			response.sendRedirect("error.jsp");
 		} else {
-			response.sendRedirect("mtiptra.jsp");
+			//response.sendRedirect("mtiptra.jsp");
+			lista(request, response);
 		}
 
 	}
@@ -108,7 +109,7 @@ public class ServletTipoTrabajo extends HttpServlet {
 		request.getRequestDispatcher("atiptra.jsp").forward(request, response);
 	}
 
-	private void actualiza(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	private void actualiza(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String codigo = request.getParameter("codigo");
 		String descripcion = request.getParameter("descripcion");
 		TipoTrabajoService ts = new TipoTrabajoService();
@@ -119,7 +120,8 @@ public class ServletTipoTrabajo extends HttpServlet {
 		if (i == 0) {
 			response.sendRedirect("error.jsp");
 		} else {
-			response.sendRedirect("mtiptra.jsp");
+			//response.sendRedirect("mtiptra.jsp");
+			lista(request, response);
 		}
 	}
 

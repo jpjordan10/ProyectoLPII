@@ -19,7 +19,7 @@
 		%>
 		<h2>Actializar Proyecto</h2>
 		<hr>
-		<form class="form-horizontal" id="id_form" action="proy">
+		<form class="form-horizontal" id="id_form" action="proy" method="post">
 		<input type="hidden" name="metodo" value="actualiza">
 			<div class="form-group">
 				<div class="col-sm-1">&nbsp;</div>
@@ -110,7 +110,7 @@
 			<hr>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="reset" class="btn btn-default">Cancelar</button>
+					<a class="btn btn-default" href="proy?metodo=lista">Cancelar</a>
 					<button type="submit" class="btn btn-default">Actualiza
 						Proyecto</button>
 				</div>

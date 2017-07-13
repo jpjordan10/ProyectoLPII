@@ -20,7 +20,7 @@
 		%>
 		<h2>Conceder permisos de Solicitud</h2>
 		<hr>
-		<form class="form-horizontal" action="soli" id="id_form">
+		<form class="form-horizontal" action="soli" id="id_form" method="post">
 			<input type="hidden" name="metodo" value="actualiza">
 			<div class="form-group">
 				<div class="col-sm-1">&nbsp;</div>
@@ -129,7 +129,7 @@
 			<hr>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="reset" class="btn btn-default">Cancelar</button>
+					<a class="btn btn-default" href="soli?metodo=lista">Cancelar</a>
 					<button type="submit" class="btn btn-default">Actualiza
 						Solicitud</button>
 				</div>

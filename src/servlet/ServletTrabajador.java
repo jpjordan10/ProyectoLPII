@@ -233,7 +233,7 @@ public class ServletTrabajador extends HttpServlet {
 		if (i == 0) {
 			response.sendRedirect("error.jsp");
 		} else {
-			response.sendRedirect("mtrabajador.jsp");
+			lista(request, response);
 		}
 	}
 
@@ -289,8 +289,7 @@ public class ServletTrabajador extends HttpServlet {
 		if (i == 0) {
 			response.sendRedirect("error.jsp");
 		} else {
-			response.sendRedirect("mtrabajador.jsp");
-
+			lista(request, response);
 		}
 	}
 

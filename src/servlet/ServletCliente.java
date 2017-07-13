@@ -123,7 +123,7 @@ public class ServletCliente extends HttpServlet {
 		if (i == 0) {
 			response.sendRedirect("error.jsp");
 		} else {
-			response.sendRedirect("mcliente.jsp");
+			lista(request, response);
 		}
 	}
 
@@ -142,7 +142,7 @@ public class ServletCliente extends HttpServlet {
 		request.getRequestDispatcher("acliente.jsp").forward(request, response);
 	}
 
-	private void actualiza(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	private void actualiza(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String codigo = request.getParameter("codigo");
 		String razon = request.getParameter("razon");
 		String ruc = request.getParameter("ruc");
@@ -168,7 +168,7 @@ public class ServletCliente extends HttpServlet {
 		if (i == 0) {
 			response.sendRedirect("error.jsp");
 		} else {
-			response.sendRedirect("mcliente.jsp");
+			lista(request, response);
 		}
 	}
 

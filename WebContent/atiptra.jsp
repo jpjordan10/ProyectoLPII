@@ -19,7 +19,7 @@
 			TipoTrabajoDTO t = (TipoTrabajoDTO) request.getAttribute("tipt");
 		%>
 		<h1>Actualizacion de Tipo de Trabajo</h1>
-		<form class="form-horizontal" action="tt" id="id_form">
+		<form class="form-horizontal" action="tt" id="id_form" method="post">
 			<input type="hidden" name="metodo" value="actualiza"> <input
 				type="hidden" name="codigo" value="<%=t.getCod_tiptrabajo()%>">
 			<div class="form-group">
@@ -32,8 +32,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="reset" class="btn btn-default" name="metodo"
-						value="lista">Cancelar</button>
+					<a class="btn btn-default" href="tt?metodo=lista">Cancelar</a>
 					<button type="submit" class="btn btn-default">Actualizar</button>
 				</div>
 			</div>

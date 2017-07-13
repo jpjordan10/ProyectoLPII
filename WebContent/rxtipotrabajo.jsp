@@ -17,7 +17,7 @@
 <body>
 
 	<div class="container">
-		<form class="form-horizontal" action="reporte" id="id_form">
+		<form class="form-horizontal" action="reporte" id="id_form" method="post">
 		<input type="hidden" name="metodo" value="rxtipotrabajo">
 			<h2>Reporte Por Tipo de Trabajo</h2>
 			<label class="control-label col-sm-2" for="id_tipo">Tipo Trabajo:</label>

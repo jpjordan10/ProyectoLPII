@@ -19,7 +19,7 @@
 			ClienteDTO c = (ClienteDTO) request.getAttribute("cli");
 		%>
 		<h1>Datos de Cliente</h1>
-		<form class="form-horizontal" action="cliente" id="id_form">
+		<form class="form-horizontal" action="cliente" id="id_form" method="post">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_codigo">Código:</label>
 				<div class="col-sm-10">
@@ -115,8 +115,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="reset" class="btn btn-default" name="metodo"
-						value="lista">Cancelar</button>
+					<a class="btn btn-default" href="cliente?metodo=lista">Cancelar</a>
 				</div>
 			</div>
 		</form>

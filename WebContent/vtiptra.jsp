@@ -19,7 +19,7 @@
 			TipoTrabajoDTO t = (TipoTrabajoDTO) request.getAttribute("tipt");
 		%>
 		<h1>Datos del Tipo de Trabajo</h1>
-		<form class="form-horizontal" action="tt" id="id_form">
+		<form class="form-horizontal" action="tt" id="id_form" method="post">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_codigo">Código:</label>
 				<div class="col-sm-10">
@@ -51,8 +51,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="reset" class="btn btn-default" name="metodo"
-						value="lista">Cancelar</button>
+					<a class="btn btn-default" href="tt?metodo=lista">Cancelar</a>
 				</div>
 			</div>
 		</form>

@@ -19,7 +19,7 @@
 			TrabajadorDTO t = (TrabajadorDTO) request.getAttribute("tra");
 		%>
 		<h1>Actualizacion de Trabajador</h1>
-		<form class="form-horizontal" action="trabajador" id="id_form">
+		<form class="form-horizontal" action="trabajador" id="id_form" method="post">
 			<input type="hidden" name="metodo" value="actualiza">
 			<input type="hidden" name="codigo" value="<%=t.getCod_trabajador()%>">
 			<div class="form-group">
@@ -112,7 +112,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="reset" class="btn btn-default">Cancelar</button>
+					<a class="btn btn-default" href="trabajador?metodo=lista">Cancelar</a>
 					<button type="submit" class="btn btn-default">Actualizar</button>
 				</div>
 

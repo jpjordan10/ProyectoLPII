@@ -19,7 +19,7 @@
 		%>
 		<h2>Datos de la Solicitud</h2>
 		<hr>
-		<form class="form-horizontal" action="soli" id="id_form">
+		<form class="form-horizontal" action="soli" id="id_form" method="post">
 			<div class="form-group">
 				<div class="col-sm-1">&nbsp;</div>
 				<div class="col-sm-10">
@@ -122,7 +122,7 @@
 			<hr>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="reset" class="btn btn-default">Cancelar</button>
+					<a class="btn btn-default" href="soli?metodo=lista">Cancelar</a>
 				</div>
 			</div>
 		</form>

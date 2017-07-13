@@ -16,7 +16,7 @@
 <body>
 	<div class="container">
 		<h1>Registro de Tipo de Trabajo</h1>
-		<form class="form-horizontal" action="tt" id="id_form">
+		<form class="form-horizontal" action="tt" id="id_form" method="post">
 			<input type="hidden" name="metodo" value="registra">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_descripcion">Descripcion:</label>
@@ -33,8 +33,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="reset" class="btn btn-default" name="metodo"
-						value="lista">Cancelar</button>
+					<a class="btn btn-default" href="tt?metodo=lista">Cancelar</a>
 					<button type="submit" class="btn btn-default">Registrar</button>
 				</div>
 			</div>
