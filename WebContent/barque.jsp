@@ -23,7 +23,7 @@
 	 		<display:column property="apep_trabajador" title="Razon Social"/>
 	 		<display:column property="apem_trabajador" title="Representante"/>
 	 		<display:column property="tipo_trabajador" title="Tipo de cliente"/>
-	 		<display:column property="seleccionarq"/>
+	 		<display:column property="seleccionarq" title="Accion"/>
 	 	</display:table>
 	</div>
 </body>

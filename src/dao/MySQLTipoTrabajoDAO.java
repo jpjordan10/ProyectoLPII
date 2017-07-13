@@ -261,4 +261,40 @@ public class MySQLTipoTrabajoDAO implements TipoTrabajoDAO {
 		return valor;
 	}
 
+	@Override
+	public ArrayList<TipoTrabajoDTO> listaTipoTrabajoAct() {
+		ArrayList<TipoTrabajoDTO> lista = new ArrayList<TipoTrabajoDTO>();
+		ResultSet rs = null;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ListaTipoTrabajoAct()}";
+			cs = cn.prepareCall(sql);
+			rs = cs.executeQuery();
+			while (rs.next()) {
+				TipoTrabajoDTO t = new TipoTrabajoDTO();
+				t.setCod_tiptrabajo(rs.getString(1));
+				t.setDes_tiptrabajo(rs.getString(2));
+				t.setFecha_reg_tiptrabajo(rs.getString(3));
+				t.setEstado_tiptrabajo(rs.getString(4));
+				lista.add(t);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (rs != null)
+					rs.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return lista;
+	}
+
 }

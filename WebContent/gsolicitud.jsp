@@ -90,59 +90,8 @@
 						name="codcli" value="${param.q}">
 				</div>
 				<div class="col-sm-2">
-					<!--  <a class="btn btn-default btn-block"
-						href="cliente?metodo=listaclientemodal" data-toggle="modal"
-						data-target="#buscarCliente">Buscar Cliente</a>-->
 						<a class="btn btn-default btn-block"
 						href="cliente?metodo=listaclientemodal1">Buscar Cliente</a>
-					<!-- Modal
-					<div class="modal fade" id="buscarCliente" role="dialog">
-						<div class="modal-dialog">
-							<!-- Modal content
-							<div class="modal-content" id="todo">
-								<div class="modal-header">
-									<h4 class="modal-title">Buscar Cliente</h4>
-								</div>
-								<div class="modal-body">
-									<!-- Listado de Clientes
-									<table class="table table-striped table-bordered nowrap"
-										id="show">
-										<thead>
-											<tr>
-												<th>Codigo</th>
-												<th>Razon Social</th>
-												<th>RUC</th>
-												<th>Representante</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-											
-												ArrayList<ClienteDTO> lista = (ArrayList<ClienteDTO>) request.getSession().getAttribute("data1");
-												if (lista != null) {
-													for (ClienteDTO c : lista) {
-											%>
-											<tr>
-												<td>c.getCod_cliente()%></td>
-												<td>c.getRazsoc_cliente()%></td>
-												<td>c.getRuc_cliente()%></td>
-												<td>c.getRepresentante_cliente()%></td>
-												<td>imageeeeen</td>
-											</tr>
-											
-												//}
-												//}
-											%>
-										</tbody>
-									</table>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default"
-										data-dismiss="modal">Cerrar</button>
-								</div>
-							</div>
-						</div>
-					</div>-->
 				</div>
 				<div class="col-sm-1">&nbsp;</div>
 			</div>
@@ -181,7 +130,7 @@
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="reset" class="btn btn-default">Cancelar</button>
-					<button type="submit" class="btn btn-default">Generar Solicitud</button>
+					<button type="submit" class="btn btn-default">Registrar</button>
 				</div>
 			</div>
 		</form>

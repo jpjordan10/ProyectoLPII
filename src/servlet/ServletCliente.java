@@ -51,7 +51,7 @@ public class ServletCliente extends HttpServlet {
 	private void listaclientemodal1(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		ArrayList<ClienteDTO> lista = cs.listaCliente();
+		ArrayList<ClienteDTO> lista = cs.listaClienteAct();
 		session.setAttribute("lstClientes", lista);
 		request.getRequestDispatcher("bclientes.jsp").forward(request, response);
 	}

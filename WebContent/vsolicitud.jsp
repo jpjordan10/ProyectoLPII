@@ -17,7 +17,7 @@
 		<%
 			Reporte x = (Reporte) request.getAttribute("sol");
 		%>
-		<h2>Visualizar Solicitud</h2>
+		<h2>Datos de la Solicitud</h2>
 		<hr>
 		<form class="form-horizontal" action="soli" id="id_form">
 			<div class="form-group">

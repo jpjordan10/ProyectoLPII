@@ -105,6 +105,7 @@
 						<option value='0'>Seleccione tipo de trabajador</option>
 						<option value='ARQUEOLOGO'>ARQUEOLOGO</option>
 						<option value='OBRERO'>OBRERO</option>
+						<option value='ARQUEOLOGO MAYOR'>ARQUEOLOGO MAYOR</option>
 					</select>
 				</div>
 			</div>
@@ -118,8 +119,7 @@
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="reset" class="btn btn-default" name="metodo"
 						value="lista">Cancelar</button>
-					<button type="submit" class="btn btn-default">Registrar
-						Trabajador</button>
+					<button type="submit" class="btn btn-default">Registrar</button>
 				</div>
 			</div>
 		</form>

@@ -113,8 +113,7 @@
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="reset" class="btn btn-default">Cancelar</button>
-					<button type="submit" class="btn btn-default">Actualiza
-						Trabajador</button>
+					<button type="submit" class="btn btn-default">Actualizar</button>
 				</div>
 
 			</div>

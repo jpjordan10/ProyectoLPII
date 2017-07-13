@@ -1,4 +1,3 @@
-<%@ taglib uri="WEB-INF/libreria.tld" prefix="libreria"%>
 <!DOCTYPE>
 <%@page import="java.util.ArrayList"%>
 <%@page import="beans.Reporte"%>
@@ -10,7 +9,6 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrap-theme.css">
 <link rel="stylesheet" href="css/bootstrapValidator.css">
-
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/bootstrapValidator.js"></script>
@@ -18,8 +16,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Solicitudes</h1>
-
+		<h1>Menu de Solicitudes</h1>
 		<a class="btn btn-primary" href="soli?metodo=lista">Ver data</a> <a
 			class="btn btn-primary" href="gsolicitud.jsp">Generar Solicitud</a>
 	</div>
@@ -37,7 +34,7 @@
 					<th>Estado</th>
 					<th>Fecha de Registro</th>
 					<th>Fecha de Actualización</th>
-					<th colspan="2">ACCIONES</th>
+					<th colspan="2">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -70,14 +67,6 @@
 				%>
 			</tbody>
 		</table>
-		<div class="form-group">
-			<div class="col-sm-10">
-				<input type="hidden" class="form-control" id="id_fechaa"
-					name="fechaa" value="<libreria:dameFecha/>">
-			</div>
-		</div>
 	</div>
-
-
 </body>
 </html>

@@ -12,9 +12,6 @@ begin
 end $$
 delimiter ;
 
-
-
-
 /*ListaProyectosParticipasObrero*/
 delimiter $$
 create procedure usp_ListarParticipas(CODT CHAR(5))

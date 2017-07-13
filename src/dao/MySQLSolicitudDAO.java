@@ -194,34 +194,6 @@ public class MySQLSolicitudDAO implements SolicitudDAO {
 	}
 
 	@Override
-	public int concederPermisos1(String num, String fc) {
-		int valor = -1;
-		Connection cn = null;
-		CallableStatement cs = null;
-		try {
-			cn = MySQLConexion.getConexion();
-			String sql = "{call usp_ConcederPermisos(?, ?)}";
-			cs = cn.prepareCall(sql);
-			cs.setString(1, num);
-			cs.setString(2, fc);
-			valor = cs.executeUpdate();
-
-		} catch (Exception e) {
-			System.out.println("Error en la sentencia");
-		} finally {
-			try {
-				if (cn != null)
-					cn.close();
-				if (cs != null)
-					cs.close();
-			} catch (Exception e) {
-				System.out.println("Error al cerrar");
-			}
-		}
-		return valor;
-	}
-
-	@Override
 	public ArrayList<Reporte> listaSolicitudPendientes() {
 		ArrayList<Reporte> lista = new ArrayList<Reporte>();
 		ResultSet rs = null;

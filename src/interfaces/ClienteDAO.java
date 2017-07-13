@@ -20,4 +20,6 @@ public interface ClienteDAO {
 	public int activaCliente(String cod_cliente);
 
 	public int eliminaCliente(String cod_cliente);
+	
+	public ArrayList<ClienteDTO> listaClienteAct();
 }

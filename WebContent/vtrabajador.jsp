@@ -18,7 +18,7 @@
 		<%
 			TrabajadorDTO t = (TrabajadorDTO) request.getAttribute("tra");
 		%>
-		<h1>Detalles de Trabajador</h1>
+		<h1>Datos del Trabajador</h1>
 		<form class="form-horizontal" action="trabajador" id="id_form">
 			<input type="hidden" name="metodo" value="actualiza"> <input
 				type="hidden" name="codigo" value="<%=t.getCod_trabajador()%>">

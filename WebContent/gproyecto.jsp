@@ -152,64 +152,13 @@
 			</div>
 			<!-- FIN DATOS DE DATOS DE PROYECTO -->
 			<hr>
-			<!-- DETALLE DE PROYECTO
-			<div class="form-group">
-				<div class="col-sm-1">&nbsp;</div>
-				<div class="col-sm-10">
-					<h3>Seleccion de Personal</h3>
-					<p>Elija un arqueologo encargado antes de elegir al personal</p>
-				</div>
-				<div class="col-sm-1">&nbsp;</div>
-			</div>
-			<hr>
-			<div class="form-group">
-				<div class="col-sm-1">&nbsp;</div>
-					<label class="control-label col-sm-2" for="id_codarqen">Codigo de Trabajador:</label>
-				<div class="col-sm-4">
-					<input class="form-control" id="id_codarqen" type="text" placeholder="Codigo de Cliente" value="${param.a}" disabled>
-					<input class="form-control" id="id_codarqen" type="hidden" name="codarqen" value="${param.a}">
-				</div>
-				<div class="col-sm-2">
-					<a class="btn btn-default btn-block" href="trabajador?metodo=listaArq">Buscar Arqueologo</a>
-				</div>
-				<div class="col-sm-2">
-					<a class="btn btn-default btn-block" href="#">Buscar Trabajador</a>
-				</div>
-				<div class="col-sm-1">&nbsp;</div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-1">&nbsp;</div>
-				<label class="control-label col-sm-2" for="id_nombres">Apellidos y Nombres:</label>
-				<div class="col-sm-3">
-					<input class="form-control" type="text" placeholder="Apellidos y Nombres" disabled>
-				</div>
-				<label class="control-label col-sm-2" for="id_tipo">Tipo de Trabajador:</label>
-				<div class="col-sm-3">
-					<input class="form-control" type="text" placeholder="Tipo de Trabajador" disabled>
-				</div>
-				<div class="col-sm-1">&nbsp;</div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-1">&nbsp;</div>
-				<label class="control-label col-sm-2" for="id_dni">DNI:</label>
-				<div class="col-sm-3">
-					<input class="form-control" type="text" placeholder="DNI"  disabled>
-				</div>
-				<label class="control-label col-sm-2" for="id_sueldo">Sueldo Mensual:</label>
-				<div class="col-sm-3">
-					<input class="form-control" id="id_sueldo" type="text" name="sueldo" placeholder="Sueldo Mensual">
-				</div>
-				<div class="col-sm-1">&nbsp;</div>
-			</div>
-			<hr> -->
 			<div class="form-group">
 				<div class="col-sm-8">
 					&nbsp;
 				</div>
 				<div class="col-sm-4">
 					<button type="reset" class="btn btn-default">Cancelar</button>
-					<button type="submit" class="btn btn-default">Generar
-						Solicitud</button>
+					<button type="submit" class="btn btn-default">Registrar</button>
 				</div>
 			</div>
 		</form>

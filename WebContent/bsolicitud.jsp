@@ -24,7 +24,7 @@
 	 		<display:column property="representante_cliente" title="Representante"/>
 	 		<display:column property="tipo_cliente" title="Tipo de cliente"/>
 	 		<display:column property="estado_solicitud" title="Estado"/>
-	 		<display:column property="seleccionas"/>
+	 		<display:column property="seleccionas" title="Accion"/>
 	 	</display:table>
 	</div>
 </body>

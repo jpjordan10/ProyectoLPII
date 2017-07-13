@@ -14,7 +14,7 @@ public class ComboTipoTrabajo extends TagSupport {
 		try {
 			JspWriter out = pageContext.getOut();
 			TipoTrabajoService ts = new TipoTrabajoService();
-			ArrayList<TipoTrabajoDTO> lista = ts.listaTipoTrabajo();
+			ArrayList<TipoTrabajoDTO> lista = ts.listaTipoTrabajoAct();
 			out.print("<select class='form-control' name='tipo' id='id_tipo'>");
 			out.print("<option value='x'>Todos los Tipo de Trabajos</option>");
 			for (TipoTrabajoDTO t : lista) {

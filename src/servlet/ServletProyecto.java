@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.ProyectoDTO;
+import beans.Reporte;
 import service.ProyectoService;
 
 @WebServlet("/proy")
@@ -24,7 +27,53 @@ public class ServletProyecto extends HttpServlet {
 		String metodo = request.getParameter("metodo");
 		if (metodo.equals("registra")) {
 			registra(request, response);
+		} else if (metodo.equals("lista")) {
+			lista(request, response);
+		} else if (metodo.equals("busca")) {
+			busca(request, response);
+		} else if (metodo.equals("muestra")) {
+			muestra(request, response);
+		} else if (metodo.equals("actualiza")) {
+			actualiza(request, response);
 		}
+	}
+
+	private void actualiza(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String num = request.getParameter("num");
+		String fechaa = request.getParameter("fechaa");
+		String etapa = request.getParameter("etapa");
+		ProyectoDTO p = new ProyectoDTO();
+		p.setNum_proyecto(num);
+		p.setFecha_act_proyecto(fechaa);
+		p.setEtapa_proyecto(etapa);
+		int i = ps.actualizaProyecto(p);
+		if (i == 0) {
+			response.sendRedirect("error.jsp");
+		} else {
+			lista(request, response);
+		}
+	}
+
+	private void muestra(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String num = request.getParameter("num");
+		Reporte x = ps.buscaProyecto(num);
+		request.setAttribute("pro", x);
+		request.getRequestDispatcher("vproyecto.jsp").forward(request, response);
+	}
+
+	private void busca(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String num = request.getParameter("num");
+		Reporte x = ps.buscaProyecto(num);
+		request.setAttribute("pro", x);
+		request.getRequestDispatcher("aproyecto.jsp").forward(request, response);
+	}
+
+	private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ArrayList<Reporte> lista = ps.listaProyecto();
+		request.setAttribute("data", lista);
+		request.getRequestDispatcher("mproyecto.jsp").forward(request, response);
 	}
 
 	private void registra(HttpServletRequest request, HttpServletResponse response)
@@ -56,8 +105,7 @@ public class ServletProyecto extends HttpServlet {
 		int as = ps.actualizarSolicitudAtendida(numsoli);
 		if (rp == 0 && as == 0) {
 			response.sendRedirect("error.jsp");
-		}
-		else{
+		} else {
 			response.sendRedirect("mproyecto.jsp");
 		}
 	}

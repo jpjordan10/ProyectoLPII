@@ -18,7 +18,7 @@
 		<%
 			TipoTrabajoDTO t = (TipoTrabajoDTO) request.getAttribute("tipt");
 		%>
-		<h1>Detalles de Tipo de Trabajo</h1>
+		<h1>Datos del Tipo de Trabajo</h1>
 		<form class="form-horizontal" action="tt" id="id_form">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_codigo">Código:</label>

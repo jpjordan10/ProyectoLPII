@@ -296,4 +296,49 @@ public class MySQLClienteDAO implements ClienteDAO {
 		return valor;
 	}
 
+	@Override
+	public ArrayList<ClienteDTO> listaClienteAct() {
+		ArrayList<ClienteDTO> lista = new ArrayList<ClienteDTO>();
+		ResultSet rs = null;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ListaClienteAct()}";
+			cs = cn.prepareCall(sql);
+			rs = cs.executeQuery();
+			while (rs.next()) {
+				ClienteDTO c = new ClienteDTO();
+				c.setCod_cliente(rs.getString(1));
+				c.setRazsoc_cliente(rs.getString(2));
+				c.setRuc_cliente(rs.getString(3));
+				c.setEmail_cliente(rs.getString(4));
+				c.setTelefono_cliente(rs.getString(5));
+				c.setDepartamento_cliente(rs.getString(6));
+				c.setProvincia_cliente(rs.getString(7));
+				c.setDistrito_cliente(rs.getString(8));
+				c.setDireccion_cliente(rs.getString(9));
+				c.setTipo_cliente(rs.getString(10));
+				c.setRepresentante_cliente(rs.getString(11));
+				c.setFecha_reg_cliente(rs.getString(12));
+				c.setEstado_cliente(rs.getString(13));
+				lista.add(c);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (rs != null)
+					rs.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return lista;
+	}
+
 }

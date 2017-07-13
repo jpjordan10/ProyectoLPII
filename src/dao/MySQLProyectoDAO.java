@@ -4,8 +4,10 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import beans.ProyectoDTO;
+import beans.Reporte;
 import interfaces.ProyectoDAO;
 import utils.MySQLConexion;
 
@@ -18,7 +20,7 @@ public class MySQLProyectoDAO implements ProyectoDAO {
 		CallableStatement cs = null;
 		try {
 			cn = MySQLConexion.getConexion();
-			String sql = "{call usp_RegistrarProyecto (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+			String sql = "{call usp_RegistrarProyecto (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
 			cs = cn.prepareCall(sql);
 			cs.setString(1, generarCodigoProyecto());
 			cs.setString(2, x.getFecha_reg_proyecto());
@@ -32,6 +34,7 @@ public class MySQLProyectoDAO implements ProyectoDAO {
 			cs.setInt(10, x.getCan_mes_proyecto());
 			cs.setString(11, x.getNum_solicitud());
 			cs.setString(12, x.getCod_tiptrabajo());
+			cs.setInt(13, 1);
 			valor = cs.executeUpdate();
 
 		} catch (Exception e) {
@@ -97,6 +100,123 @@ public class MySQLProyectoDAO implements ProyectoDAO {
 			String sql = "{CALL usp_ActualizarSolicitudAtendida(?)}";
 			cs = cn.prepareCall(sql);
 			cs.setString(1, n);
+			valor = cs.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return valor;
+	}
+
+	@Override
+	public Reporte buscaProyecto(String num) {
+		Reporte x = null;
+		Connection cn = null;
+		CallableStatement cs = null;
+		ResultSet rs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ListarBusquedaProyecto(?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, num);
+			rs = cs.executeQuery();
+			if (rs.next()) {
+				x = new Reporte();
+				x.setNum_proyecto(rs.getString(1));
+				x.setRazsoc_cliente(rs.getString(2));
+				x.setFecha_reg_proyecto(rs.getString(3));
+				x.setDepartamento_proyecto(rs.getString(4));
+				x.setProvincia_proyecto(rs.getString(5));
+				x.setDistrito_proyecto(rs.getString(6));
+				x.setDireccion_proyecto(rs.getString(7));
+				x.setDes_tiptrabajo(rs.getString(8));
+				x.setCosto_proyecto(rs.getDouble(9));
+				x.setCan_mes_proyecto(rs.getInt(10));
+				x.setFecha_act_proyecto(rs.getString(11));
+				x.setEtapa_proyecto(rs.getString(12));
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia");
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (cs != null)
+					cs.close();
+				if (cn != null)
+					cn.close();
+			} catch (Exception e2) {
+				System.out.println("Error en cerrar");
+			}
+		}
+		return x;
+	}
+
+	@Override
+	public ArrayList<Reporte> listaProyecto() {
+		ArrayList<Reporte> lista = new ArrayList<Reporte>();
+		ResultSet rs = null;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ListarProyectos()}";
+			cs = cn.prepareCall(sql);
+			rs = cs.executeQuery();
+			while (rs.next()) {
+				Reporte x = new Reporte();
+				x.setNum_proyecto(rs.getString(1));
+				x.setRazsoc_cliente(rs.getString(2));
+				x.setFecha_reg_proyecto(rs.getString(3));
+				x.setDepartamento_proyecto(rs.getString(4));
+				x.setProvincia_proyecto(rs.getString(5));
+				x.setDistrito_proyecto(rs.getString(6));
+				x.setDireccion_proyecto(rs.getString(7));
+				x.setDes_tiptrabajo(rs.getString(8));
+				x.setEtapa_proyecto(rs.getString(9));
+				x.setCosto_proyecto(rs.getDouble(10));
+				x.setCan_mes_proyecto(rs.getInt(11));
+				x.setFecha_act_proyecto(rs.getString(12));
+				lista.add(x);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la sentenciaaqui");
+		} finally {
+			try {
+				if (cn != null)
+					cn.close();
+				if (rs != null)
+					rs.close();
+				if (cs != null)
+					cs.close();
+			} catch (Exception e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return lista;
+	}
+
+	@Override
+	public int actualizaProyecto(ProyectoDTO x) {
+		int valor = -1;
+		Connection cn = null;
+		CallableStatement cs = null;
+		try {
+			cn = MySQLConexion.getConexion();
+			String sql = "{call usp_ActualizaProyecto (?, ?, ?)}";
+			cs = cn.prepareCall(sql);
+			cs.setString(1, x.getNum_proyecto());
+			cs.setString(2, x.getFecha_act_proyecto());
+			cs.setString(3, x.getEtapa_proyecto());
 			valor = cs.executeUpdate();
 
 		} catch (Exception e) {

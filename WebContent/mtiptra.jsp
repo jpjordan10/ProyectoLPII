@@ -16,25 +16,23 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Listado de Tipo de Trabajos</h1>
-
+		<h1>Menu de Tipo de Trabajos</h1>
 		<a class="btn btn-primary" href="tt?metodo=lista">Ver data</a> <a
-			class="btn btn-primary" href="itiptra.jsp">Registra</a>
+			class="btn btn-primary" href="itiptra.jsp">Registrar</a>
 	</div>
 	<br>
 	<br>
 	<div class="container">
-		<table class="table">
+		<table class="table table-striped table-bordered nowrap">
+			<thead>
 			<tr>
 				<th>Codigo</th>
 				<th>Descripcion</th>
 				<th>Estado</th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
+				<th colspan="5" align="center">Acciones</th>
 			</tr>
+			</thead>
+			<tbody>
 			<%
 				ArrayList<TipoTrabajoDTO> lista = (ArrayList<TipoTrabajoDTO>) request.getAttribute("data");
 				if (lista != null) {
@@ -69,6 +67,7 @@
 				}
 				}
 			%>
+			</tbody>
 		</table>
 	</div>
 </body>

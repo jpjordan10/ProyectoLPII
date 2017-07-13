@@ -16,73 +16,70 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Listado de Clientes</h1>
+		<h1>Menu de Clientes</h1>
 
-		<a class="btn btn-primary" href="cliente?metodo=lista">Ver data</a>
-		<a class="btn btn-primary" href="icliente.jsp">Registra</a>
+		<a class="btn btn-primary" href="cliente?metodo=lista">Ver data</a> <a
+			class="btn btn-primary" href="icliente.jsp">Registra</a>
 	</div>
 
 	<br>
 	<br>
 	<div class="container">
-		<table class="table">
-
-			<tr>
-				<th>Codigo</th>
-				<th>Razon Social</th>
-				<th>RUC</th>
-				<th>Localidad</th>
-				<th>Dirección</th>
-				<th>Tipo</th>
-				<th>Representante</th>
-				<th>Estado</th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</tr>
-			<%
-				ArrayList<ClienteDTO> lista = (ArrayList<ClienteDTO>) request.getAttribute("data");
-				if (lista != null) {
-					for (ClienteDTO c : lista) {
-			%>
-			<tr class="grilla_campo">
-				<td><%=c.getCod_cliente()%></td>
-				<td><%=c.getRazsoc_cliente()%></td>
-				<td><%=c.getRuc_cliente() %></td>
-				<td><%=c.getDepartamento_cliente() + ", " + c.getProvincia_cliente() + ", "
+		<table class="table table-striped table-bordered nowrap">
+			<thead>
+				<tr>
+					<th>Codigo</th>
+					<th>Razon Social</th>
+					<th>RUC</th>
+					<th>Localidad</th>
+					<th>Dirección</th>
+					<th>Tipo</th>
+					<th>Representante</th>
+					<th>Estado</th>
+					<th colspan="5" align="right">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+					ArrayList<ClienteDTO> lista = (ArrayList<ClienteDTO>) request.getAttribute("data");
+					if (lista != null) {
+						for (ClienteDTO c : lista) {
+				%>
+				<tr class="grilla_campo">
+					<td><%=c.getCod_cliente()%></td>
+					<td><%=c.getRazsoc_cliente()%></td>
+					<td><%=c.getRuc_cliente()%></td>
+					<td><%=c.getDepartamento_cliente() + ", " + c.getProvincia_cliente() + ", "
 							+ c.getDistrito_cliente()%></td>
-				<td><%=c.getDireccion_cliente()%></td>
-				<td><%=c.getTipo_cliente()%></td>
-				<td><%=c.getRepresentante_cliente()%></td>
-				<td><%=c.getEstado_cliente()%></td>
-				<td><a
-					href="cliente?metodo=busca&cod=<%=c.getCod_cliente()%>">
-						<img alt="Actualiza" src="images/edit.png">
-				</a></td>
-				<td><a
-					href="cliente?metodo=muestra&cod=<%=c.getCod_cliente()%>">
-						<img alt="Muestra" src="images/lens.png">
-				</a></td>
-				<td><a
-					href="cliente?metodo=desactiva&cod=<%=c.getCod_cliente()%>">
-						<img alt="Desactiva" src="images/inactive.png">
-				</a></td>
-				<td><a
-					href="cliente?metodo=activa&cod=<%=c.getCod_cliente()%>">
-						<img alt="Activa" src="images/activate.png">
-				</a></td>
-				<td><a
-					href="cliente?metodo=elimina&cod=<%=c.getCod_cliente()%>">
-						<img alt="Elimina" src="images/delete.png">
-				</a></td>
-			</tr>
-			<%
-				}
-				}
-			%>
-
+					<td><%=c.getDireccion_cliente()%></td>
+					<td><%=c.getTipo_cliente()%></td>
+					<td><%=c.getRepresentante_cliente()%></td>
+					<td><%=c.getEstado_cliente()%></td>
+					<td><a href="cliente?metodo=busca&cod=<%=c.getCod_cliente()%>">
+							<img alt="Actualiza" src="images/edit.png">
+					</a></td>
+					<td><a
+						href="cliente?metodo=muestra&cod=<%=c.getCod_cliente()%>"> <img
+							alt="Muestra" src="images/lens.png">
+					</a></td>
+					<td><a
+						href="cliente?metodo=desactiva&cod=<%=c.getCod_cliente()%>"> <img
+							alt="Desactiva" src="images/inactive.png">
+					</a></td>
+					<td><a
+						href="cliente?metodo=activa&cod=<%=c.getCod_cliente()%>"> <img
+							alt="Activa" src="images/activate.png">
+					</a></td>
+					<td><a
+						href="cliente?metodo=elimina&cod=<%=c.getCod_cliente()%>"> <img
+							alt="Elimina" src="images/delete.png">
+					</a></td>
+				</tr>
+				<%
+					}
+					}
+				%>
+			</tbody>
 		</table>
 	</div>
 

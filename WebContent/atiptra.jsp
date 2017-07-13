@@ -34,8 +34,7 @@
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="reset" class="btn btn-default" name="metodo"
 						value="lista">Cancelar</button>
-					<button type="submit" class="btn btn-default">Registrar
-						Trabajador</button>
+					<button type="submit" class="btn btn-default">Actualizar</button>
 				</div>
 			</div>
 		</form>

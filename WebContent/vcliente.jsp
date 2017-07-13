@@ -18,7 +18,7 @@
 		<%
 			ClienteDTO c = (ClienteDTO) request.getAttribute("cli");
 		%>
-		<h1>Actualizacion de Cliente</h1>
+		<h1>Datos de Cliente</h1>
 		<form class="form-horizontal" action="cliente" id="id_form">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id_codigo">Código:</label>

@@ -17,8 +17,6 @@ public interface SolicitudDAO {
 	public Reporte buscaSolicitud(String num);
 
 	public int concederPermisos(SolicitudDTO x);
-
-	public int concederPermisos1(String num, String fc);
 	
 	public ArrayList<Reporte> buscarSolicitudPendiente(String nome);
 }

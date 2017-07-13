@@ -104,10 +104,7 @@
 					<button type="submit" class="btn btn-default">Cambiar</button>
 					<button type="reset" class="btn btn-default">Cancelar</button>
 				</div>
-
 			</div>
-			
-			
 		</form>
 	</div>
 </body>

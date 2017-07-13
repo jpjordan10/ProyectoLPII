@@ -17,7 +17,6 @@
 </head>
 <body>
 	<div class="container">
-	 	<!-- mostramos la tabla usando DisplayTag -->
 	 	<display:table name="${lstClientes}" decorator="decorator.Wrapper">
 	 		<display:column property="cod_cliente" title="Codigo del cliente"/>
 	 		<display:column property="razsoc_cliente" title="Razon Social"
@@ -26,7 +25,7 @@
 	 				sortable="true"/>
 	 		<display:column property="tipo_cliente" title="Tipo de Cliente"/>
 	 		<display:column property="representante_cliente" title="Representante"/>
-	 		<display:column property="selecciona"/>
+	 		<display:column property="selecciona" title="Accion"/>
 	 	</display:table>
 	</div>
 </body>

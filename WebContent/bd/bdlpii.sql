@@ -69,6 +69,7 @@ CREATE TABLE PROYECTO(
     CAN_MES_TRABAJO			INT				NOT NULL,
     NUM_SOLICITUD			CHAR(8)			NOT NULL,
     COD_TIPTRABAJO			CHAR(5)			NOT NULL,
+    ESTADO_PERSONAL			INT				NOT NULL,
     FOREIGN KEY	(COD_TIPTRABAJO)	REFERENCES	TIPO_TRABAJO(COD_TIPTRABAJO),
     FOREIGN KEY	(NUM_SOLICITUD)		REFERENCES	SOLICITUD(NUM_SOLICITUD)
 )
@@ -83,12 +84,3 @@ CREATE TABLE DETALLE_PROYECTO(
     FOREIGN KEY	(COD_TRABAJADOR)	REFERENCES	TRABAJADOR(COD_TRABAJADOR)
 )
 ;
-
-
-insert into TIPO_TRABAJO values('W1000', 'Excavaciones para delimitar', '18-06-2017','ACTIVO');
-insert into TIPO_TRABAJO values('W1001', 'Excavaciones para medir potencia', '18-06-2017','ACTIVO');
-insert into TIPO_TRABAJO values('W1002', 'Excavaciones de rescate', '18-06-2017','ACTIVO');
-insert into TIPO_TRABAJO values('W1003', 'Prospecciones Arqueológicas', '18-06-2017', 'ACTIVO');
-insert into TIPO_TRABAJO values('W1004', 'Monitoreo Arqueológico', '18-06-2017','ACTIVO');
-insert into TIPO_TRABAJO values('W1005', 'Tramite de CIRA', '18-06-2017','ACTIVO');
-insert into TIPO_TRABAJO values('W1006', 'Proyectos de puesta en valor', '18-06-2017', 'ACTIVO');

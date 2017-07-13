@@ -17,7 +17,11 @@ public class ClienteService {
 	public ArrayList<ClienteDTO> listaCliente() {
 		return dao.listaCliente();
 	}
-
+	
+	public ArrayList<ClienteDTO> listaClienteAct() {
+		return dao.listaClienteAct();
+	}
+	
 	public int registraCliente(ClienteDTO c) {
 		return dao.registraCliente(c);
 	}

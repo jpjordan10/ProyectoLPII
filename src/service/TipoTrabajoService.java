@@ -17,6 +17,10 @@ public class TipoTrabajoService {
 	public ArrayList<TipoTrabajoDTO> listaTipoTrabajo() {
 		return dao.listaTipoTrabajo();
 	}
+	
+	public ArrayList<TipoTrabajoDTO> listaTipoTrabajoAct() {
+		return dao.listaTipoTrabajoAct();
+	}
 
 	public int registraTipoTrabajo(TipoTrabajoDTO t) {
 		return dao.registraTipoTrabajo(t);

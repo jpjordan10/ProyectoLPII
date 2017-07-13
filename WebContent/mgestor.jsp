@@ -110,7 +110,7 @@
 					</div>
 				</button>
 				<div class="dropdown-content">
-					<a href="#">Menu de Proyectos</a> <a href="#">Registrar
+					<a href="proy?metodo=lista">Menu de Proyectos</a> <a href="gproyecto.jsp">Registrar
 						Proyecto</a>
 				</div>
 			</div>
